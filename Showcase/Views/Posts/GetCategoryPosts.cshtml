@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Showcase.ViewModels.PostsViewModel>
+
+@{
+    ViewBag.Title = "Posts by Category";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Category Posts</h2>
+
+
+@foreach (var post in Model)
+{
+    foreach (var cat in post.Categories)
+    {
+        <p>@cat.CategoryName</p>
+    }
+
+    <h1>@post.PostName</h1>
+        <p>@post.PostContent.Substring(0, Math.Min(150, post.PostContent.Length));</p>
+
+        <p><a href="@("/Posts/Details/" + post.PostId.ToString())">@post.PostName</a></p>
+}

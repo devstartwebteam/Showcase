@@ -23,9 +23,24 @@ namespace Showcase
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/app").Include(
+              "~/Scripts/knockout-{version}.js",
+              "~/Scripts/app.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/argonjs").Include(
+                      "~/Content/assets/vendor/popper/popper.min.js",
+                      "~/Content/assets/vendor/headroom/headroom.min.js",
+                      "~/Content/assets/js/argon.min.js",
+                      "~/Scripts/jquery.bxslider.js",
+                      "~/Scripts/scripts.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/site.css",
+                      "~/Content/assets/vendor/nucleo/css/nucleo.css",
+                      "~/Content/assets/vendor/font-awesome/css/font-awesome.min.css",
+                      "~/Content/assets/css/argon.min.css",
+                      "~/Content/jquery.bxslider.css",
+                      "~/Content/assets/css/docs.min.css"));
         }
     }
 }

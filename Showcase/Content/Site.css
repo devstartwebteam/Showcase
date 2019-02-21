@@ -10,6 +10,26 @@ html body {
     line-height: 1.75em;
 }
 
+body .s-author-details {
+    font-size:1.1rem;
+}
+
+body .s-footer-bottom {
+    text-align:center;
+}
+
+body .s-post-text {
+    padding: 0px;
+    color: #3a3a3a;
+    font-size:1.2rem;
+    font-weight: 400;
+    line-height: 2;
+    margin-bottom: 4%;
+    font-family: Noto Serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+}
+
 body .s-no-padding {
     padding:0px;
 }
@@ -32,6 +52,12 @@ input,
 select,
 textarea {
     max-width: 280px;
+}
+
+/* Theme Overrides */
+
+body .section-profile-cover {
+    height:580px;
 }
 
 
@@ -69,6 +95,7 @@ body #navbar_global {
 body .navbar-expand-lg .navbar-nav .nav-link {
     color:#fff;
     padding:14px 20px;
+    font-weight:600;
 }
 
 body #navbar-main{

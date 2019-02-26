@@ -1,80 +1,129 @@
 ﻿@{
-    ViewBag.Title = "About";
-    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+ViewBag.Title = "About";
+Layout = "~/Views/Shared/_HomeLayout.cshtml";
 }
-
 <main class="profile-page">
-    <section class="section-profile-cover section-shaped my-0">
-        <!-- Circles background -->
-        <div class="shape shape-style-1 shape-primary alpha-4">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-        <!-- SVG separator -->
-        <div class="separator separator-bottom separator-skew">
-            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-            </svg>
-        </div>
-    </section>
-    <section class="section">
-        <div class="container">
-            <div class="card card-profile shadow mt--300">
-                <div class="px-4">
-                    <div class="row justify-content-center">
-                        <div class="col-lg-3 order-lg-2">
-                            <div class="card-profile-image">
-                                <a href="#">
-                                    <img src="~/Content/images/nate-johnson-profile-2.jpg" class="rounded-circle">
-                                </a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
-                            <div class="card-profile-actions py-4 mt-lg-0">
-                                <a href="#" class="btn btn-sm btn-info mr-4">Connect</a>
-                                <a href="#" class="btn btn-sm btn-default float-right">Message</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 order-lg-1">
-                            <div class="card-profile-stats d-flex justify-content-center">
-                                <div>
-                                    <span class="heading">22</span>
-                                    <span class="description">Friends</span>
-                                </div>
-                                <div>
-                                    <span class="heading">10</span>
-                                    <span class="description">Photos</span>
-                                </div>
-                                <div>
-                                    <span class="heading">89</span>
-                                    <span class="description">Comments</span>
-                                </div>
-                            </div>
-                        </div>
+   <section class="section-profile-cover section-shaped my-0">
+      <!-- Circles background -->
+      <div class="shape shape-style-1 shape-primary alpha-4">
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+         <span></span>
+      </div>
+      <!-- SVG separator -->
+      <div class="separator separator-bottom separator-skew">
+         <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+         </svg>
+      </div>
+   </section>
+   <section class="section">
+      <div class="container">
+         <div class="card s-about-card card-profile mt--300">
+            <div class="px-4">
+               <div class="row justify-content-center">
+                  <div class="col-lg-3 order-lg-2">
+                     <div class="card-profile-image">
+                        <a href="#">
+                        <img src="~/Content/images/nate-johnson-profile-2.jpg" class="rounded-circle">
+                        </a>
+                     </div>
+                  </div>
+                  <div class="col-lg-4 order-lg-3 text-lg-right align-self-lg-center">
+                  </div>
+                  <div class="col-lg-4 order-lg-1">                     
+                  </div>
+               </div>
+               <div class="text-center mt-5">
+                  <h1 class="s-author-title s-about-title">About Me</h1>
+               </div>
+               <div class="mt-5 py-5 border-top text-center">
+                  <div class="row justify-content-center">
+                     <div class="col-lg-9">
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">Who am I Exactly?</h2>
+                             <p class="s-post-text">
+                                 My name is Nate and I’m a web developer. I build websites and web applications using primarily WordPress and ASP.NET MVC/C#. In my spare time, I enjoy exploring the outdoors, listening to music, and learning about computer programming. I currently live in Eugene, Oregon located in the Pacific Northwest. On any given day, you will usually find me behind a computer, out on the running trails or grooving to live music.
+                             </p>
+                         </div>
+
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">What are my Skills?</h2>
+
+                             <div class="row s-skills-row">
+                                 <div class="col-md-4">
+                                     <h4 class="s-post-subtitle"><strong>Front End</strong>: HTML, CSS, JavaScript</h4>
+                                     <p>
+                                         <i class="fa op-fa-lg fa-chrome"></i>
+                                     </p>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <h4 class="s-post-subtitle"><strong>Server Side</strong>: PHP, ASP.NET MVC C#</h4>
+                                     <p>
+                                         <i class="fa op-fa-lg fa-server"></i>
+                                     </p>
+                                 </div>
+                                 <div class="col-md-4">
+                                     <h4 class="s-post-subtitle"><strong>CMS: </strong>WordPress, WooCommerce</h4>
+                                     <p>
+                                         <i class="fa op-fa-lg fa-wordpress"></i>
+                                     </p>
+                                 </div>
+                             </div>
+                         </div>
+
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">What is a Web Developer?</h2>
+                             <p class="s-post-text">
+                                 A Web Developer is a computer programmer who can read and write code in a variety of programming languages. Web Developers focus specifically on building web applications over HTTP using the client server model. They often extend and customize the features of content management systems such as WordPress.
+                             </p>
+                         </div>
+
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">What is a Web Designer?</h2>
+                             <p class="s-post-text">
+                                 A Web Designer’s primary role is to create aesthetically pleasing visual designs to implement on a website. While Web Designers often have some knowledge of front end technologies such as HTML and CSS, they are primarily concerned with the look and feel rather than the mechanics of the web application.
+                             </p>
+                         </div>
+
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">Where do I fit in?</h2>
+                             <p class="s-post-text">
+                                 My relevant coursework focused primarily on web development in PHP, ASP.NET and C#. However, much of my early experience was isolated to front end technologies such as HTML, CSS and JavaScript. Consequently, I consider myself to be primarily a front end developer with considerable experience in database administration and development. As my experience will show, I have worked in a wide range of programming environments and am familiar with many concepts in modern web development.
+                                 While I am not a designer by training, I have a good eye for functional and practical web design. I designed this custom WordPress theme entirely on my own. The theme’s source files include standard WordPress templates as defined in their template hierarchy as well as custom PHP classes to effectively organize the theme’s resources and apply any necessary business logic. It also implements security precautions and best practices as outlined in the WordPress codex.
+                             </p>
+                         </div>
+                         
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">Where did I Start? </h2>
+                             <p class="s-post-text">
+                                 While attending Grove City College as premed student, I was introduced to WordPress while competing in a business plan competition. I was instantly captivated with the web and began taking additional computer electives soon after. Following graduation, I continued taking courses in computer programming eventually landing a job as a full time web developer.
+                                 B.S. in Molecular Biology (Premed Focus) Grove City College 09′
+                                 Relevant Coursework: Calculus I, II, Internet Entrepreneurship, eCommerce, Business Planning Competition (Portfolio Premier – Website)
+                             </p>
+                         </div>
+
+                         <div class="s-about-sections">
+                             <h2 class="s-post-subtitle">Do I have any Experience? </h2>
+                             <p class="s-post-text">
+                                 (2005-2009) – Took courses in eCommerce, online marketing, and started working with WordPress while enrolled at Grove City College.
+                                 (2011-2015) – Managed the website, inventory and social media for George M. Sutton RV while studying computer science at LCC.
+                                 (2015-2016) – Worked as a Web Developer for a small tech company, Get Found, LLC.
+                                 (2016-Present) – Currently employed as a full time Web Developer at Feynman Group.
+                             </p>
+                         </div>
+
+                         <!-- end about sections-->
+
                     </div>
-                    <div class="text-center mt-5">
-                        <h3 clas="s-author-title">Nathan Johnson
-                            <span class="font-weight-light">, 32</span>
-                        </h3>
-                        <div class="s-author-details h6 font-weight-300"><i class="ni location_pin mr-2"></i>Eugene, Oregon</div>
-                        <div class="s-author-details h6 mt-4"><i class="ni business_briefcase-24 mr-2"></i>Web Developer, Computer Programmer</div>
-                        <div><i class="s-author-details ni education_hat mr-2"></i>Grove City College 09'</div>
-                    </div>
-                    <div class="mt-5 py-5 border-top text-center">
-                        <div class="row justify-content-center">
-                            <div class="col-lg-9">
-                                <p class="s-post-text">Hi There. My name is Nate and I’m a web developer. I build websites and web applications using primarily ASP.NET MVC/C#. In my spare time, I enjoy exploring the outdoors, listening to music, and learning about computer programming. I currently live in Eugene, Oregon located in the Pacific Northwest. On any given day, you will usually find me behind a computer, out on the running trails or grooving to live music.</p>
-                                <a href="#">More About Me</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                  </div>
+               </div>
             </div>
-        </div>
-    </section>
+         </div>
+      </div>
+   </section>
 </main>

@@ -14,6 +14,7 @@ using Showcase.DataContexts;
 
 namespace Showcase.Controllers
 {
+    [RouteArea("Admin")]
     public class PostsController : Controller
     {
         private BlogDb db = new BlogDb();

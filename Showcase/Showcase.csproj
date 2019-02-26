@@ -195,10 +195,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="Areas\Admin\Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
-    <Compile Include="Controllers\PostsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
     <Compile Include="DataContexts\BlogDb.cs" />
     <Compile Include="DataContexts\BlogMigrations\201812282123412_Initial Create.cs" />
     <Compile Include="DataContexts\BlogMigrations\201812282123412_Initial Create.Designer.cs">
@@ -362,15 +364,22 @@
     <Content Include="Content\assets\vendor\popper\popper.min.js" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\author.jpg" />
     <Content Include="Content\images\developer-start-bottom-logo.png" />
     <Content Include="Content\images\developer-start-logo-header-1-res.png" />
+    <Content Include="Content\images\mount-fuji-background.jpg" />
     <Content Include="Content\images\nate-johnson-profile-1.jpg" />
     <Content Include="Content\images\nate-johnson-profile-2.jpg" />
+    <Content Include="Content\images\nepal-background.jpg" />
+    <Content Include="Content\images\salt-creek-falls-background.jpg" />
     <Content Include="Content\images\showcase-bg-dark.jpg" />
     <Content Include="Content\images\showcase-home-bg.jpg" />
     <Content Include="Content\images\showcase-writer-bg.jpg" />
+    <Content Include="Content\images\sky-background.png" />
     <Content Include="Content\images\sky-home-bg.jpg" />
     <Content Include="Content\images\skyline-bg.jpg" />
+    <Content Include="Content\images\snow-background.jpg" />
+    <Content Include="Content\images\stars-background.jpg" />
     <Content Include="Content\images\white-logo-sm.png" />
     <Content Include="Content\images\white-logo.png" />
     <Content Include="Content\jquery.bxslider.css" />
@@ -535,6 +544,12 @@
     <Content Include="Content\assets\vendor\nucleo\fonts\nucleo-icons.ttf" />
     <Content Include="Content\assets\vendor\nucleo\fonts\nucleo-icons.woff" />
     <Content Include="Content\assets\vendor\nucleo\fonts\nucleo-icons.woff2" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\Categories\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Categories\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -600,9 +615,18 @@
     <Content Include="Views\Posts\GetCategoryPosts.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\Account\RegisterNew.cshtml" />
+    <Content Include="Views\Blog\Index.cshtml" />
+    <Content Include="Views\Shared\_AuthorBoxLeft.cshtml" />
+    <Content Include="Views\Shared\_AuthorBoxCenter.cshtml" />
+    <Content Include="Views\Blog\_BlogCenter.cshtml" />
+    <Content Include="Views\Blog\_BlogLeft.cshtml" />
+    <Content Include="Views\Shared\_BlogLeftLayout.cshtml" />
+    <Content Include="Views\Shared\_StaticHeader.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Shared\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

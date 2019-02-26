@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Blog";
+}
+
+@*@if(Model.template == "center")
+{
+    Html.Partial("_BlogCenter");
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+
+}
+
+else if (Model.template == "left")
+{
+    *@
+    @Html.Partial("_BlogLeft");
+    @{
+        Layout = "~/Views/Shared/_BlogLeftLayout.cshtml";
+    }
+@*x}*@
+
+

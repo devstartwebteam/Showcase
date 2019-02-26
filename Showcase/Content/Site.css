@@ -10,21 +10,176 @@ html body {
     line-height: 1.75em;
 }
 
+body a {
+    color:#172b4d;
+}
+
+body .card-profile {
+    border-color: #d1d9e0;
+    border-width: 1px;
+    border-style: solid;
+}
+
+body .s-about-title {
+    padding-top:6rem;
+}
+
+body .border-top {
+    border-top:.0625rem solid #d1d9e0 !important;
+}
+
+body .s-static-header .s-navbar-blue {
+    background-color:#172b4d!important;
+    width:100%;
+}
+
 body .s-author-details {
     font-size:1.1rem;
+}
+
+body .s-avatar {
+    border-radius: 50%;
+}
+
+body .s-author-description, body .s-author-name {
+    font-size:16px;
+    font-weight:400;
+    font-family:'Roboto';
+    opacity:0.8;
+    margin:4px 0px 0px 0px;
+}
+
+body .s-left-title-wrap{
+    max-width:700px;
+    margin:0 auto;
+}
+
+body #s-left-title {
+    margin-top:5rem;
+    padding: 1rem 0rem;
+}
+
+body .s-author-button {
+    border: 1px solid #016ab7;
+    font-size: 14px;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 0px 10px;
+    margin-left: 10px;
+    color: #016ab7;
+    font-family: 'Roboto';
+    position: relative;
+    bottom: 1px;
+    font-weight:400;
+}
+
+body .s-author-name a {
+    color:#32325d;
+}
+
+body .s-author-box {
+    max-width:700px;
+}
+
+body .s-footer-wrap {
+    background-color:#121b21;
+}
+
+body .s-footer-bottom .fa {
+    color:#b3b3b5;
+    margin:0px 10px
+}
+
+body .s-author-left  .s-author-right {
+    text-align:left;
+}
+
+body .s-footer-date {
+    color:#b3b3b5;
+    padding: 40px 0px 20px 0px;
+    font-family:'Exo';
+    font-weight:400
+}
+
+body .s-blog-card {
+    border:0px;
+}
+
+body .s-shadow-sm {
+    box-shadow: 0 2px 12px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,1,.07);
+}
+
+body .s-author-title, body .s-post-title {
+    font-size: 2rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+
+body #s-left-title .s-post-title {
+    padding-top:20px;
+}
+
+body .s-footer-logo {
+    padding:40px 0px;
+    text-align:center;
+}
+body .s-footer-logo img {
+    width:256px;
+}
+
+html body .section-shaped .shape-style-1.s-image-background {
+    background-image: url(/Content/images/sky-background.png) !important;
+    background-size: cover !important;
+    background-position: 100% !important;
 }
 
 body .s-footer-bottom {
     text-align:center;
 }
 
+body .s-skills-row {
+    padding-bottom:20px;
+}
+
+body .s-about-sections {
+    padding-bottom:40px;
+}
+
+body .s-about-sections .fa {
+    font-size:96px;
+}
+
+body .s-about-sections .s-post-subtitle {
+    padding-bottom:20px;
+}
+
+body .s-post-subtitle {
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+body h2.s-post-subtitle {
+    font-size:1.5rem;
+}
+
+body h3.s-post-subtitle {
+    font-size:1.4rem;
+}
+
+body h4.s-post-subtitle {
+    font-size:1.2rem;
+}
+
 body .s-post-text {
     padding: 0px;
+    text-align:left;
     color: #3a3a3a;
     font-size:1.2rem;
     font-weight: 400;
     line-height: 2;
     margin-bottom: 4%;
+    opacity: 0.8;
     font-family: Noto Serif;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
@@ -69,13 +224,13 @@ body .section-profile-cover {
 
 @media only screen and (max-width: 992px)  {
   html {
-    font-size: 1.4rem;
+    font-size: 1.1rem;
   }
 }
 
 @media only screen and (max-width: 1200px){
     html {
-    font-size: 1.6rem;
+    font-size: 1rem;
   }
 } 
   
@@ -92,10 +247,24 @@ body #navbar_global {
     height:50px;
 }
 
+body .card-profile-actions .btn, body .profile-page .card-profile .card-profile-stats>div .heading {
+    font-family:'Roboto';
+}
+
+body .s-title-divider {
+    text-align: center;
+    margin: 0 auto;
+    border: 2px solid #00a0de;
+    width: 80px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
 body .navbar-expand-lg .navbar-nav .nav-link {
     color:#fff;
     padding:14px 20px;
-    font-weight:600;
+    font-family:'Exo';
+    font-weight:500;
 }
 
 body #navbar-main{

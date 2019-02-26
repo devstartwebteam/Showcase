@@ -1,0 +1,65 @@
+﻿
+<section id="s-left-title">
+    <div class="container">
+        <div class="s-blog-card s-left-title-wrap">
+            <div class="s-author-details h6 font-weight-300">
+                @Html.Partial("_AuthorBoxLeft")
+            </div>
+            <h1 class="s-post-title">
+                Advanced Data Structures: Getting Started with Linked Lists
+            </h1>
+        </div>
+    </div>
+</section>
+
+<main class="profile-page">
+
+    <section class="section-profile-cover section-shaped my-0">
+        <!-- Circles background -->
+        <div class="shape shape-style-1 alpha-4 s-image-background">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </section>
+    
+    <!-- Start content section -->
+    <section id="s-blog-content" class="s-post-content">
+        <div class="container s-content-container">
+            <div class="mt-5 py-5 border-top text-center">
+                <div class="row justify-content-center">
+                    
+                    <div class="col-lg-9">
+                        <h2 class="s-post-subtitle">Disadvantages of Arrays</h2>
+                        <p class="s-post-text">
+                            While arrays can be useful in many situations, they have certain disadvantages. For instance, searching is very slow in an unordered array, insertion is slow in an ordered array, and deletion is slow in both. Because arrays are immutable, the size of an array can’t be altered once initialized. This can make arrays rather inflexible when modeling real world data.
+
+                            Linked Lists are likely the second most commonly used data structure. They can replace arrays as the basis for other data structures such as stacks and queues. While Linked Lists aren’t the solution to all data storage problems, they are quite versatile and also rather simple to understand.
+
+
+                        </p>
+                        <h2 class="s-post-subtitle">
+                            Implementing a Linked List
+                        </h2>
+                        <p class="s-post-text">
+                            A Linked List is essentially a set of objects that use a common Link class. Each Link object contains a reference to the next Link object in the chain. This reference is stored in a field called “next.”
+
+                            In the example below, the “next” field in the Link object maintains an object reference. A reference is a number that refers to an object’s address in a computer’s memory. Regardless of the object, the reference will be the same size in memory.
+                        </p>
+                        <a href="#">More About Me</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

@@ -728,6 +728,7 @@
     <Content Include="Views\Blog\_BlogLeft.cshtml" />
     <Content Include="Views\Shared\_BlogLeftLayout.cshtml" />
     <Content Include="Views\Shared\_StaticHeader.cshtml" />
+    <Content Include="Views\Shared\_AccountLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

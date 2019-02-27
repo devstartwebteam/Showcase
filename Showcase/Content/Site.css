@@ -14,6 +14,10 @@ body a {
     color:#172b4d;
 }
 
+body a:hover {
+    color:#1e87f0;
+}
+
 body .card-profile {
     border-color: #d1d9e0;
     border-width: 1px;
@@ -21,7 +25,7 @@ body .card-profile {
 }
 
 body .s-about-title {
-    padding-top:6rem;
+    padding-top:7rem;
 }
 
 body .border-top {
@@ -163,6 +167,50 @@ body h2.s-post-subtitle {
     font-size:1.5rem;
 }
 
+body #s-blog-content .s-post-subtitle {
+    text-align:left;
+}
+
+body .s-login-wrap .section-shaped {
+    height:100vh;
+}
+body .s-account-title {
+    color: #8898aa!important;
+    font-size:1.1rem;
+}
+
+body .input-group-alternative, body .custom-control-alternative .custom-control-label::before {
+    border: 1px solid #cad1d7;
+}
+
+body .s-login-links {
+    margin-top:20px;
+    text-align:center;
+    font-size: .875rem;
+}
+
+body #s-login-submit {
+    margin-top:20px;
+}
+
+body .s-login-main {
+    overflow:visible;
+}
+
+body .s-login-wrap .s-error-message {
+    margin-bottom:10px;
+    font-size: .875rem;
+}
+
+body .s-login-wrap .form-control, body .s-login-wrap .input-group .form-control:not(:first-child) {
+    padding: 10px 12px;
+}
+
+body .custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    border-color: #28a5f5;
+    background-color: #28a5f5;
+}
+
 body h3.s-post-subtitle {
     font-size:1.4rem;
 }
@@ -271,15 +319,30 @@ body #navbar-main{
     color:#fff;
 }
 
+body .s-user-navbar li {
+    padding:0px 10px;
+}
 
 /* Argon Theme Overrides */
 
-body .btn-primary {
+body .btn-primary, body #s-login-submit {
     background-color:#28a5f5;
     border-color:#28a5f5;
+    color:#fff;
 }
 
-body .btn-primary:hover, body .btn-primary:focus, body .btn-primary:active, body .btn-primary:visited {
+body #logoutForm a {
+    color:#fff;
+    font-size: .9rem;
+    font-family: 'Exo';
+}
+
+body #logoutForm a:hover {
+    color:rgba(255,255,255,.65);
+}
+
+body .btn-primary:hover, body .btn-primary:focus, body .btn-primary:active, body .btn-primary:visited
+body #s-login-submit:hover, body #s-login-submit:focus, body #s-login-submit:active, body #s-login-submit:visited  {
     background-color:#1e87f0;
     border-color:#1e87f0;
 }

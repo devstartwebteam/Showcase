@@ -14,7 +14,7 @@ using Showcase.DataContexts;
 
 namespace Showcase.Areas.Admin.Controllers
 {
-    //[Authorize]
+    [Authorize]
     [RouteArea("Admin", AreaPrefix = "")]
     public class PostsController : Controller
     {

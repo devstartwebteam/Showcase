@@ -28,19 +28,27 @@ namespace Showcase
               "~/Scripts/app.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/argonjs").Include(
-                      "~/Content/assets/vendor/popper/popper.min.js",
-                      "~/Content/assets/vendor/headroom/headroom.min.js",
-                      "~/Content/assets/js/argon.min.js",
+                      "~/Content/assets/argon/vendor/popper/popper.min.js",
+                      "~/Content/assets/argon/vendor/headroom/headroom.min.js",
+                      "~/Content/assets/argon/js/argon.min.js",
                       "~/Scripts/jquery.bxslider.js",
                       "~/Scripts/scripts.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css",
-                      "~/Content/assets/vendor/nucleo/css/nucleo.css",
-                      "~/Content/assets/vendor/font-awesome/css/font-awesome.min.css",
-                      "~/Content/assets/css/argon.min.css",
+                      "~/Content/assets/argon/vendor/nucleo/css/nucleo.css",
+                      "~/Content/assets/argon/vendor/font-awesome/css/font-awesome.min.css",
+                      "~/Content/assets/argon/css/argon.min.css",
                       "~/Content/jquery.bxslider.css",
-                      "~/Content/assets/css/docs.min.css"));
+                      "~/Content/assets/argon/css/docs.min.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminatorScripts").Include(
+                "~/Content/assets/adminator/scripts/index.js"
+                ));
+
+            bundles.Add(new ScriptBundle("~/bundles/adminatorStyles").Include(
+                "~/Content/assets/adminator/styles/admin.css"
+                ));
         }
     }
 }

@@ -12,9 +12,10 @@ using System.Threading.Tasks;
 using Showcase.ViewModels;
 using Showcase.DataContexts;
 
-namespace Showcase.Controllers
+namespace Showcase.Areas.Admin.Controllers
 {
-    [RouteArea("Admin")]
+    //[Authorize]
+    [RouteArea("Admin", AreaPrefix = "")]
     public class PostsController : Controller
     {
         private BlogDb db = new BlogDb();

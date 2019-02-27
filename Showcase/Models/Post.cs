@@ -14,8 +14,8 @@ namespace Showcase.Models
         public string PostUrl { get; set; }
         public string PostContent { get; set; }
         public int ViewCount { get; set; }
-        public Boolean InActive { get; set; }
-        public Boolean Active { get; set; }
+        public bool InActive { get; set; }
+        public bool Active { get; set; }
         DateTime Created { get; set; }
         public virtual Template Template { get; set; }
         public Author Author { get; set; }

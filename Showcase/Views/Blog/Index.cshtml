@@ -3,18 +3,22 @@
 }
 
 @*@if(Model.template == "center")
-{
-    Html.Partial("_BlogCenter");
-    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    {
+        @Html.Partial("_BlogLeft");
+        @{
+            Layout = "~/Views/Shared/_BlogLeftLayout.cshtml";
+        }
+        Html.Partial("_BlogCenter");
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
 
-}
+    }
 
-else if (Model.template == "left")
-{
-    *@
-    @Html.Partial("_BlogLeft");
+    else if (Model.template == "left")
+    {
+*@
+    @Html.Partial("_BlogCenter");
     @{
-        Layout = "~/Views/Shared/_BlogLeftLayout.cshtml";
+        Layout = "~/Views/Shared/_HomeLayout.cshtml";
     }
 @*x}*@
 

@@ -18,39 +18,44 @@
             </svg>
         </div>
     </section>
-    <section class="section">
+    <section id="s-blog-content" class="s-post-content section">
         <div class="container">
             <div class="card card-profile mt--300 s-blog-card">
                 <div class="px-4">
-                    <div class="text-center mt-5">
-                        <h1 class="s-post-title">
+                    <div class="text-center">
+                        
+                        @Html.Partial("_AuthorBoxCenter")
+
+                        <h1 class="s-post-title mt-5">
                             Advanced Data Structures: Getting Started with Linked Lists
                         </h1>
                         <hr class="s-title-divider" />
 
-                        <div class="s-author-details h6 font-weight-300">
-                            @Html.Partial("_AuthorBoxCenter")
-                        </div>
-                        <div class="mt-5 py-5 border-top text-center">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-9">
-                                    <h2 class="s-post-subtitle">Disadvantages of Arrays</h2>
-                                    <p class="s-post-text">
-                                        While arrays can be useful in many situations, they have certain disadvantages. For instance, searching is very slow in an unordered array, insertion is slow in an ordered array, and deletion is slow in both. Because arrays are immutable, the size of an array can’t be altered once initialized. This can make arrays rather inflexible when modeling real world data.
+                        @Html.Partial("_AuthorTitle")
 
-                                        Linked Lists are likely the second most commonly used data structure. They can replace arrays as the basis for other data structures such as stacks and queues. While Linked Lists aren’t the solution to all data storage problems, they are quite versatile and also rather simple to understand.
+                        <!-- Start content section -->
+                        <div class="container s-content-container">
+                            <div class="mt-5 py-5 border-top text-center">
+                                <div class="row justify-content-center">
+                                    <div class="col-lg-9">
+                                        <h2 class="s-post-subtitle">Disadvantages of Arrays</h2>
+                                        <p class="s-post-text">
+                                            While arrays can be useful in many situations, they have certain disadvantages. For instance, searching is very slow in an unordered array, insertion is slow in an ordered array, and deletion is slow in both. Because arrays are immutable, the size of an array can’t be altered once initialized. This can make arrays rather inflexible when modeling real world data.
+
+                                            Linked Lists are likely the second most commonly used data structure. They can replace arrays as the basis for other data structures such as stacks and queues. While Linked Lists aren’t the solution to all data storage problems, they are quite versatile and also rather simple to understand.
 
 
-                                    </p>
-                                    <h2 class="s-post-subtitle">
-                                        Implementing a Linked List
-                                    </h2>
-                                    <p class="s-post-text">
-                                        A Linked List is essentially a set of objects that use a common Link class. Each Link object contains a reference to the next Link object in the chain. This reference is stored in a field called “next.”
+                                        </p>
+                                        <h2 class="s-post-subtitle">
+                                            Implementing a Linked List
+                                        </h2>
+                                        <p class="s-post-text">
+                                            A Linked List is essentially a set of objects that use a common Link class. Each Link object contains a reference to the next Link object in the chain. This reference is stored in a field called “next.”
 
-                                        In the example below, the “next” field in the Link object maintains an object reference. A reference is a number that refers to an object’s address in a computer’s memory. Regardless of the object, the reference will be the same size in memory.
-                                    </p>
-                                    <a href="#">More About Me</a>
+                                            In the example below, the “next” field in the Link object maintains an object reference. A reference is a number that refers to an object’s address in a computer’s memory. Regardless of the object, the reference will be the same size in memory.
+                                        </p>
+                                        <a href="#">More About Me</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

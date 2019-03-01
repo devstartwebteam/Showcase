@@ -1,0 +1,61 @@
+﻿
+body .s-admin-wrapper .logo img {
+    width:170px;
+}
+
+body .s-admin-wrapper .navbar-nav li a {
+    color: #888888;
+    padding: 10px 15px;
+    position: relative;
+    display: inline-flex;
+    line-height: 1.2;
+}
+
+body .s-admin-title {
+    font-size: 2rem;
+    margin-top:14px;
+}
+
+body .card .card-title {
+    font-family: "Merriweather", serif;
+}
+
+body .navbar .navbar-brand {
+    padding:0px 20px 0px 10px;
+    font-size:1rem;
+}
+
+body .s-admin-wrapper .card-body-lg {
+    padding:40px;
+}
+
+body .s-admin-wrapper .panel-title, body .s-admin-wrapper h2{
+    font-size:1.6rem;
+    margin-top:0px;
+}
+
+html body .s-admin-wrapper .sidebar:after, html body>.navbar-collapse:after{
+    background: -moz-linear-gradient(top, #1e5799 0%, #003087 0%, #1e87f0 100%);
+    background: -webkit-linear-gradient(top, #1e5799 0%,#003087 0%,#1e87f0 100%);
+    background: linear-gradient(to bottom, #1e5799 0%,#003087 0%,#1e87f0 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#1e87f0',GradientType=0 );
+    opacity:1;
+}
+
+body .main-panel {
+    background:#f4f5f7!important;
+}
+
+body .sidebar .nav li .nav-link p, body>.navbar-collapse .nav li .nav-link p {
+    text-transform:none;
+    font-size:1rem;
+    font-weight:400;
+}
+
+body .navbar {
+    padding:0px 10px;
+}
+
+body .sidebar .logo, body>.navbar-collapse .logo {
+    border-bottom:0px;
+}

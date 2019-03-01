@@ -20,5 +20,10 @@ namespace Showcase.DataContexts
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<MetaSEO> MetaSEO { get; set; }
+        public DbSet<Workout> Workouts { get; set; }
+        public DbSet<Album> Albums { get; set; }
+        public DbSet<Photo> Photos { get; set; }
+        public DbSet<Project> Projects { get; set; }
+        public DbSet<ToDoList> Tasks { get; set; }
     }
 }

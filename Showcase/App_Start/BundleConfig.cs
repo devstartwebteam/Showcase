@@ -27,28 +27,37 @@ namespace Showcase
               "~/Scripts/knockout-{version}.js",
               "~/Scripts/app.js"));
 
+            //Front end theme
             bundles.Add(new ScriptBundle("~/bundles/argonjs").Include(
-                      "~/Content/assets/argon/vendor/popper/popper.min.js",
-                      "~/Content/assets/argon/vendor/headroom/headroom.min.js",
-                      "~/Content/assets/argon/js/argon.min.js",
+                      "~/Content/themes/argon/vendor/popper/popper.min.js",
+                      "~/Content/themes/argon/vendor/headroom/headroom.min.js",
+                      "~/Content/themes/argon/js/argon.min.js",
                       "~/Scripts/jquery.bxslider.js",
                       "~/Scripts/scripts.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/site.css",
-                      "~/Content/assets/argon/vendor/nucleo/css/nucleo.css",
-                      "~/Content/assets/argon/vendor/font-awesome/css/font-awesome.min.css",
-                      "~/Content/assets/argon/css/argon.min.css",
+                      "~/Content/themes/argon/vendor/nucleo/css/nucleo.css",
+                      "~/Content/themes/argon/vendor/font-awesome/css/font-awesome.min.css",
+                      "~/Content/themes/argon/css/argon.min.css",
                       "~/Content/jquery.bxslider.css",
-                      "~/Content/assets/argon/css/docs.min.css"));
+                      "~/Content/themes/argon/css/docs.min.css"));
 
-            bundles.Add(new ScriptBundle("~/bundles/adminatorScripts").Include(
-                "~/Content/assets/adminator/scripts/index.js"
-                ));
+            //Admin theme
+            bundles.Add(new ScriptBundle("~/bundles/bootstraplight").Include(
+                "~/Content/themes/bootstraplight/assets/js/core/jquery.3.2.1.min.js",
+                "~/Content/themes/bootstraplight/assets/js/core/popper.min.js",
+                "~/Content/themes/bootstraplight/assets/js/core/bootstrap.min.js",
+                "~/Content/themes/bootstraplight/assets/js/plugins/bootstrap-switch.js",
+                "~/Content/themes/bootstraplight/assets/js/plugins/chartist.min.js",
+                "~/Content/themes/bootstraplight/assets/js/plugins/bootstrap-notify.js",
+                "~/Content/themes/bootstraplight/assets/js/light-bootstrap-dashboard.js?v=2.0.1",
+                "~/Content/themes/bootstraplight/assets/js/plugins/bootstrap-notify.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/adminatorStyles").Include(
-                "~/Content/assets/adminator/styles/admin.css"
-                ));
+            bundles.Add(new ScriptBundle("~/bundles/bootstraplightStyles").Include(
+                "~/Content/themes/bootstraplight/assets/css/bootstrap.min.css",
+                "~/Content/themes/bootstraplight/assets/css/light-bootstrap-dashboard.css",
+                "~/Areas/Admin/Content/Admin.css"));
         }
     }
 }

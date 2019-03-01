@@ -17,7 +17,7 @@ namespace Showcase.DataContexts.BlogMigrations
 
         protected override void Seed(Showcase.DataContexts.BlogDb context)
         {
-            var authors = new List<Author>
+            /*var authors = new List<Author>
             {
             new Author{FirstName="Nathan",LastName="Johnson", Location="Oregon", UserName="devstartwebteam", NickName="Nate"},
             };
@@ -35,7 +35,7 @@ namespace Showcase.DataContexts.BlogMigrations
                 new Category{CategoryName="Front End", CategoryDescription="Front end development refers to programming that occurs in the Browser which is usually aided by Browser Web APIs also called BOM APIs."},
             };
             categories.ForEach(c => context.Categories.Add(c));
-            context.SaveChanges();
+            context.SaveChanges();*/
         }
     }
 }

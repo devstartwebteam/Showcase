@@ -158,6 +158,19 @@ body .s-about-sections .s-post-subtitle {
     padding-bottom:20px;
 }
 
+body .s-post-content .rounded-circle {
+    width:180px;
+}
+
+body .s-post-content .s-author-row {
+    height:117px;
+}
+
+body .s-content-container .s-post-subtitle {
+    text-align:left;
+    padding:20px 0px 10px 0px;
+}
+
 body .s-post-subtitle {
     font-weight: 600;
     opacity: 0.9;
@@ -197,9 +210,15 @@ body .s-login-main {
     overflow:visible;
 }
 
-body .s-login-wrap .s-error-message {
+body .s-login-wrap .s-error-message, body .validation-summary-errors li {
     margin-bottom:10px;
     font-size: .875rem;
+    list-style-type:none;
+}
+
+body .validation-summary-errors ul {
+    text-align:center;
+    padding-left:0px;
 }
 
 body .s-login-wrap .form-control, body .s-login-wrap .input-group .form-control:not(:first-child) {
@@ -310,9 +329,10 @@ body .s-title-divider {
 
 body .navbar-expand-lg .navbar-nav .nav-link {
     color:#fff;
-    padding:14px 20px;
-    font-family:'Exo';
-    font-weight:500;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Exo";
+    font-weight: 400;
+    font-size:1rem;
 }
 
 body #navbar-main{
@@ -320,7 +340,7 @@ body #navbar-main{
 }
 
 body .s-user-navbar li {
-    padding:0px 10px;
+    padding:0px 16px;
 }
 
 /* Argon Theme Overrides */
@@ -333,8 +353,10 @@ body .btn-primary, body #s-login-submit {
 
 body #logoutForm a {
     color:#fff;
-    font-size: .9rem;
-    font-family: 'Exo';
+    font-size: 1rem;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Exo";
+    font-weight: 400;
 }
 
 body #logoutForm a:hover {

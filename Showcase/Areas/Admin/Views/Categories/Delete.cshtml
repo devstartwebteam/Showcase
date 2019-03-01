@@ -1,17 +1,10 @@
 ﻿@model Showcase.Models.Category
 
 @{
-    Layout = null;
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Delete</title>
-</head>
-<body>
     <h3>Are you sure you want to delete this?</h3>
     <div>
         <h4>Category</h4>
@@ -44,5 +37,3 @@
             </div>
         }
     </div>
-</body>
-</html>

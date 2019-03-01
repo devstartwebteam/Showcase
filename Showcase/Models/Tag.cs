@@ -13,5 +13,6 @@ namespace Showcase.Models
         public string TagName { get; set; }
         public string TagDescription { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }

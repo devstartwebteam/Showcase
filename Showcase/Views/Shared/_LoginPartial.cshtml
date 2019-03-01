@@ -7,9 +7,12 @@
 
     <ul class="nav navbar-nav navbar-right s-user-navbar">
         <li>
+            @Html.ActionLink("Admin", "Dashboard", "Admin", routeValues: null, htmlAttributes: new { title = "Dashboard" })
+        </li>
+        <li>
             @Html.ActionLink("Account", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()"> Log off</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()"> Log out</a></li>
     </ul>
     }
 }

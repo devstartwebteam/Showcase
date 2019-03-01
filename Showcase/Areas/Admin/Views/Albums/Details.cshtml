@@ -1,0 +1,32 @@
+﻿@model Showcase.Models.Album
+
+@{
+    ViewBag.Title = "Albums";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Album</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AlbumName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AlbumName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.AlbumId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script type="text/javascript">
+    var title = '@ViewBag.Title';
+    var titleArea = document.getElementById('s-admin-title');
+    titleArea.innerText = title;
+</script>

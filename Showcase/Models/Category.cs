@@ -13,5 +13,6 @@ namespace Showcase.Models
         public string CategoryName { get; set; }
         public string CategoryDescription { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Project> Projects { get; set; }
     }
 }

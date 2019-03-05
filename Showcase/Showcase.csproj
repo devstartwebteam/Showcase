@@ -222,6 +222,10 @@
     <Compile Include="DataContexts\BlogMigrations\201903010016150_MoreModels.Designer.cs">
       <DependentUpon>201903010016150_MoreModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201903051715194_PropertyUpdates.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201903051715194_PropertyUpdates.Designer.cs">
+      <DependentUpon>201903051715194_PropertyUpdates.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BlogMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
@@ -233,7 +237,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DbHelper.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Author.cs" />
@@ -254,6 +257,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\Admin.css" />
+    <Content Include="Content\clockpicker.css" />
+    <Content Include="Content\jquery-ui.min.css" />
     <Content Include="Content\themes\argon\css\argon.css" />
     <Content Include="Content\themes\argon\css\argon.min.css" />
     <Content Include="Content\themes\argon\img\brand\blue.png" />
@@ -682,10 +687,15 @@
     <Content Include="Areas\Admin\Views\Tasks\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Tasks\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Tasks\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminNavigation.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminSidebar.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminFooter.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\clockpicker.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.min.js" />
     <Content Include="Scripts\jquery.bxslider.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
@@ -771,6 +781,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\BlogMigrations\201903010016150_MoreModels.resx">
       <DependentUpon>201903010016150_MoreModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201903051715194_PropertyUpdates.resx">
+      <DependentUpon>201903051715194_PropertyUpdates.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>

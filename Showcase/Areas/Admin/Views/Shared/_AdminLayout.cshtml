@@ -5,126 +5,9 @@
 
 <body id="s-admin-body">
     <div class="wrapper s-admin-wrapper">
-        <div class="sidebar">
-            <div class="sidebar-wrapper">
-                <div class="logo">
-                    <a href="/Home/" class="simple-text">
-                        <img src="/Content/images/white-logo-sm.png">
-                    </a>
-                </div>
-                <ul class="nav">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="/Admin/Dashboard/">
-                            <i class="nc-icon nc-chart-pie-35"></i>
-                            <p>Dashboard</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Authors/">
-                            <i class="nc-icon nc-circle-09"></i>
-                            <p>Authors</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Posts/">
-                            <i class="nc-icon nc-notes"></i>
-                            <p>Posts</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Categories/">
-                            <i class="nc-icon nc-vector"></i>
-                            <p>Categories</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Projects/">
-                            <i class="nc-icon nc-settings-90"></i>
-                            <p>Projects</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Workouts/">
-                            <i class="nc-icon nc-watch-time"></i>
-                            <p>Workout Log</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Albums/">
-                            <i class="nc-icon nc-album-2"></i>
-                            <p>Photo Albums</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="/Admin/Tasks/">
-                            <i class="nc-icon nc-layers-3"></i>
-                            <p>To-Do List</p>
-                        </a>
-                    </li>              
-                    <li class="nav-item active active-pro">
-                        <a class="nav-link active" href="/Blog/">
-                            <i class="nc-icon nc-alien-33"></i>
-                            <p>To Blog</p>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        @Html.Partial("_AdminSidebar")
         <div class="main-panel">
-            <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg " color-on-scroll="500">
-                <div class="container-fluid">
-                    <h1 id="s-admin-title" class="navbar-brand"></h1>
-                    <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-bar burger-lines"></span>
-                        <span class="navbar-toggler-bar burger-lines"></span>
-                        <span class="navbar-toggler-bar burger-lines"></span>
-                    </button>
-                    <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <ul class="nav navbar-nav mr-auto">
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-planet"></i>
-                                    <span class="notification">5</span>
-                                    <span class="d-lg-none">Notification</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Notification 1</a>
-                                    <a class="dropdown-item" href="#">Notification 2</a>
-                                    <a class="dropdown-item" href="#">Notification 3</a>
-                                    <a class="dropdown-item" href="#">Notification 4</a>
-                                    <a class="dropdown-item" href="#">Another notification</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                    <span class="d-lg-block">&nbsp;Search</span>
-                                </a>
-                            </li>
-                        </ul>
-                        <ul class="navbar-nav ml-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span class="no-icon">Front End</span>
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="#">About</a>
-                                    <a class="dropdown-item" href="#">Contact</a>
-                                    <a class="dropdown-item" href="#">Something</a>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                    <div class="divider"></div>
-                                    <a class="dropdown-item" href="#">Separated link</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                @Html.Partial("_AdminLoginPartial")
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <!-- End Navbar -->
+            @Html.Partial("_AdminNavigation")
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
@@ -138,32 +21,14 @@
                     </div>
                 </div>
             </div>
-            <footer class="footer">
-                <div class="container">
-                    <nav>
-                        <ul class="footer-menu">
-                            <li><a href="/Home/"> Home </a></li>
-                            <li><a href="/Home/About"> About </a></li>
-                            <li><a href="#"> Projects </a></li>
-                            <li><a href="/Blog/"> Blog </a></li>
-                        </ul>
-
-                        <p class="copyright text-center">
-                            ©
-                            <script>
-                                document.write(new Date().getFullYear())
-                            </script>
-                            <a href="/Home/">Developer Start</a>
-                        </p>
-                    </nav>
-                </div>
-            </footer>
+            @Html.Partial("_AdminFooter")
         </div>
     </div>
 </body>
 </html>
 <!--   Core JS Files   -->
 @Scripts.Render("~/bundles/bootstraplight")
+@Scripts.Render("~/bundles/jquery")
 
 <!--tinymce Editor -->
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
@@ -193,4 +58,18 @@
     var title = '@ViewBag.Title';
     var titleArea = document.getElementById('s-admin-title');
     titleArea.innerText = title;
+
+    var url = '@Request.Url';
+    var checkUrl = url.toLowerCase();
+    var linkArray = ["dashboard", "authors", "posts", "categories", "projects", "workouts", "albums", "tasks"];
+
+    for (i = 0; i < linkArray.length; i++) {
+        if (checkUrl.indexOf(linkArray[i]) != -1) {
+            var linkName = linkArray[i];
+            var linkSelector = '#s-' + linkName;
+            $(linkSelector).addClass('active');
+        }      
+    }
 </script>
+
+@RenderSection("Scripts", false)

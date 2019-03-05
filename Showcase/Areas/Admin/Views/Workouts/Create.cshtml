@@ -5,19 +5,25 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Add New Workout</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Workout</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
-            @Html.LabelFor(model => model.WorkoutTitle, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
+        <div class="form-group row">
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.WorkoutDate, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.WorkoutDate, new { htmlAttributes = new { @class = "form-control", @id = "s-workout-date" } })
+                @Html.ValidationMessageFor(model => model.WorkoutDate, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(model => model.WorkoutTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+
                 @Html.EditorFor(model => model.WorkoutTitle, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.WorkoutTitle, "", new { @class = "text-danger" })
             </div>
@@ -32,17 +38,20 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.WorkoutTpe, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.WorkoutType, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.WorkoutTpe, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.WorkoutTpe, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.WorkoutType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.WorkoutType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.WorkoutLength, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.WorkoutLength, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.WorkoutLength, new { htmlAttributes = new { @class = "form-control clockpicker" } })
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-time"></span>
+                </span>
                 @Html.ValidationMessageFor(model => model.WorkoutLength, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -59,3 +68,10 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
+
+@section scripts {
+    <script type="text/javascript">
+        $("#s-workout-date").datepicker({ dateFormat: 'mm/dd/yy' });
+        $('.clockpicker').clockpicker();
+    </script>
+}

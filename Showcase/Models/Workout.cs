@@ -8,12 +8,17 @@ namespace Showcase.Models
 {
     public class Workout
     {
-        [Key]
+        [Key]     
         public int WorkoutId { get; set; }
+        [Display(Name = "Title")]
         public string WorkoutTitle { get; set; }
+        [Display(Name = "Description")]
         public string WorkoutDescription { get; set; }
-        DateTime WorkoutDate { get; set; }
-        public string WorkoutTpe { get; set; }
+        [Display(Name = "Date")]
+        public DateTime WorkoutDate { get; set; }
+        [Display(Name = "Type")]
+        public string WorkoutType { get; set; }
+        [Display(Name = "Duration")]
         public string WorkoutLength { get; set; }
     }
 }

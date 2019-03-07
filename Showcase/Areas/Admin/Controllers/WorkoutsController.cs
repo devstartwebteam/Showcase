@@ -47,7 +47,7 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WorkoutId,WorkoutDate,WorkoutTitle,WorkoutDescription,WorkoutTpe,WorkoutLength")] Workout workout)
+        public ActionResult Create([Bind(Include = "WorkoutId,WorkoutDate,WorkoutTitle,WorkoutDescription,WorkoutType,WorkoutLength")] Workout workout)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WorkoutId,WorkoutTitle,WorkoutDescription,WorkoutTpe,WorkoutLength")] Workout workout)
+        public ActionResult Edit([Bind(Include = "WorkoutId,WorkoutTitle,WorkoutDescription,WorkoutType,WorkoutLength")] Workout workout)
         {
             if (ModelState.IsValid)
             {

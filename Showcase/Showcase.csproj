@@ -226,6 +226,10 @@
     <Compile Include="DataContexts\BlogMigrations\201903051715194_PropertyUpdates.Designer.cs">
       <DependentUpon>201903051715194_PropertyUpdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201903141959033_MoreModels1.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201903141959033_MoreModels1.Designer.cs">
+      <DependentUpon>201903141959033_MoreModels1.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BlogMigrations\Configuration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
@@ -784,6 +788,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\BlogMigrations\201903051715194_PropertyUpdates.resx">
       <DependentUpon>201903051715194_PropertyUpdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201903141959033_MoreModels1.resx">
+      <DependentUpon>201903141959033_MoreModels1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>

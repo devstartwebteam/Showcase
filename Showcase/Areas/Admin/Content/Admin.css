@@ -3,6 +3,64 @@ body .s-admin-wrapper .logo img {
     width:170px;
 }
 
+body a {
+    color:#1e87f0;
+}
+body .s-create-btn a {
+    padding: 8px 16px;
+}
+
+body .s-submit-btn {
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    height:40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid #cccccc;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    background-color: transparent;
+    opacity:1;
+    font-weight: 400;
+    padding: 8px 16px;
+    margin: 10px 0px 40px 0px;
+    color:#1e87f0;
+}
+
+html body .s-submit-col {
+    padding-left:0px;
+}
+
+body .s-create-btn {
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    height:40px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid #cccccc;
+    font-size: 1rem;
+    line-height: 1.25;
+    border-radius: .25rem;
+    transition: all .15s ease-in-out;
+    background-color: transparent;
+    font-weight: 400;
+    padding:0px;
+    margin:40px 0px;
+}
+
+body a:hover, body a:focus, body a:active {
+    color:#1e5799;
+}
+
 body .s-admin-wrapper .navbar-nav li a {
     color: #888888;
     padding: 10px 15px;
@@ -25,13 +83,30 @@ body .navbar .navbar-brand {
     font-size:1rem;
 }
 
+body .clockpicker .clockpicker-button {
+    background: rgb(232, 240, 254);
+    color: black;
+}
+
 body .s-admin-wrapper .card-body-lg {
     padding:40px;
 }
 
+body .s-timer-box {
+    border:0px;
+}
+
 body .s-admin-wrapper .panel-title, body .s-admin-wrapper h2{
     font-size:1.6rem;
-    margin-top:0px;
+    margin:0px;
+}
+
+body .s-description-box {
+    height:200px;
+}
+
+body .s-actions-col a {
+    margin:0px 4px;
 }
 
 html body .s-admin-wrapper .sidebar:after, html body>.navbar-collapse:after{

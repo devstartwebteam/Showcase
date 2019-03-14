@@ -7,9 +7,9 @@
 
 <h2>Index</h2>
 
-<p>
+<button class="s-create-btn">
     @Html.ActionLink("Create New", "Create")
-</p>
+</button>
     <table class="table">
         <tr>
             <th>
@@ -19,27 +19,28 @@
                 @Html.DisplayNameFor(model => model.WorkoutTitle)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.WorkoutDescription)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.WorkoutType)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.WorkoutLength)
             </th>
-            <th></th>
+            <th>
+                @Html.DisplayNameFor(model => model.WorkoutDistance)
+            </th>
+            <th>
+                @Html.DisplayName("Actions")
+            </th>
         </tr>
 
     @foreach (var item in Model) {
+        string shortDate = item.WorkoutDate.ToShortDateString();
+        string miles = item.WorkoutDistance.ToString() + " miles";
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.WorkoutDate)
+            <td> 
+                @shortDate
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.WorkoutTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WorkoutDescription)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.WorkoutType)
@@ -48,6 +49,9 @@
                 @Html.DisplayFor(modelItem => item.WorkoutLength)
             </td>
             <td>
+                @miles
+            </td>
+            <td class="s-actions-col">
                 @Html.ActionLink("Edit", "Edit", new { id=item.WorkoutId }) |
                 @Html.ActionLink("Details", "Details", new { id=item.WorkoutId }) |
                 @Html.ActionLink("Delete", "Delete", new { id=item.WorkoutId })

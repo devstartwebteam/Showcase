@@ -18,7 +18,8 @@ namespace Showcase.Areas.Admin.Controllers
         // GET: Admin/Workouts
         public ActionResult Index()
         {
-            return View(db.Workouts.ToList());
+            List<Workout> workoutList = db.Workouts.OrderBy(x => x.WorkoutDate).ToList();
+            return View(workoutList);
         }
 
         // GET: Admin/Workouts/Details/5
@@ -47,7 +48,7 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "WorkoutId,WorkoutDate,WorkoutTitle,WorkoutDescription,WorkoutType,WorkoutLength")] Workout workout)
+        public ActionResult Create(Workout workout)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +80,7 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "WorkoutId,WorkoutTitle,WorkoutDescription,WorkoutType,WorkoutLength")] Workout workout)
+        public ActionResult Edit(Workout workout)
         {
             if (ModelState.IsValid)
             {

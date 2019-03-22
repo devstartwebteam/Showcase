@@ -10,11 +10,19 @@ body .s-create-btn a {
     padding: 8px 16px;
 }
 
+body #ShowcaseDataTable_wrapper {
+    display:block;
+}
+
+body #ShowcaseDataTable {
+    margin-top:30px;
+}
+
 body .s-submit-btn {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    height:40px;
+    height: 40px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -26,22 +34,34 @@ body .s-submit-btn {
     border-radius: .25rem;
     transition: all .15s ease-in-out;
     background-color: transparent;
-    opacity:1;
+    opacity: 1;
     font-weight: 400;
     padding: 8px 16px;
     margin: 10px 0px 40px 0px;
-    color:#1e87f0;
+    color: #1e87f0;
 }
 
 html body .s-submit-col {
     padding-left:0px;
 }
 
+body #ShowcaseDataTable_filter .form-control, body #ShowcaseDataTable_length select {
+    margin:0px 10px;
+}
+
+body #ShowcaseDataTable_length {
+    float:left;
+}
+
+body .table tbody + tbody {
+    border:0px;
+}
+
 body .s-create-btn {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
-    height:40px;
+    height: 40px;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -53,8 +73,8 @@ body .s-create-btn {
     transition: all .15s ease-in-out;
     background-color: transparent;
     font-weight: 400;
-    padding:0px;
-    margin:40px 0px;
+    padding: 0px;
+    margin: 40px 0px;
 }
 
 body a:hover, body a:focus, body a:active {

@@ -17,8 +17,12 @@ body .s-background-shade {
     opacity: 0.4;
 }
 
+body .s-login-wrap .section-shaped .container {
+    padding-top: 15vh !important;
+}
+
 body a {
-    color:#172b4d;
+    color: #172b4d;
 }
 
 body a:hover {

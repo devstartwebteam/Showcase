@@ -1,0 +1,16 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+@Html.Partial("_BlogHead")
+<body>
+    @Html.Partial("_BlogHeader")
+
+    <div id="ds-body">
+        @RenderBody()
+    </div>
+
+    @Html.Partial("_BlogFooter")
+    @RenderSection("scripts", required: false)
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+</body>
+</html>

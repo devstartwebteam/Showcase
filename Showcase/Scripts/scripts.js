@@ -1,6 +1,6 @@
 ﻿
 $(function () {
-    $('.s-home-slider').bxSlider({
+    $('.ds-home-slider').bxSlider({
         mode: 'fade',
         auto: true,
         captions: false,

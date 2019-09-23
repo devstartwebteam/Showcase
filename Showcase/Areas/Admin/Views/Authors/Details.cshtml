@@ -1,4 +1,5 @@
-﻿@model Showcase.Models.Author
+﻿@using Showcase.Helpers
+@model Showcase.Models.Author
 
 @{
     ViewBag.Title = "Authors";
@@ -35,6 +36,13 @@
             @Html.DisplayFor(model => model.UserName)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.ProfileImage)
+        </dt>
+
+        <dd>
+            @Html.Image(Model.ProfileImage)
+        </dd>
         <dt>
             @Html.DisplayNameFor(model => model.NickName)
         </dt>

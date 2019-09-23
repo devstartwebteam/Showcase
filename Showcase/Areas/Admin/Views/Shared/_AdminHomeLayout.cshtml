@@ -3,8 +3,8 @@
 
 @Html.Partial("_AdminHead")
 
-<body id="s-admin-body">
-    <div class="wrapper s-admin-wrapper">
+<body id="ds-admin-body">
+    <div class="wrapper ds-admin-wrapper">
         @Html.Partial("_AdminSidebar")
         <div class="main-panel">
             @Html.Partial("_AdminNavigation")
@@ -27,8 +27,8 @@
 
 <script type="text/javascript">
     var title = '@ViewBag.Title';
-    var titleArea = document.getElementById('s-admin-title');
+    var titleArea = document.getElementById('ds-admin-title');
     titleArea.innerText = title;
 
-    $('#s-dashboard').addClass('active');
+    $('#ds-dashboard').addClass('active');
 </script>

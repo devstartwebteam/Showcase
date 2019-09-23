@@ -47,12 +47,16 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "AuthorId,FirstName,LastName,UserName,NickName,Location,Age,FacebookUrl,TwitterUrl,InstagramUrl,LinkedInUrl")] Author author)
+        public ActionResult Create([Bind(Include = "AuthorId,FirstName,LastName,UserName,ProfileImageUpload,NickName,Location,Age,FacebookUrl,TwitterUrl,InstagramUrl,LinkedInUrl")] Author author)
         {
             if (ModelState.IsValid)
             {
+                author.GetImageBytes(author.ProfileImageUpload);
+                author.Created = DateTime.Now;
+                author.LastModified = DateTime.Now;
                 db.Authors.Add(author);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -79,14 +83,19 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "AuthorId,FirstName,LastName,UserName,NickName,Location,Age,FacebookUrl,TwitterUrl,InstagramUrl,LinkedInUrl")] Author author)
+        public ActionResult Edit([Bind(Include = "AuthorId,FirstName,LastName,UserName,ProfileImageUpload,NickName,Location,Age,FacebookUrl,TwitterUrl,InstagramUrl,LinkedInUrl")] Author author)
         {
             if (ModelState.IsValid)
             {
+                author.GetImageBytes(author.ProfileImageUpload);
+                author.LastModified = DateTime.Now;
+                author.Created = DateTime.Now;
                 db.Entry(author).State = EntityState.Modified;
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
+
             return View(author);
         }
 

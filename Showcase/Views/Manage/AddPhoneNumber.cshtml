@@ -12,7 +12,7 @@
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
     <div class="form-group">
-        <p class="s-error-message">
+        <p class="ds-error-message">
             @Html.ValidationMessageFor(m => m.Number, "", new { @class = "text-danger" })
         </p>
         <div class="input-group input-group-alternative mb-3">
@@ -23,7 +23,7 @@
         </div>
     </div>
     <div class="form-group">
-        <input id="s-login-submit" type="submit" class="btn btn-default" value="Submit" />
+        <input id="ds-login-submit" type="submit" class="btn btn-default" value="Submit" />
     </div>
 }
 

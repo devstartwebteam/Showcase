@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
-  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -15,7 +16,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Showcase</RootNamespace>
     <AssemblyName>Showcase</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -25,6 +26,9 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
+    <TargetFrameworkProfile />
+    <TypeScriptToolsVersion>3.1</TypeScriptToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,53 +48,120 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.0.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.0.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.0.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.0.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.AI.WindowsServer, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.0.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.ApplicationInsights, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.ApplicationInsights.2.0.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AI.Web, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.10.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.10.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.10.0\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.2\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.2\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.2\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation, Version=1.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.5\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.4.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.4.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Facebook, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.4.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Google, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Google.4.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.4.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Twitter, Version=4.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.4.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.5.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Runtime.InteropServices" />
+    <Reference Include="System.Threading.Thread" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
@@ -103,90 +174,17 @@
     </Reference>
     <Reference Include="System.Net.Http.WebRequest">
     </Reference>
-    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
-    </Reference>
     <Reference Include="System.Web.Optimization">
       <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
     </Reference>
-    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <Private>True</Private>
-      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
-    </Reference>
-    <Reference Include="WebGrease">
-      <Private>True</Private>
-      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
-    </Reference>
-    <Reference Include="Antlr3.Runtime">
-      <Private>True</Private>
-      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="EntityFramework.SqlServer">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Core">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
-    </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Host.SystemWeb">
-      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Facebook">
-      <HintPath>..\packages\Microsoft.Owin.Security.Facebook.3.0.1\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Google">
-      <HintPath>..\packages\Microsoft.Owin.Security.Google.3.0.1\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Twitter">
-      <HintPath>..\packages\Microsoft.Owin.Security.Twitter.3.0.1\lib\net45\Microsoft.Owin.Security.Twitter.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.MicrosoftAccount">
-      <HintPath>..\packages\Microsoft.Owin.Security.MicrosoftAccount.3.0.1\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -230,17 +228,26 @@
     <Compile Include="DataContexts\BlogMigrations\201903141959033_MoreModels1.Designer.cs">
       <DependentUpon>201903141959033_MoreModels1.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\BlogMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201909231711441_UpdatedPosts.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201909231711441_UpdatedPosts.Designer.cs">
+      <DependentUpon>201909231711441_UpdatedPosts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201909232041487_UpdatedAuthors.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201909232041487_UpdatedAuthors.Designer.cs">
+      <DependentUpon>201909232041487_UpdatedAuthors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\BlogMigrations\BlogConfiguration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.Designer.cs">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\IdentityConfiguration.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\DbHelper.cs" />
+    <Compile Include="Helpers\ShowcaseHtmlHelpers.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Author.cs" />
@@ -261,8 +268,529 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\Admin\Content\Admin.css" />
+    <Content Include="Content\animate.min.css" />
+    <Content Include="Content\bootstrap-grid.css" />
+    <Content Include="Content\bootstrap-grid.min.css" />
+    <Content Include="Content\bootstrap-reboot.css" />
+    <Content Include="Content\bootstrap-reboot.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\clockpicker.css" />
+    <Content Include="Content\images\archive\c1.jpg" />
+    <Content Include="Content\images\archive\c2.jpg" />
+    <Content Include="Content\images\archive\c3.jpg" />
+    <Content Include="Content\images\archive\c4.jpg" />
+    <Content Include="Content\images\archive\c5.jpg" />
+    <Content Include="Content\images\archive\c6.jpg" />
+    <Content Include="Content\images\archive\c7.jpg" />
+    <Content Include="Content\images\archive\c8.jpg" />
+    <Content Include="Content\images\author\a1.png" />
+    <Content Include="Content\images\banner-bg.jpg" />
+    <Content Include="Content\images\blog-backgrounds-1.jpg" />
+    <Content Include="Content\images\blog-backgrounds-10.jpg" />
+    <Content Include="Content\images\blog-backgrounds-2.jpg" />
+    <Content Include="Content\images\blog-backgrounds-3.jpg" />
+    <Content Include="Content\images\blog-backgrounds-4.jpg" />
+    <Content Include="Content\images\blog-backgrounds-5.jpg" />
+    <Content Include="Content\images\blog-backgrounds-6.jpg" />
+    <Content Include="Content\images\blog-backgrounds-7.jpg" />
+    <Content Include="Content\images\blog-backgrounds-8.jpg" />
+    <Content Include="Content\images\blog-backgrounds-9.jpg" />
+    <Content Include="Content\images\blog\c1.jpg" />
+    <Content Include="Content\images\blog\c2.jpg" />
+    <Content Include="Content\images\blog\c3.jpg" />
+    <Content Include="Content\images\blog\c4.jpg" />
+    <Content Include="Content\images\blog\c5.jpg" />
+    <Content Include="Content\images\blog\news-blog.jpg" />
+    <Content Include="Content\images\blog\next.jpg" />
+    <Content Include="Content\images\blog\p1.jpg" />
+    <Content Include="Content\images\blog\p2.jpg" />
+    <Content Include="Content\images\blog\p3.jpg" />
+    <Content Include="Content\images\blog\p4.jpg" />
+    <Content Include="Content\images\blog\prev.jpg" />
+    <Content Include="Content\images\blog\r1.jpg" />
+    <Content Include="Content\images\blog\r2.jpg" />
+    <Content Include="Content\images\blog\r3.jpg" />
+    <Content Include="Content\images\blog\r4.jpg" />
+    <Content Include="Content\images\blog\user-img.jpg" />
+    <Content Include="Content\images\blog\user2.png" />
+    <Content Include="Content\images\bullet.png" />
+    <Content Include="Content\images\category\c1.jpg" />
+    <Content Include="Content\images\category\c2.jpg" />
+    <Content Include="Content\images\category\c3.jpg" />
+    <Content Include="Content\images\category\c4.jpg" />
+    <Content Include="Content\images\category\c5.jpg" />
+    <Content Include="Content\images\category\c6.jpg" />
+    <Content Include="Content\images\category\c7.jpg" />
+    <Content Include="Content\images\category\c8.jpg" />
+    <Content Include="Content\images\elements\a.jpg" />
+    <Content Include="Content\images\elements\a2.jpg" />
+    <Content Include="Content\images\elements\d.jpg" />
+    <Content Include="Content\images\elements\disabled-check.png" />
+    <Content Include="Content\images\elements\disabled-radio.png" />
+    <Content Include="Content\images\elements\f1.jpg" />
+    <Content Include="Content\images\elements\f2.jpg" />
+    <Content Include="Content\images\elements\f3.jpg" />
+    <Content Include="Content\images\elements\f4.jpg" />
+    <Content Include="Content\images\elements\f5.jpg" />
+    <Content Include="Content\images\elements\f6.jpg" />
+    <Content Include="Content\images\elements\f7.jpg" />
+    <Content Include="Content\images\elements\f8.jpg" />
+    <Content Include="Content\images\elements\g1.jpg" />
+    <Content Include="Content\images\elements\g2.jpg" />
+    <Content Include="Content\images\elements\g3.jpg" />
+    <Content Include="Content\images\elements\g4.jpg" />
+    <Content Include="Content\images\elements\g5.jpg" />
+    <Content Include="Content\images\elements\g6.jpg" />
+    <Content Include="Content\images\elements\g7.jpg" />
+    <Content Include="Content\images\elements\g8.jpg" />
+    <Content Include="Content\images\elements\primary-check.png" />
+    <Content Include="Content\images\elements\primary-radio.png" />
+    <Content Include="Content\images\elements\success-check.png" />
+    <Content Include="Content\images\elements\success-radio.png" />
+    <Content Include="Content\images\fav.png" />
+    <Content Include="Content\images\i1.jpg" />
+    <Content Include="Content\images\i2.jpg" />
+    <Content Include="Content\images\i3.jpg" />
+    <Content Include="Content\images\i4.jpg" />
+    <Content Include="Content\images\i5.jpg" />
+    <Content Include="Content\images\i6.jpg" />
+    <Content Include="Content\images\i7.jpg" />
+    <Content Include="Content\images\i8.jpg" />
+    <Content Include="Content\images\logo-dark.png" />
+    <Content Include="Content\images\logo-old.png" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\posts\carousel\post1.jpg" />
+    <Content Include="Content\images\posts\carousel\post2.jpg" />
+    <Content Include="Content\images\posts\carousel\post3.jpg" />
+    <Content Include="Content\images\posts\carousel\stories1.jpg" />
+    <Content Include="Content\images\posts\carousel\stories2.jpg" />
+    <Content Include="Content\images\posts\carousel\stories3.jpg" />
+    <Content Include="Content\images\posts\carousel\stories4.jpg" />
+    <Content Include="Content\images\posts\carousel\stories5.jpg" />
+    <Content Include="Content\images\posts\carousel\stories6.jpg" />
+    <Content Include="Content\images\posts\p1.jpg" />
+    <Content Include="Content\images\posts\p2.jpg" />
+    <Content Include="Content\images\posts\p3.jpg" />
+    <Content Include="Content\images\posts\p4.jpg" />
+    <Content Include="Content\images\posts\p5.jpg" />
+    <Content Include="Content\images\sign.png" />
+    <Content Include="Content\images\user.png" />
+    <Content Include="Content\images\web\1280px-JQuery_logo.svg.png" />
+    <Content Include="Content\images\web\800px-PHP-logo.svg.png" />
+    <Content Include="Content\images\web\8900628106_9e09c9d363_b.jpg" />
+    <Content Include="Content\images\web\advanced-web-developement-tutorials-2.jpg" />
+    <Content Include="Content\images\web\advanced-web-developement-tutorials.jpg" />
+    <Content Include="Content\images\web\aidan-hancock-440776.jpg" />
+    <Content Include="Content\images\web\AngularJS_logo-rect-large.png" />
+    <Content Include="Content\images\web\AngularJS_logo-rect-md.png" />
+    <Content Include="Content\images\web\AngularJS_logo-rect.png" />
+    <Content Include="Content\images\web\AngularJS_logo-res-sm.png" />
+    <Content Include="Content\images\web\AngularJS_logo-res.png" />
+    <Content Include="Content\images\web\AngularJS_logo.svg_.png" />
+    <Content Include="Content\images\web\applications-database-cat-img.png" />
+    <Content Include="Content\images\web\aspnet_logo.jpg" />
+    <Content Include="Content\images\web\background-art-1.jpg" />
+    <Content Include="Content\images\web\background-art-2.jpg" />
+    <Content Include="Content\images\web\background-art-3.jpg" />
+    <Content Include="Content\images\web\background-art-wordpress.jpg" />
+    <Content Include="Content\images\web\biologic-home-112x300.png" />
+    <Content Include="Content\images\web\biologic-home.png" />
+    <Content Include="Content\images\web\browser-mechanics-bg.jpg" />
+    <Content Include="Content\images\web\browser-mechanics-for-developers-bg.jpg" />
+    <Content Include="Content\images\web\browsers-cross-compliance-web-lg.png" />
+    <Content Include="Content\images\web\browsers-cross-compliance-web-sm.png" />
+    <Content Include="Content\images\web\browsers-web-narrow.png" />
+    <Content Include="Content\images\web\browsers-web-res.png" />
+    <Content Include="Content\images\web\browsers-web-trans.png" />
+    <Content Include="Content\images\web\browsers-web.png" />
+    <Content Include="Content\images\web\cdata-handling.jpg" />
+    <Content Include="Content\images\web\children-593313_1920.jpg" />
+    <Content Include="Content\images\web\cloud-post-bg.jpg" />
+    <Content Include="Content\images\web\corinne-kutz-211251.jpg" />
+    <Content Include="Content\images\web\css-object-model-drop.jpg" />
+    <Content Include="Content\images\web\cyber-security-post-img-lg.png" />
+    <Content Include="Content\images\web\data-structures-binary-trees-bg-2.png" />
+    <Content Include="Content\images\web\data-structures-binary-trees-bg.jpg" />
+    <Content Include="Content\images\web\developer-start-bottom-logo.png" />
+    <Content Include="Content\images\web\developer-start-cloud-serverless.jpg" />
+    <Content Include="Content\images\web\developer-start-email-logo-150x91.png" />
+    <Content Include="Content\images\web\developer-start-email-logo.png" />
+    <Content Include="Content\images\web\developer-start-javascript-closures-explained.jpg" />
+    <Content Include="Content\images\web\developer-start-laptop-code.png" />
+    <Content Include="Content\images\web\developer-start-logo-final.png" />
+    <Content Include="Content\images\web\developer-start-logo-header-1-res-e1532620082709.png" />
+    <Content Include="Content\images\web\developer-start-logo-header-1-res.png" />
+    <Content Include="Content\images\web\developer-start-logo-header-1-trans.png" />
+    <Content Include="Content\images\web\developer-start-logo-header-1.png" />
+    <Content Include="Content\images\web\developer-start-logo-header-sm.png" />
+    <Content Include="Content\images\web\developer-start-mail-lg-logo.png" />
+    <Content Include="Content\images\web\developer-start-mobile-app-programming.png" />
+    <Content Include="Content\images\web\developer-start-night-bridge.jpg" />
+    <Content Include="Content\images\web\developer-start-project-bg.jpg" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-contact-262x300.png" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-contact.png" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-home-89x300.jpg" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-home.jpg" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-page-1-137x300.jpg" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-page-1.jpg" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-page-2-104x300.jpg" />
+    <Content Include="Content\images\web\developer-start-project-screenshot-page-2.jpg" />
+    <Content Include="Content\images\web\developer-start-scaling-software.jpg" />
+    <Content Include="Content\images\web\developer-start-serverless-application-developmen-res..jpg" />
+    <Content Include="Content\images\web\developer-start-serverless-application-development.jpg" />
+    <Content Include="Content\images\web\developer-start-using-wordpress-images-theme-2.png" />
+    <Content Include="Content\images\web\developer-start-using-wordpress-images-theme-sm.png" />
+    <Content Include="Content\images\web\developer-start-using-wordpress-images-theme.png" />
+    <Content Include="Content\images\web\developer-start-web-application-brainstorming-sm.jpg" />
+    <Content Include="Content\images\web\developer-start-web-application-brainstorming-xs.jpg" />
+    <Content Include="Content\images\web\developer-start-web-application-brainstorming.jpg" />
+    <Content Include="Content\images\web\developer-start-web-design-intro.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-bg-lg.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-bg-176x300.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-bg-sm-205x300.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-bg-sm.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-bg.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-lg-213x300.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-lg.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-sm-200x300.jpg" />
+    <Content Include="Content\images\web\developer-start-web-programming-tutorials-mobile-sm.jpg" />
+    <Content Include="Content\images\web\developer-start-web-taget-audience-xs-res.jpg" />
+    <Content Include="Content\images\web\developer-start-web-taget-audience-xs.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-bg-lg.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-laptop.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-stress-res.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-stress.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-sunset.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-water.jpg" />
+    <Content Include="Content\images\web\developer-start-web-tutorials-woman.jpg" />
+    <Content Include="Content\images\web\developer-start-web-world-graphic-277x300.png" />
+    <Content Include="Content\images\web\developer-start-web-world-graphic.png" />
+    <Content Include="Content\images\web\developer-start-web-world-students.jpg" />
+    <Content Include="Content\images\web\developer-start-wordpress-engine-page-load-cycle.jpg" />
+    <Content Include="Content\images\web\developer-start-wordpress-plugins.jpg" />
+    <Content Include="Content\images\web\developer-start_large.jpg" />
+    <Content Include="Content\images\web\developer-start_medium.jpg" />
+    <Content Include="Content\images\web\developer-start_small.jpg" />
+    <Content Include="Content\images\web\developer-statrt-javascript-objects.jpg" />
+    <Content Include="Content\images\web\developer-tutorials-begginers-learning.jpg" />
+    <Content Include="Content\images\web\deveoper-start-logo-bottom.png" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-agriscription-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-agriscription-sm.png" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-biologic-lg-show-112x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-biologic-lg-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-biologic-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-diamond-lg-show-141x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-diamond-lg-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-diamond-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-eo-landscaping-show-103x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-eo-landscaping-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-eo-landscaping-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-gsd-show-75x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-gsd-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-gsd-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-houser-show-233x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-houser-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-houser-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-home-1-show-134x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-home-1-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-home-1-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-home-2-show-158x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-home-2-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-home-2-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-show-198x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-lanz-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-michael-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-michaels-show-170x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-michaels-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-starlight-show-94x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-starlight-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-starlight-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-visco-home-1-show-107x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-visco-home-1-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-visco-home-show-107x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-visco-home-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-visco-home-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-visco-sm-res.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-winetasia-show-195x300.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-winetasia-show.jpg" />
+    <Content Include="Content\images\web\devstart-portfolio-front-end-winetasia-sm-res.jpg" />
+    <Content Include="Content\images\web\document-object-model-web-apis.png" />
+    <Content Include="Content\images\web\download.png" />
+    <Content Include="Content\images\web\download.svg" />
+    <Content Include="Content\images\web\drupal-logo-lg-292x300.png" />
+    <Content Include="Content\images\web\drupal-logo-lg.png" />
+    <Content Include="Content\images\web\duy-nguyen-390980.jpg" />
+    <Content Include="Content\images\web\feynman-group-img-lg-72x300.jpg" />
+    <Content Include="Content\images\web\feynman-group-img-lg.jpg" />
+    <Content Include="Content\images\web\feynman-group-img-sm.jpg" />
+    <Content Include="Content\images\web\first-time-visual-studio-setup-290x300.png" />
+    <Content Include="Content\images\web\first-time-visual-studio-setup-sm.png" />
+    <Content Include="Content\images\web\first-time-visual-studio-setup.png" />
+    <Content Include="Content\images\web\front-end-agriscription-calculator-131x300.png" />
+    <Content Include="Content\images\web\front-end-agriscription-calculator.png" />
+    <Content Include="Content\images\web\getting-to-know-the-document-object-model-bg.jpg" />
+    <Content Include="Content\images\web\globe-308800.png" />
+    <Content Include="Content\images\web\graph-data-structures-1.png" />
+    <Content Include="Content\images\web\graph-data-structures.png" />
+    <Content Include="Content\images\web\hash-functions-surf.jpg" />
+    <Content Include="Content\images\web\hash-table-bg.jpg" />
+    <Content Include="Content\images\web\html5-icon.png" />
+    <Content Include="Content\images\web\ipad-bg-bw.jpg" />
+    <Content Include="Content\images\web\ipad-bg-color-blue-bw.jpg" />
+    <Content Include="Content\images\web\ipad-bg-color-blue.jpg" />
+    <Content Include="Content\images\web\ipad-bg-color.jpg" />
+    <Content Include="Content\images\web\jantine-doornbos-398339.jpg" />
+    <Content Include="Content\images\web\javascript-closures-explained-bg.jpg" />
+    <Content Include="Content\images\web\javascript-engine-explained-redwood-res.jpg" />
+    <Content Include="Content\images\web\javascript-method-reuse-call-apply.png" />
+    <Content Include="Content\images\web\javascript-promises-explained.jpg" />
+    <Content Include="Content\images\web\javascript-prototype-chain.jpg" />
+    <Content Include="Content\images\web\javasript-closure-spiral.png" />
+    <Content Include="Content\images\web\jquery-444684_1280.png" />
+    <Content Include="Content\images\web\jquery-logo-full-md.png" />
+    <Content Include="Content\images\web\jquery-logo-full-xlarge.png" />
+    <Content Include="Content\images\web\jquery-logo-full.png" />
+    <Content Include="Content\images\web\linked-lists-data-structures-bg.jpg" />
+    <Content Include="Content\images\web\microsoft-net-visual-studio-development-res.png" />
+    <Content Include="Content\images\web\mobile-first-phone.png" />
+    <Content Include="Content\images\web\mobile-first-responsive-web-design-final.png" />
+    <Content Include="Content\images\web\mobile-first-responsive-web-design-lg.png" />
+    <Content Include="Content\images\web\mobile-responsive-website-development-resize.png" />
+    <Content Include="Content\images\web\mobile-responsive-website-development.png" />
+    <Content Include="Content\images\web\mongo-db-logo-trans-lg.png" />
+    <Content Include="Content\images\web\mongo-db-logo-trans-sq.png" />
+    <Content Include="Content\images\web\mongo-db-logo-trans-xl.png" />
+    <Content Include="Content\images\web\mountain-dark-background-web.jpg" />
+    <Content Include="Content\images\web\mt-fuji-color-background.jpg" />
+    <Content Include="Content\images\web\mt-fuji-final-gradient-darkest.jpg" />
+    <Content Include="Content\images\web\mt-fuji-new-gradient-light.jpg" />
+    <Content Include="Content\images\web\mt-fuji-slide-background-gradient.jpg" />
+    <Content Include="Content\images\web\mysql_logo-res.png" />
+    <Content Include="Content\images\web\navigation-properties.png" />
+    <Content Include="Content\images\web\Nosql-sq.png" />
+    <Content Include="Content\images\web\ocean-background-web.jpg" />
+    <Content Include="Content\images\web\op-theme-web-development-background-oregon-coast.jpg" />
+    <Content Include="Content\images\web\op-theme-web-standards-html-css-js-small.png" />
+    <Content Include="Content\images\web\op-theme-web-standards-html-css-js.png" />
+    <Content Include="Content\images\web\optheme-blog-wordpress-development-background-downtown.jpg" />
+    <Content Include="Content\images\web\optheme-wordpress-blog-background-florence-or.jpg" />
+    <Content Include="Content\images\web\optheme-wordpress-blog-background-mt-hood-oregon-dark.jpg" />
+    <Content Include="Content\images\web\optheme-wordpress-blog-background-mt-hood-oregon-light.jpg" />
+    <Content Include="Content\images\web\optheme-wordpress-blog-background-oregon-coast-dark.jpg" />
+    <Content Include="Content\images\web\optheme-wordpress-blog-background-oregon-coast-res.jpg" />
+    <Content Include="Content\images\web\optheme-wordpress-blog-web-development-background-portland-or.jpg" />
+    <Content Include="Content\images\web\othmar-ortner-357672.jpg" />
+    <Content Include="Content\images\web\post-fix-notation-bg.jpg" />
+    <Content Include="Content\images\web\prototype-chain-javascript.jpg" />
+    <Content Include="Content\images\web\react-js-logo-res.png" />
+    <Content Include="Content\images\web\reative-javasript-programming-bg.jpg" />
+    <Content Include="Content\images\web\red-black-tree-structure.jpg" />
+    <Content Include="Content\images\web\rsz_screen_shot_2018-02-08_at_62732_pm-150x67.png" />
+    <Content Include="Content\images\web\rsz_screen_shot_2018-02-08_at_62732_pm.png" />
+    <Content Include="Content\images\web\running-workouts-blog-bg.jpg" />
+    <Content Include="Content\images\web\running-workouts-blog-dark-bg.jpg" />
+    <Content Include="Content\images\web\serverless-category-bg.jpg" />
+    <Content Include="Content\images\web\service-worker-bg-img-1.png" />
+    <Content Include="Content\images\web\service-worker-bg-img.png" />
+    <Content Include="Content\images\web\simple-sorting-bg.jpg" />
+    <Content Include="Content\images\web\sky-background-web.jpg" />
+    <Content Include="Content\images\web\software-2646725_1920-225x300.png" />
+    <Content Include="Content\images\web\software-2646725_1920.png" />
+    <Content Include="Content\images\web\sorting-algorithms-bg.png" />
+    <Content Include="Content\images\web\Squarespace_logo.svg-full.png" />
+    <Content Include="Content\images\web\stacks-queues-data-structures-bg.jpg" />
+    <Content Include="Content\images\web\stars-background-web.jpg" />
+    <Content Include="Content\images\web\the-css-object-model.jpg" />
+    <Content Include="Content\images\web\tim-gouw-65021.jpg" />
+    <Content Include="Content\images\web\towers-of-hanoi-puzzle-recursion.jpg" />
+    <Content Include="Content\images\web\understanding-browser-mechanics-for-developers-bg.jpg" />
+    <Content Include="Content\images\web\understanding-the-module-pattern-javascript.jpg" />
+    <Content Include="Content\images\web\web-appplication-desktop-res.png" />
+    <Content Include="Content\images\web\web-appplication-desktop.png" />
+    <Content Include="Content\images\web\web-appplication-mobile-phone-sm.png" />
+    <Content Include="Content\images\web\web-appplication-mobile-tablet-sm.png" />
+    <Content Include="Content\images\web\web-design-ideas-bg-2.jpg" />
+    <Content Include="Content\images\web\web-design-ideas-bg-blue.jpg" />
+    <Content Include="Content\images\web\web-design-ideas-bg.jpg" />
+    <Content Include="Content\images\web\web-design-ideas-business-bg.jpg" />
+    <Content Include="Content\images\web\web-design-ideas-empty-pc-bg.jpg" />
+    <Content Include="Content\images\web\web-design-ideas-ux-ui-design-bg-2.jpg" />
+    <Content Include="Content\images\web\web-design-ideas-ux-ui-design-bg.jpg" />
+    <Content Include="Content\images\web\web-design-post-img-res-2.jpg" />
+    <Content Include="Content\images\web\web-design-post-img-sqaure.jpg" />
+    <Content Include="Content\images\web\web-design-post-img-thin-225x300.jpg" />
+    <Content Include="Content\images\web\web-design-post-img-thin.jpg" />
+    <Content Include="Content\images\web\web-design-post-img.jpg" />
+    <Content Include="Content\images\web\web-design-tips-blog-post-img-res.jpg" />
+    <Content Include="Content\images\web\web-design-tips-blog-post-img2 - Copy.jpg" />
+    <Content Include="Content\images\web\web-design-tips-blog-post-img2.jpg" />
+    <Content Include="Content\images\web\web-design-tips-blog-post-img4.jpg" />
+    <Content Include="Content\images\web\web-developer-computer-programmer-bg.jpg" />
+    <Content Include="Content\images\web\web-developer-computer-programmer-light-bg.jpg" />
+    <Content Include="Content\images\web\web-developer-tutorails-where-to-start-res.jpg" />
+    <Content Include="Content\images\web\web-development-articles-1.jpg" />
+    <Content Include="Content\images\web\web-development-articles-10-bg.png" />
+    <Content Include="Content\images\web\web-development-articles-10.jpg" />
+    <Content Include="Content\images\web\web-development-articles-11.jpg" />
+    <Content Include="Content\images\web\web-development-articles-12.jpg" />
+    <Content Include="Content\images\web\web-development-articles-13.jpg" />
+    <Content Include="Content\images\web\web-development-articles-14.jpg" />
+    <Content Include="Content\images\web\web-development-articles-2.jpg" />
+    <Content Include="Content\images\web\web-development-articles-7.jpg" />
+    <Content Include="Content\images\web\web-development-articles-8.jpg" />
+    <Content Include="Content\images\web\web-development-articles-9.png" />
+    <Content Include="Content\images\web\web-development-articles-post-res.jpg" />
+    <Content Include="Content\images\web\web-development-articles-sm.jpg" />
+    <Content Include="Content\images\web\web-development-asp-net-logo-trans-sm.png" />
+    <Content Include="Content\images\web\web-development-asp-net-logo-trans.png" />
+    <Content Include="Content\images\web\web-development-blogging-bg-theme-2.jpg" />
+    <Content Include="Content\images\web\web-development-blogging-bg-theme-res.jpg" />
+    <Content Include="Content\images\web\web-development-blogging-bg-theme.jpg" />
+    <Content Include="Content\images\web\web-development-character-encoding-keyboard-quiz.jpg" />
+    <Content Include="Content\images\web\web-development-character-encoding-keyboard.jpg" />
+    <Content Include="Content\images\web\web-development-children-bg.jpg" />
+    <Content Include="Content\images\web\web-development-design-ideas-bg.jpg" />
+    <Content Include="Content\images\web\web-development-design-ideas-res.jpg" />
+    <Content Include="Content\images\web\web-development-desk-workstation.jpg" />
+    <Content Include="Content\images\web\web-development-drawing-board-bg.jpg" />
+    <Content Include="Content\images\web\web-development-drupal-background.png" />
+    <Content Include="Content\images\web\web-development-icons-chrome-1.png" />
+    <Content Include="Content\images\web\web-development-icons-chrome-2.png" />
+    <Content Include="Content\images\web\web-development-icons-firefox-2.png" />
+    <Content Include="Content\images\web\web-development-icons-firefox-3.png" />
+    <Content Include="Content\images\web\web-development-icons-firefox-custom.png" />
+    <Content Include="Content\images\web\web-development-icons-thunderbird-1.png" />
+    <Content Include="Content\images\web\web-development-icons-thunderbird-2.png" />
+    <Content Include="Content\images\web\web-development-icons-youtube-custom.png" />
+    <Content Include="Content\images\web\web-development-keyboard-characters-1.jpg" />
+    <Content Include="Content\images\web\web-development-keyboard-characters-2.jpg" />
+    <Content Include="Content\images\web\web-development-media.png" />
+    <Content Include="Content\images\web\web-development-millenials.jpg" />
+    <Content Include="Content\images\web\web-development-mobile-projects-1-sm.png" />
+    <Content Include="Content\images\web\web-development-mobile-projects-2.jpg" />
+    <Content Include="Content\images\web\web-development-mobile-projects-4.jpg" />
+    <Content Include="Content\images\web\web-development-node-js-lg.png" />
+    <Content Include="Content\images\web\web-development-node-js.png" />
+    <Content Include="Content\images\web\web-development-planning-strategry-bg.jpg" />
+    <Content Include="Content\images\web\web-development-serverless-architecture-1.jpg" />
+    <Content Include="Content\images\web\web-development-serverless-architecture-xs.jpg" />
+    <Content Include="Content\images\web\web-development-shuffle-js-wordpress.post_.jpg" />
+    <Content Include="Content\images\web\web-development-site-mockup.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-develop.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-fireworks.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-fractal.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-laptop.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-mountain.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-workflow.png" />
+    <Content Include="Content\images\web\web-development-tutorials-2018-year.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-big-data.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-bit-coin-block-chain.png" />
+    <Content Include="Content\images\web\web-development-tutorials-block-chain.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-clean-code.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-cloud-computing-1.png" />
+    <Content Include="Content\images\web\web-development-tutorials-cloud-computing.png" />
+    <Content Include="Content\images\web\web-development-tutorials-cloud-graphic.png" />
+    <Content Include="Content\images\web\web-development-tutorials-connect-2.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-erd-sm.png" />
+    <Content Include="Content\images\web\web-development-tutorials-erd.png" />
+    <Content Include="Content\images\web\web-development-tutorials-eye.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-getting-started.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-graphic.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-grid-sm.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-grid.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-serverless-bg.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-social-media-connect.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-social.jpg" />
+    <Content Include="Content\images\web\web-development-tutorials-sql-lite.png" />
+    <Content Include="Content\images\web\web-development-tutorials-tweet.jpg" />
+    <Content Include="Content\images\web\web-development-wordperss-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-block-chain-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-blog-1.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-business-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-cloud-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-ios-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-iphone-2-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-iphone-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-laptop-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-moon-bg.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-seo-1-sm.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-seo-1.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-train-bg-1.jpg" />
+    <Content Include="Content\images\web\web-development-wordpress-train-bg-2.jpg" />
+    <Content Include="Content\images\web\web-mobile-phone-app.png" />
+    <Content Include="Content\images\web\web-social-media-development-3.jpg" />
+    <Content Include="Content\images\web\website-development-css.png" />
+    <Content Include="Content\images\web\website-development-design-seo.png" />
+    <Content Include="Content\images\web\website-development-html.png" />
+    <Content Include="Content\images\web\website-development-javascript-plain.png" />
+    <Content Include="Content\images\web\website-development-javascript.png" />
+    <Content Include="Content\images\web\website-plugin-development-2.jpg" />
+    <Content Include="Content\images\web\where-to-start.jpg" />
+    <Content Include="Content\images\web\windows-operating-system-dll.jpg" />
+    <Content Include="Content\images\web\wireless-source-img-lg-112x300.jpg" />
+    <Content Include="Content\images\web\wireless-source-img-lg.jpg" />
+    <Content Include="Content\images\web\wireless-source-img-sm.jpg" />
+    <Content Include="Content\images\web\wordperss-development-icon-res-final.png" />
+    <Content Include="Content\images\web\wordperss-development-icon-res-md.png" />
+    <Content Include="Content\images\web\wordperss-development-icon-res.png" />
+    <Content Include="Content\images\web\wordpress-2173519_1920.jpg" />
+    <Content Include="Content\images\web\wordpress-blog-post-img-res.jpg" />
+    <Content Include="Content\images\web\wordpress-com-vs-wordpress-org-comparison-web.png" />
+    <Content Include="Content\images\web\wordpress-core-load.png" />
+    <Content Include="Content\images\web\wordpress-development-2544896_1920.png" />
+    <Content Include="Content\images\web\wordpress-development-blogger.jpg" />
+    <Content Include="Content\images\web\wordpress-development-gravatar-img-bg.png" />
+    <Content Include="Content\images\web\wordpress-development-gravatar-tutorial-img.png" />
+    <Content Include="Content\images\web\wordpress-development-logo-1.jpg" />
+    <Content Include="Content\images\web\wordpress-development-logo-2.png" />
+    <Content Include="Content\images\web\wordpress-development-logo-3-293x300.jpg" />
+    <Content Include="Content\images\web\wordpress-development-logo-3.jpg" />
+    <Content Include="Content\images\web\wordpress-development-module-pattern-tutorial-img.png" />
+    <Content Include="Content\images\web\wordpress-development-post-img-original.jpg" />
+    <Content Include="Content\images\web\wordpress-development-super-power-tips-res.jpg" />
+    <Content Include="Content\images\web\wordpress-development-super-power-tips.jpg" />
+    <Content Include="Content\images\web\wordpress-icon-logo-1.jpg" />
+    <Content Include="Content\images\web\wordpress-icon-logo.jpg" />
+    <Content Include="Content\images\web\wordpress-logo-md.jpg" />
+    <Content Include="Content\images\web\wordpress-tutorial-bg-girl.jpg" />
+    <Content Include="Content\images\web\wordpress-tutorials-ipad-img.jpg" />
+    <Content Include="Content\images\web\wordpress-tutorials-water-img.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-custom-plugins-1.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-app-code-.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-app-code-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-app-code-sm.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-author-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-author-res.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-binary-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-developer-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-fantasy-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-gangster-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-gir-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-laptop-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-lego-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-logo-2-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-man-bg-1.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-man-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-people-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-people-res.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-urban-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-web-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-work-bg.jpg" />
+    <Content Include="Content\images\web\wordpress-web-development-tutorials-tips-work-res.jpg" />
+    <Content Include="Content\images\web\wp-gravatar-post-bg.png" />
+    <Content Include="Content\images\web\Xamarin-studio-web-development-logo-res.png" />
+    <Content Include="Content\images\web\Xcode-icon-post.png" />
+    <Content Include="Content\images\web\Xcode-icon.png" />
+    <Content Include="Content\images\white-logo-dark-sm.png" />
+    <Content Include="Content\images\white-logo-dark.png" />
     <Content Include="Content\jquery-ui.min.css" />
+    <Content Include="Content\linearicons.css" />
+    <Content Include="Content\magnific-popup.css" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\nice-select.css" />
+    <Content Include="Content\owl.carousel.css" />
     <Content Include="Content\themes\argon\css\argon.css" />
     <Content Include="Content\themes\argon\css\argon.min.css" />
     <Content Include="Content\themes\argon\img\brand\blue.png" />
@@ -394,8 +922,6 @@
     <Content Include="Content\themes\argon\vendor\onscreen\onscreen.min.js" />
     <Content Include="Content\themes\argon\vendor\popper\popper.js" />
     <Content Include="Content\themes\argon\vendor\popper\popper.min.js" />
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\author.jpg" />
     <Content Include="Content\images\developer-start-bottom-logo.png" />
     <Content Include="Content\images\developer-start-logo-header-1-res.png" />
@@ -451,13 +977,16 @@
     <Content Include="Content\themes\bootstraplight\assets\js\plugins\bootstrap-switch.js" />
     <Content Include="Content\themes\bootstraplight\assets\js\plugins\chartist.min.js" />
     <Content Include="Content\themes\bootstraplight\assets\js\plugins\nouislider.min.js" />
+    <Content Include="Content\vendor\bootstrap.css" />
     <Content Include="favicon.ico" />
-    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\Linearicons-Free.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\bootstrap.bundle.js" />
+    <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="ApplicationInsights.config">
@@ -694,23 +1223,77 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminNavigation.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminSidebar.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_AdminFooter.cshtml" />
+    <Content Include="Content\images\archive\.DS_Store" />
+    <Content Include="Content\images\blog\.DS_Store" />
+    <Content Include="Content\images\category\.DS_Store" />
+    <Content Include="Content\images\posts\.DS_Store" />
+    <Content Include="fonts\Linearicons-Free.eot" />
+    <Content Include="fonts\Linearicons-Free.ttf" />
+    <Content Include="fonts\Linearicons-Free.woff" />
+    <Content Include="fonts\Linearicons-Free.woff2" />
+    <Content Include="Scripts\easing.min.js" />
+    <Content Include="Scripts\esm\popper-utils.js" />
+    <Content Include="Scripts\esm\popper-utils.min.js" />
+    <Content Include="Scripts\esm\popper.js" />
+    <Content Include="Scripts\esm\popper.min.js" />
+    <Content Include="Scripts\esm\popper.min.js.map" />
+    <Content Include="Scripts\esm\popper.js.map" />
+    <Content Include="Scripts\esm\popper-utils.min.js.map" />
+    <Content Include="Scripts\esm\popper-utils.js.map" />
+    <Content Include="Scripts\bootstrap.min.js.map" />
+    <Content Include="Scripts\bootstrap.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.min.js.map" />
+    <Content Include="Scripts\bootstrap.bundle.js.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\bootstrap-reboot.css.map" />
+    <Content Include="Content\bootstrap-grid.min.css.map" />
+    <Content Include="Content\bootstrap-grid.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\clockpicker.js" />
-    <Content Include="Scripts\jquery-1.10.2.js" />
-    <Content Include="Scripts\jquery-1.10.2.min.js" />
-    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\hoverIntent.js" />
+    <Content Include="Scripts\jquery-2.2.4.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\jquery-ui.min.js" />
+    <Content Include="Scripts\jquery.ajaxchimp.min.js" />
     <Content Include="Scripts\jquery.bxslider.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.magnific-popup.min.js" />
+    <Content Include="Scripts\jquery.nice-select.min.js" />
+    <Content Include="Scripts\jquery.tabs.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout-3.4.2.debug.js" />
     <Content Include="Scripts\knockout-3.4.2.js" />
+    <Content Include="Scripts\mail-script.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\popper-utils.js" />
+    <Content Include="Scripts\popper-utils.min.js" />
+    <Content Include="Scripts\popper.js" />
+    <Content Include="Scripts\popper.min.js" />
     <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\scripts.js" />
+    <Content Include="Scripts\slick.js" />
+    <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\superfish.min.js" />
+    <Content Include="Scripts\umd\popper-utils.js" />
+    <Content Include="Scripts\umd\popper-utils.min.js" />
+    <Content Include="Scripts\umd\popper.js" />
+    <Content Include="Scripts\umd\popper.min.js" />
+    <Content Include="Scripts\waypoints.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -764,17 +1347,31 @@
     <Content Include="Views\Shared\_StaticHeader.cshtml" />
     <Content Include="Views\Shared\_AccountLayout.cshtml" />
     <Content Include="Views\Shared\_AuthorTitle.cshtml" />
+    <Content Include="Views\Shared\_SingleLayout.cshtml" />
+    <Content Include="Views\Shared\_BlogHeader.cshtml" />
+    <Content Include="Views\Blog\_BlogIndex.cshtml" />
+    <Content Include="Views\Shared\_BlogHead.cshtml" />
+    <Content Include="Views\Blog\Post.cshtml" />
+    <Content Include="Views\Shared\_PostLayout.cshtml" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Scripts\umd\popper.min.js.map" />
+    <Content Include="Scripts\umd\popper.js.map" />
+    <Content Include="Scripts\umd\popper-utils.min.js.map" />
+    <Content Include="Scripts\umd\popper-utils.js.map" />
+    <Content Include="Scripts\README.md" />
+    <Content Include="Scripts\popper.min.js.map" />
+    <Content Include="Scripts\popper.js.map" />
+    <Content Include="Scripts\popper-utils.min.js.map" />
+    <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Shared\_BlogFooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
-    <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="DataContexts\BlogMigrations\201812282123412_Initial Create.resx">
@@ -792,15 +1389,28 @@
     <EmbeddedResource Include="DataContexts\BlogMigrations\201903141959033_MoreModels1.resx">
       <DependentUpon>201903141959033_MoreModels1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201909231711441_UpdatedPosts.resx">
+      <DependentUpon>201909231711441_UpdatedPosts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201909232041487_UpdatedAuthors.resx">
+      <DependentUpon>201909232041487_UpdatedAuthors.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
@@ -828,9 +1438,19 @@
     <PropertyGroup>
       <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
     </PropertyGroup>
-    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
-    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.3.2.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets'))" />
   </Target>
+  <Import Project="..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.10.0\build\Microsoft.ApplicationInsights.DependencyCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.10.0\build\Microsoft.ApplicationInsights.PerfCounterCollector.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.WindowsServer.2.10.0\build\Microsoft.ApplicationInsights.WindowsServer.targets')" />
+  <Import Project="..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets" Condition="Exists('..\packages\Microsoft.ApplicationInsights.Web.2.10.0\build\Microsoft.ApplicationInsights.Web.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

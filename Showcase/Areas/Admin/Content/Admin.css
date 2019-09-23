@@ -1,12 +1,12 @@
 ﻿
-body .s-admin-wrapper .logo img {
+body .ds-admin-wrapper .logo img {
     width:170px;
 }
 
 body a {
     color:#1e87f0;
 }
-body .s-create-btn a {
+body .ds-create-btn a {
     padding: 8px 16px;
 }
 
@@ -18,7 +18,7 @@ body #ShowcaseDataTable {
     margin-top:30px;
 }
 
-body .s-submit-btn {
+body .ds-submit-btn {
     text-align: center;
     white-space: nowrap;
     vertical-align: middle;
@@ -41,12 +41,14 @@ body .s-submit-btn {
     color: #1e87f0;
 }
 
-html body .s-submit-col {
+html body .ds-submit-col {
     padding-left:0px;
 }
 
 body #ShowcaseDataTable_filter .form-control, body #ShowcaseDataTable_length select {
     margin:0px 10px;
+    height:auto;
+    padding:6px;
 }
 
 body #ShowcaseDataTable_length {
@@ -57,10 +59,9 @@ body .table tbody + tbody {
     border:0px;
 }
 
-body .s-create-btn {
+body .ds-create-btn {
     text-align: center;
     white-space: nowrap;
-    vertical-align: middle;
     height: 40px;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -74,14 +75,19 @@ body .s-create-btn {
     background-color: transparent;
     font-weight: 400;
     padding: 0px;
-    margin: 40px 0px;
+    position:relative;
+    bottom:6px;
+}
+
+body .ds-title-row {
+    padding-bottom:60px;
 }
 
 body a:hover, body a:focus, body a:active {
     color:#1e5799;
 }
 
-body .s-admin-wrapper .navbar-nav li a {
+body .ds-admin-wrapper .navbar-nav li a {
     color: #888888;
     padding: 10px 15px;
     position: relative;
@@ -89,7 +95,7 @@ body .s-admin-wrapper .navbar-nav li a {
     line-height: 1.2;
 }
 
-body .s-admin-title {
+body .ds-admin-title {
     font-size: 2rem;
     margin-top:14px;
 }
@@ -108,28 +114,28 @@ body .clockpicker .clockpicker-button {
     color: black;
 }
 
-body .s-admin-wrapper .card-body-lg {
+body .ds-admin-wrapper .card-body-lg {
     padding:40px;
 }
 
-body .s-timer-box {
+body .ds-timer-box {
     border:0px;
 }
 
-body .s-admin-wrapper .panel-title, body .s-admin-wrapper h2{
+body .ds-admin-wrapper .panel-title, body .ds-admin-wrapper h2{
     font-size:1.6rem;
     margin:0px;
 }
 
-body .s-description-box {
+body .ds-description-box {
     height:200px;
 }
 
-body .s-actions-col a {
+body .ds-actions-col a {
     margin:0px 4px;
 }
 
-html body .s-admin-wrapper .sidebar:after, html body>.navbar-collapse:after{
+html body .ds-admin-wrapper .sidebar:after, html body>.navbar-collapse:after{
     background: -moz-linear-gradient(top, #1e5799 0%, #003087 0%, #1e87f0 100%);
     background: -webkit-linear-gradient(top, #1e5799 0%,#003087 0%,#1e87f0 100%);
     background: linear-gradient(to bottom, #1e5799 0%,#003087 0%,#1e87f0 100%);

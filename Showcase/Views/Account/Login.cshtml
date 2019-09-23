@@ -6,13 +6,13 @@
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "s-login-form", @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @id = "ds-login-form", @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     
         <div class="form-group">
-            <p class="s-error-message">
+            <p class="ds-error-message">
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </p>
             <div class="input-group input-group-alternative mb-3">
@@ -24,7 +24,7 @@
         </div>
 
         <div class="form-group">
-            <p class="s-error-message">
+            <p class="ds-error-message">
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             </p>
             <div class="input-group input-group-alternative">
@@ -43,17 +43,17 @@
         </div>
         <div class="form-group">
             <div class="text-center">
-                <button id="s-login-submit" type="submit" value="Log in" class="btn">Login</button>
+                <button id="ds-login-submit" type="submit" value="Log in" class="btn">Login</button>
             </div>
         </div>
         <div class="row">
             <div class="col-md-6">
-                <p class="s-login-links">
+                <p class="ds-login-links">
                     @Html.ActionLink("Create Account", "Register")
                 </p>
             </div>
             <div class="col-md-6">
-                <p class="s-login-links">
+                <p class="ds-login-links">
                     @Html.ActionLink("Forgot Password?", "ForgotPassword")
                 </p>
             </div>

@@ -4,13 +4,13 @@
     Layout = "~/Views/Shared/_AccountLayout.cshtml";
 }
 
-    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @id = "s-login-form", @class = "form-horizontal", role = "form" }))
+    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @id = "ds-login-form", @class = "form-horizontal", role = "form" }))
     {
         @Html.AntiForgeryToken()
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            <p class="s-error-message">
+            <p class="ds-error-message">
                 @Html.ValidationMessageFor(m => m.Name, "", new { @class = "text-danger" })
             </p>
             <div class="input-group input-group-alternative mb-3">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            <p class="s-error-message">
+            <p class="ds-error-message">
                 @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             </p>
             <div class="input-group input-group-alternative mb-3">
@@ -34,7 +34,7 @@
         </div>
 
         <div class="form-group">
-            <p class="s-error-message">
+            <p class="ds-error-message">
                 @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
             </p>
             <div class="input-group input-group-alternative">
@@ -46,7 +46,7 @@
         </div>
 
         <div class="form-group">
-            <p class="s-error-message">
+            <p class="ds-error-message">
                 @Html.ValidationMessageFor(m => m.ConfirmPassword, "", new { @class = "text-danger" })
             </p>
             <div class="input-group input-group-alternative">
@@ -59,7 +59,7 @@
 
         <div class="form-group">
             <div class="text-center">
-                <button id="s-login-submit" type="submit" class="btn" value="Register">Create account</button>
+                <button id="ds-login-submit" type="submit" class="btn" value="Register">Create account</button>
             </div>
         </div>
     }

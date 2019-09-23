@@ -5,11 +5,17 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="row ds-title-row">
+    <div class="col-sm-1">
+        <h2 class="ds-admin-title">Index</h2>
+    </div>
+    <div class="col-sm-11">
+        <button class="ds-create-btn">
+            @Html.ActionLink("Create New", "Create")
+        </button>
+    </div>
+</div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
 <table id="ShowcaseDataTable" class="table">
     <tr>
         <th>

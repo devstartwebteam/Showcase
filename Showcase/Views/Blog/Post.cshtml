@@ -1,0 +1,56 @@
+﻿@model Showcase.Models.Post
+
+@{
+    Layout = "~/Views/Shared/_PostLayout.cshtml";
+    string imageUrl = "data:image/png;base64," + Convert.ToBase64String(Model.PostImage);
+}
+
+<section id="ds-left-title">
+    <div class="container">
+        <div class="ds-blog-card ds-left-title-wrap">
+            <div class="ds-author-details h6 font-weight-300">
+                @Html.Partial("_AuthorBoxLeft")
+            </div>
+            <h1 class="ds-post-title">
+                @Model.PostName
+            </h1>
+        </div>
+    </div>
+</section>
+
+<main class="profile-page">
+    <section class="section-profile-cover section-shaped my-0">
+        <!-- Circles background -->
+        <div class="shape shape-style-1 alpha-4" style="background-image:url(@imageUrl)">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <!-- SVG separator -->
+        <div class="separator separator-bottom separator-skew">
+            <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Start content section -->
+    <section id="ds-blog-content" class="ds-post-content">
+        <div class="container ds-content-container">
+            <div class="mt-5 py-5 border-top text-center">
+                <div class="row justify-content-center">
+                    <div class="col-lg-9">
+                        <h2 class="ds-post-subtitle">@Model.PostName</h2>
+                        <p class="ds-post-text">
+                            @Html.Raw(Model.PostContent);
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

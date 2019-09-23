@@ -50,14 +50,19 @@ namespace Showcase.Areas.Admin.Controllers
         // POST: Posts/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostContent,ViewCount,InActive,Active")] Post post)
+        [HttpPost, ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "PostId,PostName,PostImageUpload,PostUrl,PostContent,ViewCount,InActive,Active")] Post post)
         {
             if (ModelState.IsValid)
             {
+                Author author = db.Authors.FirstOrDefault();
+                post.Author = author;
+                post.GetImageBytes(post.PostImageUpload);
+                post.Created = DateTime.Now;
+                post.LastModified = DateTime.Now;
                 db.Posts.Add(post);
                 db.SaveChanges();
+
                 return RedirectToAction("Index");
             }
 
@@ -71,7 +76,8 @@ namespace Showcase.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+
+            Post post = db.Posts.Include(a => a.Author).FirstOrDefault(a => a.PostId == id);
             if (post == null)
             {
                 return HttpNotFound();

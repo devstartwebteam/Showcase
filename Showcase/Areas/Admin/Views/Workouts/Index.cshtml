@@ -5,65 +5,70 @@
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
 
-<h2>Index</h2>
-
-<button class="s-create-btn">
-    @Html.ActionLink("Create New", "Create")
-</button>
-<div class="container-fluid">
-    <table id="ShowcaseDataTable" class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkoutDate)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkoutTitle)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkoutType)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkoutLength)
-                </th>
-                <th>
-                    @Html.DisplayNameFor(model => model.WorkoutDistance)
-                </th>
-                <th>
-                    @Html.DisplayName("Actions")
-                </th>
-            </tr>
-        </thead>
-
-        @foreach (var item in Model)
-        {
-            string shortDate = item.WorkoutDate.ToShortDateString();
-            string miles = item.WorkoutDistance.ToString() + " miles";
-            <tbody>
-                <tr>
-                    <td>
-                        @shortDate
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.WorkoutTitle)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.WorkoutType)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.WorkoutLength)
-                    </td>
-                    <td>
-                        @miles
-                    </td>
-                    <td class="s-actions-col">
-                        @Html.ActionLink("Edit", "Edit", new { id = item.WorkoutId }) |
-                        @Html.ActionLink("Details", "Details", new { id = item.WorkoutId }) |
-                        @Html.ActionLink("Delete", "Delete", new { id = item.WorkoutId })
-                    </td>
-                </tr>
-            </tbody>
-        }
-
-    </table>
+<div class="row ds-title-row">
+    <div class="col-sm-1">
+        <h2 class="ds-admin-title">Index</h2>
+    </div>
+    <div class="col-sm-11">
+        <button class="ds-create-btn">
+            @Html.ActionLink("Create New", "Create")
+        </button>
+    </div>
 </div>
+    <div class="container-fluid">
+        <table id="ShowcaseDataTable" class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkoutDate)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkoutTitle)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkoutType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkoutLength)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.WorkoutDistance)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Actions")
+                    </th>
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                string shortDate = item.WorkoutDate.ToShortDateString();
+                string miles = item.WorkoutDistance.ToString() + " miles";
+                <tbody>
+                    <tr>
+                        <td>
+                            @shortDate
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkoutTitle)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkoutType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.WorkoutLength)
+                        </td>
+                        <td>
+                            @miles
+                        </td>
+                        <td class="ds-actions-col">
+                            @Html.ActionLink("Edit", "Edit", new { id = item.WorkoutId }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.WorkoutId }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.WorkoutId })
+                        </td>
+                    </tr>
+                </tbody>
+            }
+
+        </table>
+    </div>

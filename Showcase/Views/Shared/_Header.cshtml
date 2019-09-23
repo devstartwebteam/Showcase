@@ -12,9 +12,7 @@
                 <div class="navbar-collapse-header">
                     <div class="row">
                         <div class="col-6 collapse-brand">
-                            <a href="../index.html">
-                                <img src="/Content/assets/img/brand/blue.png">
-                            </a>
+                         
                         </div>
                         <div class="col-6 collapse-close">
                             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -24,12 +22,12 @@
                         </div>
                     </div>
                 </div>
-                <ul class="s-primary-nav navbar-nav navbar-nav-hover align-items-lg-center">
+                <ul class="ds-primary-nav navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item dropdown">
-                        
+
                         @Html.ActionLink("Blog", "Index", routeValues: "Blog", htmlAttributes: new { @class = "nav-link", /*data_toggle = "dropdown",*/ href = "/Blog/", role = "button" })
-                            <i class="ni ni-ui-04 d-lg-none"></i>
-                        @Html.Partial("_DropDownLarge")
+                        <i class="ni ni-ui-04 d-lg-none"></i>
+                        @*@Html.Partial("_DropDownLarge")*@
                     </li>
                     <li class="nav-item dropdown">
                         @Html.ActionLink("About", "About", routeValues: "Home", htmlAttributes: new { @class = "nav-link", data_toggle = "dropdown", href="#", role="button" })

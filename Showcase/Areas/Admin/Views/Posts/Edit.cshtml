@@ -1,4 +1,5 @@
-﻿@model Showcase.Models.Post
+﻿@using Showcase.Helpers
+@model Showcase.Models.Post
 
 @{
     ViewBag.Title = "Posts";
@@ -40,6 +41,15 @@
                 @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "text-danger" })
             </div>
         </div>
+        
+        <div class="form-group">
+            @Html.Label("Post Image", htmlAttributes: new { @class = "control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.PostImageUpload, null, new { @class = "form-control", type = "file" })
+                @Html.ValidationMessageFor(model => model.PostImageUpload, "", new { @class = "text-danger" }) <br />
+                @Html.Image(Model.PostImage)
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.LabelFor(model => model.ViewCount, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -70,7 +80,7 @@
         </div>
 
         <div class="form-group">
-            <div class="col-md-offset-2 col-md-10 s-submit-col">
+            <div class="col-md-offset-2 col-md-10 ds-submit-col">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>
         </div>

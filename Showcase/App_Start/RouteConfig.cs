@@ -13,6 +13,12 @@ namespace Showcase
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            /*routes.MapRoute(
+                name: "Post",
+                url: "{controller}/{action}/{title}",
+                defaults: new { controller = "Blog", action = "Index", title = UrlParameter.Optional }
+            );*/
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

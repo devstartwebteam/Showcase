@@ -236,11 +236,27 @@
     <Compile Include="DataContexts\BlogMigrations\201909232041487_UpdatedAuthors.Designer.cs">
       <DependentUpon>201909232041487_UpdatedAuthors.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201909241607060_-UpdatedMetaSEO.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201909241607060_-UpdatedMetaSEO.Designer.cs">
+      <DependentUpon>201909241607060_-UpdatedMetaSEO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201909241610380_CheckIdentity.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201909241610380_CheckIdentity.Designer.cs">
+      <DependentUpon>201909241610380_CheckIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201909272213145_UpdatedModelAgain.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201909272213145_UpdatedModelAgain.Designer.cs">
+      <DependentUpon>201909272213145_UpdatedModelAgain.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BlogMigrations\BlogConfiguration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.Designer.cs">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201909241611498_CheckIdentity.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201909241611498_CheckIdentity.Designer.cs">
+      <DependentUpon>201909241611498_CheckIdentity.cs</DependentUpon>
     </Compile>
     <Compile Include="DataContexts\IdentityMigrations\IdentityConfiguration.cs" />
     <Compile Include="Global.asax.cs">
@@ -1365,6 +1381,8 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Shared\_BlogFooter.cshtml" />
+    <Content Include="Views\Shared\_CheckBoxList.cshtml" />
+    <Content Include="Areas\Admin\Views\Posts\_Knockout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1395,8 +1413,20 @@
     <EmbeddedResource Include="DataContexts\BlogMigrations\201909232041487_UpdatedAuthors.resx">
       <DependentUpon>201909232041487_UpdatedAuthors.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201909241607060_-UpdatedMetaSEO.resx">
+      <DependentUpon>201909241607060_-UpdatedMetaSEO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201909241610380_CheckIdentity.resx">
+      <DependentUpon>201909241610380_CheckIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201909272213145_UpdatedModelAgain.resx">
+      <DependentUpon>201909272213145_UpdatedModelAgain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201909241611498_CheckIdentity.resx">
+      <DependentUpon>201909241611498_CheckIdentity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,19 @@
+﻿@model Showcase.Helpers.CheckboxList
+
+@if (Model.List != null)
+{
+    <ul class="@Model.CssClasses ">
+
+        @foreach (var item in Model.List)
+        {
+            <li>
+                @{
+                    string label = item.Text;
+                }
+                <input class="" type="checkbox" name="@Model.PropertyName" value="@item.Value" @(item.Selected ? "checked" : "") /> @label
+            </li>
+        }
+    </ul>
+}
+
+

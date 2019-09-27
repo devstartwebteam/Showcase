@@ -6,6 +6,12 @@ using System.Web.Mvc;
 
 namespace Showcase.Helpers
 {
+    public class CheckboxList
+    {
+        public MultiSelectList List { get; set; }
+        public string PropertyName { get; set; }
+        public string CssClasses { get; set; }
+    }
     public static class ShowcaseHtmlHelpers
     {
         public static MvcHtmlString Image(this HtmlHelper html, byte[] image)
@@ -17,6 +23,16 @@ namespace Showcase.Helpers
             }
 
             return new MvcHtmlString("");
+        }
+
+        public static CheckboxList GetCheckboxList(string property, string cssClasses, MultiSelectList list)
+        {
+            CheckboxList checkboxList = new CheckboxList();
+            checkboxList.PropertyName = property;
+            checkboxList.List = list;
+            checkboxList.CssClasses = cssClasses;
+
+            return checkboxList;
         }
     }
 }

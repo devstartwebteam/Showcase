@@ -44,7 +44,8 @@ namespace Showcase.Areas.Admin.Controllers
         // GET: Posts/Create
         public ActionResult Create()
         {
-            return View();
+            Post post = new Post();
+            return View(post);
         }
 
         // POST: Posts/Create

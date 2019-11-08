@@ -12,17 +12,27 @@ namespace Showcase
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            //RouteTable.Routes.Remove(RouteTable.Routes["Admin"]);
 
-            /*routes.MapRoute(
+            routes.MapRoute(
                 name: "Post",
                 url: "{controller}/{action}/{title}",
-                defaults: new { controller = "Blog", action = "Index", title = UrlParameter.Optional }
-            );*/
+                defaults: new { controller = "Blog", action = "Post", title = UrlParameter.Optional },
+                namespaces: new string[] { "Showcase.Controllers" }
+            );
+
+            routes.MapRoute(
+                name: "Blog",
+                url: "{controller}/{action}",
+                defaults: new { controller = "Blog", action = "Index" },
+                namespaces: new string[] { "Showcase.Controllers" }
+            );
 
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "Showcase.Controllers" }
             );
         }
     }

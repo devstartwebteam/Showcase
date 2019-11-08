@@ -11,6 +11,8 @@ using Showcase.Models;
 
 namespace Showcase.Areas.Admin.Controllers
 {
+    [Authorize]
+    [RouteArea("Admin", AreaPrefix = "Admin")]
     public class AlbumsController : Controller
     {
         private BlogDb db = new BlogDb();

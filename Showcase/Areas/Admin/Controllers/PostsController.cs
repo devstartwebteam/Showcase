@@ -9,13 +9,15 @@ using System.Web.Mvc;
 using Showcase.Models;
 using Showcase.Helpers;
 using System.Threading.Tasks;
+using System.Web.Helpers;
 using Showcase.ViewModels;
 using Showcase.DataContexts;
+using ShowcaseResources;
 
 namespace Showcase.Areas.Admin.Controllers
 {
     [Authorize]
-    [RouteArea("Admin", AreaPrefix = "")]
+    [RouteArea("Admin", AreaPrefix = "Admin")]
     public class PostsController : Controller
     {
         private BlogDb db = new BlogDb();
@@ -52,22 +54,25 @@ namespace Showcase.Areas.Admin.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,PostName,PostImageUpload,PostUrl,PostContent,ViewCount,InActive,Active")] Post post)
+        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId")] Post vm)
         {
             if (ModelState.IsValid)
             {
+                vm.PostUrl = vm.PostUrl.ToLower();
                 Author author = db.Authors.FirstOrDefault();
-                post.Author = author;
-                post.GetImageBytes(post.PostImageUpload);
-                post.Created = DateTime.Now;
-                post.LastModified = DateTime.Now;
-                db.Posts.Add(post);
+                vm.Author = author;
+                vm.GetImageBytes(vm.PostImageUpload);
+                vm.Created = DateTime.Now;
+                vm.LastModified = DateTime.Now;
+                db.Posts.Add(vm);
                 db.SaveChanges();
 
+                TempData["StatusMessage"] = Resources.CreatePostSuccess;
                 return RedirectToAction("Index");
             }
 
-            return View(post);
+            ModelState.AddModelError(string.Empty, Resources.CreatePostFailed);
+            return View(vm);
         }
 
         // GET: Posts/Edit/5

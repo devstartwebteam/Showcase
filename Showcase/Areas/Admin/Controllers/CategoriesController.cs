@@ -12,7 +12,7 @@ using Showcase.Models;
 namespace Showcase.Areas.Admin.Controllers
 {
     [Authorize]
-    [RouteArea("Admin", AreaPrefix = "")]
+    [RouteArea("Admin", AreaPrefix = "Admin")]
     public class CategoriesController : Controller
     {
         private BlogDb db = new BlogDb();

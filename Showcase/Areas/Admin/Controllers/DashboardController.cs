@@ -10,7 +10,7 @@ using System.Web.Mvc;
 namespace Showcase.Areas.Admin.Controllers
 {
     [Authorize]
-    [RouteArea("Admin", AreaPrefix = "")]
+    [RouteArea("Admin", AreaPrefix = "Admin")]
     public class DashboardController : Controller
     {
         // GET: Admin/Dashboard

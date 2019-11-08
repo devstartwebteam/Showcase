@@ -2,7 +2,7 @@
 
 @if (Model.List != null)
 {
-    <ul class="@Model.CssClasses ">
+    <ul class="ds-checkbox-list @Model.CssClasses ">
 
         @foreach (var item in Model.List)
         {
@@ -10,7 +10,19 @@
                 @{
                     string label = item.Text;
                 }
-                <input class="" type="checkbox" name="@Model.PropertyName" value="@item.Value" @(item.Selected ? "checked" : "") /> @label
+                <div class="row">
+                    <div class="col-2">
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="@Model.PropertyName" value="@item.Value" @(item.Selected ? "checked" : "")/>
+                                <span class="form-check-sign"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="col-10">
+                        <p class="s-checkbox-label">@label</p>
+                    </div>
+                </div>
             </li>
         }
     </ul>

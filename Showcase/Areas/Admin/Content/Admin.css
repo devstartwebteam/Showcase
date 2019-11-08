@@ -1,23 +1,38 @@
-﻿
-body .ds-admin-wrapper .logo img {
+﻿body .ds-admin-wrapper .logo img {
     width:170px;
 }
-
 body a {
     color:#1e87f0;
 }
 body .ds-create-btn a {
     padding: 8px 16px;
 }
-
-body #ShowcaseDataTable_wrapper {
-    display:block;
+body .ds-default-btn:hover {
+    cursor: pointer;
 }
-
+body .dataTable td a {
+    margin: 0px 10px;
+}
+body .ds-default-btn {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+}
+body .ds-status-success {
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+}k
+body #ShowcaseDataTable_wrapper {
+    display: block;
+}
 body #ShowcaseDataTable {
     margin-top:30px;
 }
-
+body .s-checkbox-label {
+    line-height: 2.25rem;
+    margin-bottom: 0px;
+}
 body .ds-submit-btn {
     text-align: center;
     white-space: nowrap;
@@ -80,7 +95,10 @@ body .ds-create-btn {
 }
 
 body .ds-title-row {
-    padding-bottom:60px;
+    padding-bottom:20px;
+}
+body .ds-admin-form {
+    margin-top: 30px;
 }
 
 body a:hover, body a:focus, body a:active {
@@ -122,9 +140,26 @@ body .ds-timer-box {
     border:0px;
 }
 
-body .ds-admin-wrapper .panel-title, body .ds-admin-wrapper h2{
-    font-size:1.6rem;
-    margin:0px;
+body .mce-tinymce, body .mce-tinymce #ShowcaseEditor_ifr {
+    min-height: 400px;
+    box-shadow: none;
+}
+
+body .mce-tinymce {
+    background-color: #FFFFFF;
+    border: 1px solid #E3E3E3;
+    border-radius: 4px;
+    color: #565656;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+body .ds-checkbox-list {
+    list-style-type: none;
+    padding-left: 0px;
+}
+body .ds-admin-wrapper .panel-title, body .ds-admin-wrapper h2 {
+    font-size: 1.6rem;
+    margin: 0px;
 }
 
 body .ds-description-box {

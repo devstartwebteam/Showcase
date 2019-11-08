@@ -13,36 +13,35 @@ namespace Showcase.Models
     public class Post
     {
         private BlogDb db = new BlogDb();
-        public Post()
-        {
-            AuthorList = db.Authors.ToDictionary(a => a.AuthorId, a => a.UserName);
-            CategoryMultiSelectList = GetCategoryMultiSelectList(db.Categories.ToList());
-            TagMultiSelectList = GetTagMultiSelectList(db.Tags.ToList());
-        }
 
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostId { get; set; }
 
         [Display(Name = "Post Name")]
+        [Required]
         public string PostName { get; set; }
 
         [Display(Name = "Post Url")]
+        [Required]
         public string PostUrl { get; set; }
 
         public byte[] PostImage { get; set; }
 
         [NotMapped]
         [Display(Name = "Featured Image")]
+        [Required]
         public HttpPostedFileBase PostImageUpload { get; set; }
 
         [AllowHtml]
+        [Display(Name = "Post Content")]
+        [Required]
         public string PostContent { get; set; }
         public int ViewCount { get; set; }
         public int Likes { get; set; }
         public bool Active { get; set; }
         public DateTime Created { get; set; }
         public DateTime LastModified { get; set; }
-        public virtual Template Template { get; set; }
         public Author Author { get; set; }
 
         [NotMapped]
@@ -60,9 +59,26 @@ namespace Showcase.Models
 
         [NotMapped]
         public MultiSelectList TagMultiSelectList { get; set; }
+
+        [NotMapped]
+        public MultiSelectList LocationMultiSelectList { get; set; }
+
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<PostLocation> PostLocations { get; set; }
+        public virtual Template Template { get; set; }
         public MetaSEO MetaSEO { get; set; }
+        public Post()
+        {
+            Categories = new HashSet<Category>();
+            Tags = new HashSet<Tag>();
+            PostLocations = new HashSet<PostLocation>();
+
+            AuthorList = db.Authors.ToDictionary(a => a.AuthorId, a => a.UserName);
+            CategoryMultiSelectList = GetCategoryMultiSelectList(db.Categories.ToList());
+            TagMultiSelectList = GetTagMultiSelectList(db.Tags.ToList());
+            LocationMultiSelectList = GetLocationMultiSelectList(db.PostLocations.ToList());
+        }
 
         public void GetImageBytes(HttpPostedFileBase imageUpload)
         {
@@ -98,6 +114,14 @@ namespace Showcase.Models
         public MultiSelectList GetTagMultiSelectList(List<Tag> list, int[] ids = null)
         {
             Dictionary<int, string> dictionary = list.ToDictionary(a => a.TagId, b => b.TagName);
+            MultiSelectList selectList = new MultiSelectList(dictionary, "Key", "Value", ids);
+
+            return selectList;
+        }
+
+        public MultiSelectList GetLocationMultiSelectList(List<PostLocation> list, int[] ids = null)
+        {
+            Dictionary<int, string> dictionary = list.ToDictionary(a => a.PostLocationId, b => b.PostLocationName);
             MultiSelectList selectList = new MultiSelectList(dictionary, "Key", "Value", ids);
 
             return selectList;

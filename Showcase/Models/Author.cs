@@ -11,14 +11,15 @@ namespace Showcase.Models
     public class Author
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AuthorId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string UserName { get; set; }
         public string NickName { get; set; }
         public string Location { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
         public int Age { get; set; }
 
         [NotMapped]

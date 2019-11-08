@@ -1,5 +1,4 @@
 ﻿@model IEnumerable<Showcase.Models.Post>
-
 @{
     ViewBag.Title = "Posts";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
@@ -14,6 +13,9 @@
             @Html.ActionLink("Create New", "Create")
         </button>
     </div>
+    
+    @Html.Partial("_StatusMessage", TempData["StatusMessage"])
+    
 </div>
 
 <table id="ShowcaseDataTable" class="table">

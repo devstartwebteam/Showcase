@@ -13,17 +13,31 @@ namespace Showcase.Controllers
         private BlogDb db = new BlogDb();
 
         // GET: Blog
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        public ActionResult Post(int id)
+        [HttpGet]
+        public ActionResult Post(string title)
         {
             Post vm = new Post();
-            vm = db.Posts.FirstOrDefault(a => a.PostId == id);
+            vm = db.Posts.FirstOrDefault(a => a.PostUrl == title.ToLower());
+
+            if (vm == null)
+            {
+                ModelState.AddModelError("NullPost", "No post exists with that title");
+                return RedirectToActionPermanent("NotFound", "Blog", null);
+            }
 
             return View(vm);
+        }
+
+        [HttpGet]
+        public ActionResult NotFound()
+        {
+            return View();
         }
     }
 }

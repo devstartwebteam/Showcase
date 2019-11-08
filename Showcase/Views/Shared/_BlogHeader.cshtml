@@ -25,17 +25,17 @@
                 <ul class="ds-primary-nav navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item dropdown">
 
-                        @Html.ActionLink("Blog", "Index", routeValues: "Blog", htmlAttributes: new { @class = "nav-link", /*data_toggle = "dropdown",*/ href = "/Blog/", role = "button" })
+                        @Html.ActionLink("Blog", "Index", "Blog", routeValues: null, htmlAttributes: new { id = "loginLink", @class="nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-ui-04 d-lg-none"></i>
                         @*@Html.Partial("_DropDownLarge")*@
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("About", "About", routeValues: "Home", htmlAttributes: new { @class = "nav-link", data_toggle = "dropdown", href = "#", role = "button" })
+                        @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-collection d-lg-none"></i>
                         @Html.Partial("_DropDownSmall")
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("Contact", "Contact", routeValues: "Home", htmlAttributes: new { @class = "nav-link", data_toggle = "dropdown", href = "#", role = "button" })
+                        @Html.ActionLink("Projects", "Projects", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-collection d-lg-none"></i>
                     </li>
 

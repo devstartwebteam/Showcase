@@ -4,24 +4,25 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace Showcase.Areas
+namespace Showcase.Areas.Admin.AreaRegistration
 {
-    public class AdminAreaRegistration : AreaRegistration
+    public class AdminAreaRegistration : System.Web.Mvc.AreaRegistration
     {
         public override string AreaName
         {
             get
             {
-                return "admin";
+                return "Admin";
             }
         }
 
         public override void RegisterArea(AreaRegistrationContext context)
         {
             context.MapRoute(
-                "Admin",
-                "admin/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                name: "Admin",
+                url: "Admin/{controller}/{action}/{id}",
+                defaults: new { controller = "Dashboard", action = "Index", id = UrlParameter.Optional },
+                namespaces: new string[] { "Showcase.Areas.Admin.Controllers" }
             );
         }
     }

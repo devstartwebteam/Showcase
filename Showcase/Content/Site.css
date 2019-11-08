@@ -11,7 +11,8 @@ html body {
 }
 
 body .dropdown-menu {
-	font-family: "Exo";
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    /*font-family: "Exo";*/
 }
 
 html body .profile-page .card-profile .card-profile-stats>div .description {
@@ -467,7 +468,8 @@ body .ds-title-divider {
 body .navbar-expand-lg .navbar-nav .nav-link {
 	color: #fff;
 	-webkit-font-smoothing: antialiased;
-	font-family: "Exo";
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    /*font-family: "Exo";*/
 	font-weight: 400;
 	font-size: 1rem;
 }
@@ -494,7 +496,8 @@ body #logoutForm a {
 	color: #fff;
 	font-size: 1rem;
 	-webkit-font-smoothing: antialiased;
-	font-family: "Exo";
+    font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+    /*font-family: "Exo";*/
 	font-weight: 400;
 }
 body .ds-single-nav #logoutForm a,

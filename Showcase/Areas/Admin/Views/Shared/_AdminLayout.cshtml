@@ -43,15 +43,15 @@
     $(document).ready(function () {
         if ($('#ShowcaseDataTable').length > 0) {
             $('#ShowcaseDataTable').DataTable({
-                "pagingType": "full_numbers",
-                "pageLength": 5,
+                "dom": '<"top"irf>t<"bottom"lp><"clear">',
+                "info": false,
+                "responsive":false,
+                "paging": true,
                 "searching": true,
                 "ordering": true       
             });
             }
         });
-    
-
 </script>
 
 <script>

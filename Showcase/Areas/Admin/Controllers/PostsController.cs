@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using Showcase.Models;
 using Showcase.Helpers;
 using System.Threading.Tasks;
-using System.Web.Helpers;
 using Showcase.ViewModels;
 using Showcase.DataContexts;
+using Showcase.Interfaces;
 using ShowcaseResources;
 
 namespace Showcase.Areas.Admin.Controllers
@@ -20,22 +18,39 @@ namespace Showcase.Areas.Admin.Controllers
     [RouteArea("Admin", AreaPrefix = "Admin")]
     public class PostsController : Controller
     {
+        private readonly IBlogAdminRepo blogAdminRepo;
         private BlogDb db = new BlogDb();
 
+        public PostsController(IBlogAdminRepo blogAdminRepo)
+        {
+            this.blogAdminRepo = blogAdminRepo;
+        }
+
         // GET: Posts
+        [HttpGet]
         public ActionResult Index()
         {
-            return View(db.Posts.Include(p => p.Categories).ToList());
+            List<Post> posts = blogAdminRepo.GetAllPosts();
+
+            if (!posts.Any())
+            {
+                ModelState.AddModelError("", Resources.GetAllPostsFailed);
+                return View();
+            }
+
+            return View(posts);
         }
 
         // GET: Posts/Details/5
+        [HttpGet]
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+
+            Post post = blogAdminRepo.GetPostDetails(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -44,31 +59,39 @@ namespace Showcase.Areas.Admin.Controllers
         }
 
         // GET: Posts/Create
+        [HttpGet]
         public ActionResult Create()
         {
             Post post = new Post();
+            post = blogAdminRepo.GetNewPost(post);
+
+            if (post == null)
+            {
+                ModelState.AddModelError(string.Empty, Resources.GetPostFailed);
+            }
+
             return View(post);
         }
 
-        // POST: Posts/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId")] Post vm)
+        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedCategoryIds,SelectedLocationIds")] Post vm)
         {
             if (ModelState.IsValid)
             {
-                vm.PostUrl = vm.PostUrl.ToLower();
-                Author author = db.Authors.FirstOrDefault();
-                vm.Author = author;
-                vm.GetImageBytes(vm.PostImageUpload);
-                vm.Created = DateTime.Now;
-                vm.LastModified = DateTime.Now;
-                db.Posts.Add(vm);
-                db.SaveChanges();
+                bool success = blogAdminRepo.CreateNewPost(vm);
 
-                TempData["StatusMessage"] = Resources.CreatePostSuccess;
-                return RedirectToAction("Index");
+                if (success)
+                {
+                    TempData["StatusType"] = Resources.StatusSuccess;
+                    TempData["StatusMessage"] = Resources.CreatePostSuccess;
+
+                    return RedirectToAction("Index");
+                }
+
+                TempData["StatusType"] = Resources.StatusFailed;
+                TempData["StatusMessage"] = Resources.CreatePostFailed;
+
+                return View();
             }
 
             ModelState.AddModelError(string.Empty, Resources.CreatePostFailed);
@@ -101,6 +124,7 @@ namespace Showcase.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 db.Entry(post).State = EntityState.Modified;
+                post.GetImageBytes(post.PostImageUpload);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

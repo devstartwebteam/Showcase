@@ -18,31 +18,35 @@
     
 </div>
 
-<table id="ShowcaseDataTable" class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.PostName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author.UserName)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model) {
+<table id="ShowcaseDataTable" class="table responsive">
+    <thead>
         <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.PostName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Author.UserName)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id=item.PostId }) |
-                @Html.ActionLink("Details", "Details", new { id=item.PostId }) |
-                @Html.ActionLink("Delete", "Delete", new { id=item.PostId })
-            </td>
+            <th>
+                @Html.DisplayName("Post Name")
+            </th>
+            <th>
+                @Html.DisplayName("Author")
+            </th>
+            <th></th>
         </tr>
-    }
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
 
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PostName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author.UserName)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.PostId }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.PostId }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.PostId })
+                </td>
+            </tr>
+        }
+    </tbody>
 </table>

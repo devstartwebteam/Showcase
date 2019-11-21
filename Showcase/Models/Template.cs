@@ -16,6 +16,9 @@ namespace Showcase.Models
         public string TemplateName { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
 
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
+
         public Template()
         {
             Posts = new HashSet<Post>();

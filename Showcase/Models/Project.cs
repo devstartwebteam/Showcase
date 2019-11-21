@@ -14,7 +14,7 @@ namespace Showcase.Models
         public int ProjectId { get; set; }
         public string ProjectName { get; set; }
         public string ProjectDescription { get; set; }
-        DateTime Created { get; set; }
+        DateTime? Created { get; set; }
         public virtual ICollection<Album> Albums { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }

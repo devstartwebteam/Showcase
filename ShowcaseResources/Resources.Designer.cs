@@ -77,5 +77,50 @@ namespace ShowcaseResources {
                 return ResourceManager.GetString("CreatePostSuccess", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured getting the list of posts..
+        /// </summary>
+        public static string GetAllPostsFailed {
+            get {
+                return ResourceManager.GetString("GetAllPostsFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured generating the new post..
+        /// </summary>
+        public static string GetPostFailed {
+            get {
+                return ResourceManager.GetString("GetPostFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to alert-danger.
+        /// </summary>
+        public static string StatusFailed {
+            get {
+                return ResourceManager.GetString("StatusFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to alert-info.
+        /// </summary>
+        public static string StatusInfo {
+            get {
+                return ResourceManager.GetString("StatusInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to alert-success.
+        /// </summary>
+        public static string StatusSuccess {
+            get {
+                return ResourceManager.GetString("StatusSuccess", resourceCulture);
+            }
+        }
     }
 }

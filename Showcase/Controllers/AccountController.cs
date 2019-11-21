@@ -8,24 +8,21 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using Showcase.Interfaces;
 using Showcase.Models;
 
 namespace Showcase.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private IBlogAdminRepo _blogAdminRepo;
 
-        public AccountController()
+        public AccountController(IBlogAdminRepo blogAdminRepo)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            this._blogAdminRepo = blogAdminRepo;
         }
 
         public ApplicationSignInManager SignInManager

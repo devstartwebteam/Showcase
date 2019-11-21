@@ -123,4 +123,19 @@
   <data name="CreatePostSuccess" xml:space="preserve">
     <value>New post created successfully!</value>
   </data>
+  <data name="GetAllPostsFailed" xml:space="preserve">
+    <value>An error occured getting the list of posts.</value>
+  </data>
+  <data name="GetPostFailed" xml:space="preserve">
+    <value>An error occured generating the new post.</value>
+  </data>
+  <data name="StatusFailed" xml:space="preserve">
+    <value>alert-danger</value>
+  </data>
+  <data name="StatusInfo" xml:space="preserve">
+    <value>alert-info</value>
+  </data>
+  <data name="StatusSuccess" xml:space="preserve">
+    <value>alert-success</value>
+  </data>
 </root>

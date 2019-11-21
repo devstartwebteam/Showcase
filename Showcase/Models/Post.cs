@@ -6,14 +6,11 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using Showcase.DataContexts;
 
 namespace Showcase.Models
 {
     public class Post
     {
-        private BlogDb db = new BlogDb();
-
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostId { get; set; }
@@ -40,19 +37,25 @@ namespace Showcase.Models
         public int ViewCount { get; set; }
         public int Likes { get; set; }
         public bool Active { get; set; }
-        public DateTime Created { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
         public Author Author { get; set; }
 
         [NotMapped]
+        public int AuthorId { get; set; }
+
+        [NotMapped]
         [Display(Name = "Assign Author")]
-        public static Dictionary<int, string> AuthorList { get; set; }
+        public Dictionary<int, string> AuthorList { get; set; }
 
         [NotMapped]
         public int[] SelectedTagIds { get; set; }
 
         [NotMapped]
         public int[] SelectedCategoryIds { get; set; }
+
+        [NotMapped]
+        public int[] SelectedLocationIds { get; set; }
 
         [NotMapped]
         public MultiSelectList CategoryMultiSelectList { get; set; }
@@ -74,10 +77,8 @@ namespace Showcase.Models
             Tags = new HashSet<Tag>();
             PostLocations = new HashSet<PostLocation>();
 
-            AuthorList = db.Authors.ToDictionary(a => a.AuthorId, a => a.UserName);
-            CategoryMultiSelectList = GetCategoryMultiSelectList(db.Categories.ToList());
-            TagMultiSelectList = GetTagMultiSelectList(db.Tags.ToList());
-            LocationMultiSelectList = GetLocationMultiSelectList(db.PostLocations.ToList());
+            AuthorList = new Dictionary<int, string>();
+
         }
 
         public void GetImageBytes(HttpPostedFileBase imageUpload)
@@ -98,7 +99,7 @@ namespace Showcase.Models
             this.PostImage = data;
         }
 
-        public static SelectList GetAuthorList()
+        public SelectList GetAuthorList()
         {
             return new SelectList(AuthorList, "Key", "Value");
         }

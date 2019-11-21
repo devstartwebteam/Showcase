@@ -17,7 +17,8 @@ namespace Showcase.Models
         public string TaskDescription { get; set; }
         public string TaskMessage { get; set; }
         public bool Active { get; set; }
-        DateTime Created { get; set; }
+        DateTime? Created { get; set; }
+        DateTime? LastModified { get; set; }
         public Project Project { get; set; }
     }
 }

@@ -13,8 +13,8 @@ namespace Showcase.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int PostLocationId { get; set; }
 
-        public DateTime Created { get; set; }
-        public DateTime LastModified { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
         public string PostLocationName { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Post> Posts { get; set; }

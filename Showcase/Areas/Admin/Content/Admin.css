@@ -61,11 +61,30 @@ html body .ds-submit-col {
 }
 
 body #ShowcaseDataTable_filter .form-control, body #ShowcaseDataTable_length select {
-    margin:0px 10px;
-    height:auto;
-    padding:6px;
+    margin: 0px 10px;
+    height: auto;
+    padding: 6px;
+    border: 1px solid #cccccc;
 }
-
+body .ds-alert-box {
+    display: inline-block;
+    margin: 0px auto;
+    position: fixed;
+    transition: all 0.5s ease-in-out 0s;
+    z-index: 1031;
+    top: 20px;
+    right: 20px;
+}
+body .ds-alert-close {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -13px;
+    z-index: 1033;
+}
+body .alert-success {
+    background-color: #4CAF50;
+}
 body #ShowcaseDataTable_length {
     float:left;
 }

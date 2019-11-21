@@ -26,5 +26,7 @@ namespace Showcase.Models
         public string WorkoutLength { get; set; }
         [Display(Name = "Miles")]
         public decimal WorkoutDistance { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
     }
 }

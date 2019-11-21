@@ -13,8 +13,8 @@ namespace Showcase.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TagId { get; set; }
         public string TagName { get; set; }
-        public DateTime? CreateDate { get; set; }
-        public DateTime? LastUpdated { get; set; }
+        public DateTime? Created { get; set; }
+        public DateTime? LastModified { get; set; }
         public string TagDescription { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Project> Projects { get; set; }

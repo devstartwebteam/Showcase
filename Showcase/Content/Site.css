@@ -46,7 +46,8 @@ body .card-profile {
 }
 
 body .ds-single-nav {
-	border-bottom: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-top: 3px solid #007bff;
 }
 
 html body .ds-single-nav .nav-link,
@@ -565,12 +566,19 @@ body .vertical-menu a {
 	padding: 12px;
 	text-decoration: none;
 }
-
+body .ds-slider-img {
+    min-height: 500px;
+}
 body.vertical-menu a:hover {
-	background-color: #ccc;
+    background-color: #ccc;
 }
 
 body .vertical-menu a.active {
 	background-color: #1e87f0;
 	color: white;
+}
+
+body .ds-top-carousel-img {
+    max-height: 100px;
+    max-width: 80px;
 }

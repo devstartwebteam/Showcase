@@ -24,10 +24,10 @@ namespace Showcase.Models
         public string PostUrl { get; set; }
 
         public byte[] PostImage { get; set; }
+        public virtual PostImage PostImages { get; set; }
 
         [NotMapped]
         [Display(Name = "Featured Image")]
-        [Required]
         public HttpPostedFileBase PostImageUpload { get; set; }
 
         [AllowHtml]
@@ -76,9 +76,9 @@ namespace Showcase.Models
             Categories = new HashSet<Category>();
             Tags = new HashSet<Tag>();
             PostLocations = new HashSet<PostLocation>();
+            Author = new Author();
 
             AuthorList = new Dictionary<int, string>();
-
         }
 
         public void GetImageBytes(HttpPostedFileBase imageUpload)

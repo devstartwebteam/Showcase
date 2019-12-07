@@ -97,6 +97,15 @@ namespace ShowcaseResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to No Posts have been created..
+        /// </summary>
+        public static string NoPostsCreated {
+            get {
+                return ResourceManager.GetString("NoPostsCreated", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to alert-danger.
         /// </summary>
         public static string StatusFailed {
@@ -120,6 +129,24 @@ namespace ShowcaseResources {
         public static string StatusSuccess {
             get {
                 return ResourceManager.GetString("StatusSuccess", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to An error occured while updating the post..
+        /// </summary>
+        public static string UpdatePostFailed {
+            get {
+                return ResourceManager.GetString("UpdatePostFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Post updated sucessfully!.
+        /// </summary>
+        public static string UpdatePostSuccess {
+            get {
+                return ResourceManager.GetString("UpdatePostSuccess", resourceCulture);
             }
         }
     }

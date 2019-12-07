@@ -25,6 +25,47 @@ namespace Showcase.Helpers
             return new MvcHtmlString("");
         }
 
+        public static MvcHtmlString TopCarouselImage(this HtmlHelper html, byte[] image)
+        {
+            if (image != null)
+            {
+                var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
+                return new MvcHtmlString("<img class='ds-top-carousel-img img-fluid' src='" + img + "' />");
+            }
+
+            return new MvcHtmlString("");
+        }
+        public static MvcHtmlString ThumbImage(this HtmlHelper html, byte[] image)
+        {
+            if (image != null)
+            {
+                var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
+                return new MvcHtmlString("<img class='ds-thumb-img img-fluid' src='" + img + "' />");
+            }
+
+            return new MvcHtmlString("");
+        }
+
+        public static MvcHtmlString BottomImage(this HtmlHelper html, byte[] image)
+        {
+            if (image != null)
+            {
+                var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
+                return new MvcHtmlString("<img class='ds-bottom-img img-fluid' src='" + img + "' />");
+            }
+
+            return new MvcHtmlString("");
+        }
+        public static MvcHtmlString SliderImage(this HtmlHelper html, byte[] image)
+        {
+            if (image != null)
+            {
+                var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
+                return new MvcHtmlString("<img class='ds-slider-img img-fluid' src='" + img + "' />");
+            }
+            return new MvcHtmlString("");
+        }
+
         public static CheckboxList GetCheckboxList(string property, string cssClasses, MultiSelectList list)
         {
             CheckboxList checkboxList = new CheckboxList();

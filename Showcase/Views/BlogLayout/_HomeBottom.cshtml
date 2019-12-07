@@ -1,0 +1,23 @@
+﻿@model Showcase.Models.PostLocation
+
+<div class="main-body section-gap">
+    <div class="container box_1170">
+        <div class="row">
+            <div class="col-lg-8 post-list">
+                <!-- Start Post Area -->
+                <section class="post-area">
+                    <div class="row">
+
+                        @Html.Partial("_HomeBottomBody", Model)
+
+                    </div>
+                </section>
+                <!-- Start Post Area -->
+            </div>
+
+            <div class="col-lg-4 sidebar">
+                @{Html.RenderAction("_BlogSideBar", "BlogLayout");}
+            </div>
+        </div>
+    </div>
+</div>

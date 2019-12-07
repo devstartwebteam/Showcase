@@ -13,12 +13,19 @@ namespace Showcase.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int AuthorId { get; set; }
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
+        [Display(Name = "User Name")]
         public string UserName { get; set; }
+        [Display(Name = "Alias")]
         public string NickName { get; set; }
+        [Display(Name = "Location")]
         public string Location { get; set; }
+        [Display(Name = "Date Created")]
         public DateTime? Created { get; set; }
+        [Display(Name = "Last Modified")]
         public DateTime? LastModified { get; set; }
         public int Age { get; set; }
 

@@ -1,0 +1,24 @@
+﻿@using Showcase.Helpers
+@model Showcase.Models.PostLocation
+@foreach (var post in Model.Posts)
+{
+    string postDate = post.LastModified?.Date.ToString("");
+
+    <div class="jq-tab-content-wrapper">
+        <div class="jq-tab-content active" data-tab="1">
+            <div class="single-popular-post d-flex flex-row">
+                <div class="popular-thumb">
+                    @Html.ThumbImage(post.PostImage)
+                </div>
+                <div class="popular-details">
+                    <h6>
+                        <a href="">
+                            @post.PostName
+                        </a>
+                    </h6>
+                    <p>@postDate</p>
+                </div>
+            </div>
+        </div>
+    </div>
+}

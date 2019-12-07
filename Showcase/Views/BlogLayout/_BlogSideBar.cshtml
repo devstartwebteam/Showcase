@@ -1,0 +1,38 @@
+﻿
+<div class="single-widget protfolio-widget">
+    <div class="ds-profile-wrap">
+        <img class="img-fluid ds-profile-img" src="~/Content/images/nate-johnson-profile-2.jpg" alt="">
+    </div>
+    <a href="#">
+        <h4>Nate Johnson's Web Blog</h4>
+    </a>
+    <p class="p-text">
+        Web development, music production, adventures and rants
+    </p>
+
+</div>
+<div class="single-widget popular-posts-widget">
+    <div class="jq-tab-wrapper" id="horizontalTab">
+        <div class="jq-tab-menu">
+            <div class="jq-tab-title active" data-tab="1">Popular</div>
+            <div class="jq-tab-title" data-tab="2">Latest</div>
+        </div>
+        
+        @{Html.RenderAction("_BlogSideColumn", "BlogLayout", new { name = "Blog Side Column" });}
+
+    </div>
+</div>
+<div class="single-widget category-widget">
+    <h4 class="title">Post Categories</h4>
+    <ul>
+        @{Html.RenderAction("_BlogSideCategories", "BlogLayout", new { name = "Blog Side Categories" });}
+
+    </ul>
+</div>
+<div class="single-widget tags-widget">
+    <h4 class="title">Post Tags</h4>
+    <ul>
+        @{Html.RenderAction("_BlogSideTags", "BlogLayout", new { name = "Blog Side Tags" });}
+
+    </ul>
+</div>

@@ -12,7 +12,7 @@
 @using (Html.BeginForm("Create", "Posts", FormMethod.Post, new { enctype = "multipart/form-data", @class = "ds-admin-form" }))
 {
     @Html.AntiForgeryToken()
-
+    @Html.HiddenFor(model => model.PostId)
     <div class="row">
         <div class="col-md-8">
 

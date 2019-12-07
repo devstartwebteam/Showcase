@@ -50,14 +50,23 @@
                 "searching": true,
                 "ordering": true       
             });
-            }
+        }
+        var content = '@Html.Raw(ViewBag.Content)';
+        $('#ShowcaseEditor').html(content);
+        tinymce.init({
+            selector: '#ShowcaseEditor'
         });
-</script>
 
-<script>
-  tinymce.init({
-    selector: '#ShowcaseEditor'
-  });
+        var selectedAuthor = $('#ds-author-id').val();
+        $('#AuthorList').val(selectedAuthor);
+
+
+        $(".ds-admin-form").on("submit",
+            function () {
+                var selectedAuthorId = $('#AuthorList').val();
+                $('#ds-author-id').val(selectedAuthorId);
+            });
+    });
 </script>
 
 <script type="text/javascript">
@@ -79,10 +88,10 @@
 </script>
 
 <script type="text/javascript">
-        $("#ds-workout-date").datepicker({ dateFormat: 'mm/dd/yy' });
-        $('.clockpicker').clockpicker({
-            donetext: 'Done'
-        });
+    $("#ds-workout-date").datepicker({ dateFormat: 'mm/dd/yy' });
+    $('.clockpicker').clockpicker({
+        donetext: 'Done'
+    });
 </script>
 
 @RenderSection("Scripts", false)

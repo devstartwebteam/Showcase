@@ -74,7 +74,7 @@ namespace Showcase.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedCategoryIds,SelectedLocationIds")] Post vm)
+        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post vm)
         {
             if (ModelState.IsValid)
             {
@@ -106,7 +106,7 @@ namespace Showcase.Areas.Admin.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            Post post = db.Posts.Include(a => a.Author).FirstOrDefault(a => a.PostId == id);
+            Post post = blogAdminRepo.EditPost(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -119,15 +119,26 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostContent,ViewCount,InActive,Active")] Post post)
+        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post post)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(post).State = EntityState.Modified;
-                post.GetImageBytes(post.PostImageUpload);
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                bool isUpdated = blogAdminRepo.UpdatePost(post);
+
+                if (isUpdated)
+                {
+                    TempData["StatusType"] = Resources.StatusSuccess;
+                    TempData["StatusMessage"] = Resources.UpdatePostSuccess;
+
+                    return RedirectToAction("Index");
+                }
+                TempData["StatusType"] = Resources.StatusFailed;
+                TempData["StatusMessage"] = Resources.UpdatePostFailed;
+
+                return View();
             }
+
+            ModelState.AddModelError(string.Empty, Resources.UpdatePostFailed);
             return View(post);
         }
 
@@ -151,7 +162,10 @@ namespace Showcase.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Post post = db.Posts.Find(id);
+            Post post = db.Posts
+                .Include(a => a.PostImages)
+                .First(a => a.PostId == id);
+
             db.Posts.Remove(post);
             db.SaveChanges();
             return RedirectToAction("Index");

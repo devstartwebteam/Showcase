@@ -1,0 +1,46 @@
+﻿@using Showcase.Helpers
+@model Showcase.Models.PostLocation
+
+<section class="post-slider-area">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="owl-carousel active-post-carusel">
+                    <!-- single carousel item -->
+                    @foreach (var post in Model.Posts)
+                    {
+                        string createDate = post.Created?.Date.ToString("dd MM, yyyy");
+
+                        <div class="single-post-carousel">
+                            <div class="post-thumb">
+                                @Html.SliderImage(post.PostImages?.Slider)
+                            </div>
+                            <div class="post-details">
+                                <h2>
+                                    <a href="#">
+                                       @post.PostName
+                                    </a>
+                                </h2>
+                                <div class="post-content d-flex justify-content-between">
+                                    <div class="post-meta">
+                                        <div class="thumb">@Html.Image(post.Author.ProfileImage)</div>
+                                        <div class="c-desc">
+                                            <h6>@post.Author.UserName</h6>
+                                            <p><span class="lnr lnr-calendar-full"></span>@createDate</p>
+                                        </div>
+                                    </div>
+                                    <div class="details">
+                                        <p>
+                                            @post.PostContent.Take(10)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

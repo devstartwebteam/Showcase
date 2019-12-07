@@ -20,7 +20,7 @@ namespace Showcase.Areas.Admin.Controllers
         // GET: Admin/Authors
         public ActionResult Index()
         {
-            return View(db.Authors.ToList());
+            return View(db.Authors.Include(a => a.Posts).ToList());
         }
 
         // GET: Admin/Authors/Details/5

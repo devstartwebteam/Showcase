@@ -19,6 +19,7 @@ namespace Showcase.Models
         public virtual ICollection<Category> Categories { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
+        public int PostCount { get; set; }
 
         public PostLocation()
         {

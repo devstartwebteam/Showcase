@@ -82,6 +82,9 @@ body .ds-alert-close {
     margin-top: -13px;
     z-index: 1033;
 }
+body #ShowcaseDataTable_filter {
+    padding: 5px 15px;
+}
 body .alert-success {
     background-color: #4CAF50;
 }

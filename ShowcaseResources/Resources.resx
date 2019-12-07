@@ -129,6 +129,9 @@
   <data name="GetPostFailed" xml:space="preserve">
     <value>An error occured generating the new post.</value>
   </data>
+  <data name="NoPostsCreated" xml:space="preserve">
+    <value>No Posts have been created.</value>
+  </data>
   <data name="StatusFailed" xml:space="preserve">
     <value>alert-danger</value>
   </data>
@@ -137,5 +140,11 @@
   </data>
   <data name="StatusSuccess" xml:space="preserve">
     <value>alert-success</value>
+  </data>
+  <data name="UpdatePostFailed" xml:space="preserve">
+    <value>An error occured while updating the post.</value>
+  </data>
+  <data name="UpdatePostSuccess" xml:space="preserve">
+    <value>Post updated sucessfully!</value>
   </data>
 </root>

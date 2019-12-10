@@ -39,6 +39,8 @@ namespace Showcase
                 "~/Scripts/owl.carousel.min.js",
                 "~/Scripts/jquery.tabs.min.js",
                 "~/Scripts/jquery.nice-select.min.js",
+                "~/Scripts/jquery-ui.min.js",
+                "~/Scripts/progress.js",
                 "~/Scripts/waypoints.min.js",
                 "~/Scripts/mail-script.js",
                 "~/Scripts/main.js"));

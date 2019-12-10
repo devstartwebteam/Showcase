@@ -57,6 +57,12 @@
             selector: '#ShowcaseEditor'
         });
 
+        var snippet = '@Html.Raw(ViewBag.Snippet)';
+        $('#ShowcaseSnippet').html(snippet);
+        tinymce.init({
+            selector: '#ShowcaseSnippet'
+        });
+
         var selectedAuthor = $('#ds-author-id').val();
         $('#AuthorList').val(selectedAuthor);
 

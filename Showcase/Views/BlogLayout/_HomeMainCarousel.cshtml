@@ -9,7 +9,11 @@
                     <!-- single carousel item -->
                     @foreach (var post in Model.Posts)
                     {
-                        string createDate = post.Created?.Date.ToString("dd MM, yyyy");
+                        string createDate = post.Created?.Date.ToString("d MMM, yyyy");
+                        string[] tokens = createDate?.Split(' ');
+                        string dateString = tokens[0];
+                        string daySuffix = Html.GetDaySuffix(dateString);
+                        string finalDate = tokens[0] + daySuffix.ToLower() + " " + tokens[1] + " " + tokens[2];
 
                         <div class="single-post-carousel">
                             <div class="post-thumb">
@@ -17,21 +21,19 @@
                             </div>
                             <div class="post-details">
                                 <h2>
-                                    <a href="#">
-                                       @post.PostName
-                                    </a>
+                                    @Html.ActionLink(post.PostName, "Post", "Blog", routeValues: new { title = post.PostUrl}, htmlAttributes: new {id = "ds-sliderLink", @class = "ds-slider-link"})
                                 </h2>
                                 <div class="post-content d-flex justify-content-between">
                                     <div class="post-meta">
                                         <div class="thumb">@Html.Image(post.Author.ProfileImage)</div>
                                         <div class="c-desc">
                                             <h6>@post.Author.UserName</h6>
-                                            <p><span class="lnr lnr-calendar-full"></span>@createDate</p>
+                                            <p><span class="lnr lnr-calendar-full"></span>@finalDate</p>
                                         </div>
                                     </div>
                                     <div class="details">
                                         <p>
-                                            @post.PostContent.Take(10)
+                                            @*post.PostSnippet*@
                                         </p>
                                     </div>
                                 </div>

@@ -29,6 +29,12 @@
                 <textarea id="ShowcaseEditor" name="PostContent" class="ds-fields form-control"></textarea>
                 @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "text-danger" })
             </div>
+
+            <div class="form-group s-tiny-group">
+                @Html.LabelFor(model => model.PostSnippet, htmlAttributes: new { @class = "control-label" })
+                <textarea id="ShowcaseSnippet" name="PostSnippet" class="ds-fields form-control"></textarea>
+                @Html.ValidationMessageFor(model => model.PostSnippet, "", new { @class = "text-danger" })
+            </div>
         </div>
         <div class="col-md-1"></div>
         <div class="col-md-3">

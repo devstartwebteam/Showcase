@@ -301,6 +301,10 @@
     <Compile Include="DataContexts\BlogMigrations\201912022308557_AddedPostImages.Designer.cs">
       <DependentUpon>201912022308557_AddedPostImages.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BlogMigrations\201912101826599_AddedSnippetProperty.cs" />
+    <Compile Include="DataContexts\BlogMigrations\201912101826599_AddedSnippetProperty.Designer.cs">
+      <DependentUpon>201912101826599_AddedSnippetProperty.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BlogMigrations\BlogConfiguration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
@@ -1362,6 +1366,7 @@
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\progress.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
@@ -1517,6 +1522,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\BlogMigrations\201912022308557_AddedPostImages.resx">
       <DependentUpon>201912022308557_AddedPostImages.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\201912101826599_AddedSnippetProperty.resx">
+      <DependentUpon>201912101826599_AddedSnippetProperty.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>

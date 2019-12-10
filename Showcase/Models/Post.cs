@@ -34,6 +34,12 @@ namespace Showcase.Models
         [Display(Name = "Post Content")]
         [Required]
         public string PostContent { get; set; }
+
+        [AllowHtml]
+        [Display(Name = "Post Snippet")]
+        [Required]
+        [StringLength(100)]
+        public string PostSnippet { get; set; }
         public int ViewCount { get; set; }
         public int Likes { get; set; }
         public bool Active { get; set; }

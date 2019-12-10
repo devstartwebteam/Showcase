@@ -17,7 +17,7 @@
                 @Html.Partial("_AuthorBoxLeft")
             </div>
             <h1 class="ds-post-title">
-                @Model?.PostName
+                @Model.PostName
             </h1>
         </div>
     </div>
@@ -49,7 +49,7 @@
             <div class="mt-5 py-5 border-top text-center">
                 <div class="row justify-content-center">
                     <div class="col-lg-9">
-                        <h2 class="ds-post-subtitle">@Model?.PostName</h2>
+                        <h2 class="ds-post-subtitle">@Model.PostName</h2>
                         <p class="ds-post-text">
                             @Html.Raw(Model?.PostContent);
                         </p>

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
 	'use strict';
 
 	$('.toggle_icon').on('click', function() {

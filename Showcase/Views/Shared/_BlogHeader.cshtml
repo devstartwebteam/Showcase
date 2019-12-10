@@ -1,5 +1,7 @@
-﻿
-<header class="header-global">
+﻿<div id="ds-progress-wrap">
+    <span class="ds-progress-bar" style="width: 1%;" id="ds-progress-bar"><span></span></span>
+</div>
+<header id="ds-header" class="header-global">
     <nav id="navbar-main" class="ds-single-nav navbar navbar-main navbar-expand-lg navbar-light">
         <div class="container">
             <a class="navbar-brand" href="/Home/Index">
@@ -25,22 +27,22 @@
                 <ul class="ds-primary-nav navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item dropdown">
 
-                        @Html.ActionLink("Blog", "Index", "Blog", routeValues: null, htmlAttributes: new { id = "loginLink", @class="nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
+                        @Html.ActionLink("Blog", "Index", "Blog", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-ui-04 d-lg-none"></i>
                         @*@Html.Partial("_DropDownLarge")*@
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
+                        @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-collection d-lg-none"></i>
                         @Html.Partial("_DropDownSmall")
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("Projects", "Projects", "Home", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
+                        @Html.ActionLink("Projects", "Projects", "Home", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-collection d-lg-none"></i>
                     </li>
 
                 </ul>
-                
+
                 <ul class="ds-primary-nav navbar-nav align-items-lg-center ml-lg-auto">
                     <li class="nav-item">
                         <a class="nav-link nav-link-icon" href="https://www.facebook.com/creativetim" target="_blank" data-toggle="tooltip" title="Like us on Facebook">
@@ -67,7 +69,7 @@
                         </a>
                     </li>
                 </ul>
-                
+
             </div>
             @Html.Partial("_LoginPartial")
         </div>

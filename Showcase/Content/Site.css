@@ -20,11 +20,15 @@ html body .profile-page .card-profile .card-profile-stats>div .description {
 	opacity: 0.8;
 }
 
+body #ds-progress-bar {
+    border-top: 4px solid #007bff;
+}
+
 body .ds-background-shade {
-	width: 100%;
-	height: 580px;
-	background-color: #000;
-	opacity: 0.4;
+    width: 100%;
+    height: 580px;
+    background-color: #000;
+    opacity: 0.4;
 }
 
 body .ds-login-wrap .section-shaped .container {
@@ -44,15 +48,13 @@ body .card-profile {
 	border-width: 1px;
 	border-style: solid;
 }
-
 body .ds-single-nav {
     border-bottom: 1px solid #000;
-    border-top: 3px solid #007bff;
 }
 
 html body .ds-single-nav .nav-link,
 html body .ds-single-nav .nav-link i {
-	color: #000 !important;
+    color: #000 !important;
 }
 
 body .border-top {
@@ -78,7 +80,7 @@ body .ds-avatar {
 
 body .ds-author-description,
 body .ds-author-name {
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 400;
 	font-family: 'Roboto';
 	opacity: 0.8;
@@ -96,7 +98,7 @@ body #ds-left-title {
 
 body .ds-author-button {
 	border: 1px solid #016ab7;
-	font-size: 14px;
+	font-size: 1rem;
 	border-radius: 4px;
 	background-color: #fff;
 	padding: 0px 10px;
@@ -465,14 +467,19 @@ body .ds-title-divider {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
-
+body .single-post-carousel .post-details .post-content .post-meta .c-desc p {
+    text-transform: none;
+}
+body .single-stories-carousel p {
+    font-size: 0.75rem;
+}
 body .navbar-expand-lg .navbar-nav .nav-link {
-	color: #fff;
-	-webkit-font-smoothing: antialiased;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
     /*font-family: "Exo";*/
-	font-weight: 400;
-	font-size: 1rem;
+    font-weight: 400;
+    font-size: 1rem;
 }
 
 body #navbar-main {

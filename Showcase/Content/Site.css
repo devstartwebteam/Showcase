@@ -22,6 +22,8 @@ html body .profile-page .card-profile .card-profile-stats>div .description {
 
 body #ds-progress-bar {
     border-top: 4px solid #007bff;
+    display: block;
+    max-width: 100%;
 }
 
 body .ds-background-shade {
@@ -98,7 +100,7 @@ body #ds-left-title {
 
 body .ds-author-button {
 	border: 1px solid #016ab7;
-	font-size: 1rem;
+	font-size: 0.9rem;
 	border-radius: 4px;
 	background-color: #fff;
 	padding: 0px 10px;

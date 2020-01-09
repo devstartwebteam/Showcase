@@ -323,10 +323,12 @@
     <Compile Include="Helpers\ShowcaseHtmlHelpers.cs" />
     <Compile Include="Interfaces\IBlogAdminRepo.cs" />
     <Compile Include="Interfaces\IBlogLocationRepo.cs" />
+    <Compile Include="Interfaces\IDashboardRepo.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MetaSEO.cs" />
@@ -342,6 +344,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\BlogAdminRepo.cs" />
     <Compile Include="Repos\BlogLocationRepo.cs" />
+    <Compile Include="Repos\DashboardRepo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\PostsViewModel.cs" />
   </ItemGroup>
@@ -1362,11 +1365,11 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
+    <Content Include="Scripts\pace.min.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
     <Content Include="Scripts\popper.js" />
     <Content Include="Scripts\popper.min.js" />
-    <Content Include="Scripts\progress.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />

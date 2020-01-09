@@ -11,8 +11,11 @@ namespace Showcase.Interfaces
         Post GetNewPost(Post post);
         bool UpdatePost(Post post);
         Post EditPost(int? id);
+        Post GetPost(int? id);
         bool CreateNewPost(Post post);
         Post GetPostDetails(int? id);
         List<Post> GetAllPosts();
+
+        bool DeletePost(int id);
     }
 }

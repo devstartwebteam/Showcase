@@ -29,14 +29,9 @@
                         @*@Html.Partial("_DropDownLarge")*@
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
-                        @Html.Partial("_DropDownSmall")
+                        @Html.ActionLink("About", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
+                        @*@Html.Partial("_DropDownSmall")*@
                     </li>
-                    <li class="nav-item dropdown">
-                        @Html.ActionLink("Projects", "Projects", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
-                        <i class="ni ni-collection d-lg-none"></i>
-                    </li>
-
                 </ul>
                 @Html.Partial("_SocialMenu")
             </div>

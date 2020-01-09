@@ -40,7 +40,7 @@ namespace Showcase
                 "~/Scripts/jquery.tabs.min.js",
                 "~/Scripts/jquery.nice-select.min.js",
                 "~/Scripts/jquery-ui.min.js",
-                "~/Scripts/progress.js",
+                "~/Scripts/pace.min.js",
                 "~/Scripts/waypoints.min.js",
                 "~/Scripts/mail-script.js",
                 "~/Scripts/main.js"));

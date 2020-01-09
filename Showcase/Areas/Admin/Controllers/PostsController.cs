@@ -19,8 +19,6 @@ namespace Showcase.Areas.Admin.Controllers
     public class PostsController : Controller
     {
         private readonly IBlogAdminRepo blogAdminRepo;
-        private BlogDb db = new BlogDb();
-
         public PostsController(IBlogAdminRepo blogAdminRepo)
         {
             this.blogAdminRepo = blogAdminRepo;
@@ -149,7 +147,7 @@ namespace Showcase.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Post post = db.Posts.Find(id);
+            Post post = blogAdminRepo.GetPost(id);
             if (post == null)
             {
                 return HttpNotFound();
@@ -162,12 +160,11 @@ namespace Showcase.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Post post = db.Posts
-                .Include(a => a.PostImages)
-                .First(a => a.PostId == id);
-
-            db.Posts.Remove(post);
-            db.SaveChanges();
+            bool isDeleted = blogAdminRepo.DeletePost(id);
+            if (isDeleted)
+            {
+                ViewBag.DeleteSuccess = true;
+            }
             return RedirectToAction("Index");
         }
 
@@ -210,15 +207,6 @@ namespace Showcase.Areas.Admin.Controllers
             JsonResult categories = await helper.GetPostCategoriesAsync(Id);
 
             return View(categories);
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
         }
     }
 }

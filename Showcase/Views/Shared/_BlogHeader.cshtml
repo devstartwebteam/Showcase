@@ -1,10 +1,7 @@
-﻿<span id="ds-progress-wrap">
-    <span id="ds-progress-bar" class="ds-progress-bar" style="width: 1%;"></span>
-</span>
-<header id="ds-header" class="header-global">
+﻿<header id="ds-header" class="header-global">
     <nav id="navbar-main" class="ds-single-nav navbar navbar-main navbar-expand-lg navbar-light">
         <div class="container">
-            <a class="navbar-brand" href="/Home/Index">
+            <a class="navbar-brand" href="/Blog/Index">
                 <img src="/Content/images/white-logo-dark-sm.png">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
@@ -32,13 +29,9 @@
                         @*@Html.Partial("_DropDownLarge")*@
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("About", "About", "Home", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
+                        @Html.ActionLink("About", "Index", "Home", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-collection d-lg-none"></i>
-                        @Html.Partial("_DropDownSmall")
-                    </li>
-                    <li class="nav-item dropdown">
-                        @Html.ActionLink("Projects", "Projects", "Home", routeValues: null, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
-                        <i class="ni ni-collection d-lg-none"></i>
+                        @*Html.Partial("_DropDownSmall")*@
                     </li>
 
                 </ul>

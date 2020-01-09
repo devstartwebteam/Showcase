@@ -20,12 +20,6 @@ html body .profile-page .card-profile .card-profile-stats>div .description {
 	opacity: 0.8;
 }
 
-body #ds-progress-bar {
-    border-top: 4px solid #007bff;
-    display: block;
-    max-width: 100%;
-}
-
 body .ds-background-shade {
     width: 100%;
     height: 580px;
@@ -590,4 +584,33 @@ body .vertical-menu a.active {
 body .ds-top-carousel-img {
     max-height: 100px;
     max-width: 80px;
+}
+
+body .ds-post-page .shape {
+    background-size: cover;
+}
+
+/* Pace Loading Bar */
+.pace {
+    -webkit-pointer-events: none;
+    pointer-events: none;
+    min-height: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.pace-inactive {
+    display: block;
+}
+
+.pace .pace-progress {
+    background: #007bff;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    right: 100%;
+    height: 4px;
+    width: 100%;
+    height: 2px;
 }

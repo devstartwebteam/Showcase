@@ -19,7 +19,7 @@ namespace Showcase.Repos
     public class BlogAdminRepo : IBlogAdminRepo
     {
         private static readonly ILog Logger = LogManager.GetLogger(typeof(Post));
-        private BlogDb db = new BlogDb();
+        private readonly BlogDb db = new BlogDb();
 
         public Post GetNewPost(Post post)
         {
@@ -32,7 +32,7 @@ namespace Showcase.Repos
             }
             catch(Exception e)
             {
-                Logger.Error("Error setting up a new post", e);
+                Logger.Error("Error setting up a new post in blog admin repo", e);
             }
             finally
             {
@@ -40,6 +40,42 @@ namespace Showcase.Repos
             }
 
             return post;
+        }
+
+        public Post GetPost(int? id)
+        {
+            Post post = new Post();
+            try
+            {
+                post = db.Posts.Find(id);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Could not get post in blog admin repo", e);
+            }
+
+            return post;
+        }
+
+        public bool DeletePost(int id)
+        {
+            bool deleted = false;
+
+            try
+            {
+                Post post = db.Posts.Include(a => a.PostImages).First(a => a.PostId == id);
+
+                db.Posts.Remove(post);
+                db.SaveChanges();
+
+                deleted = true;
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Error deleting post in blog admin repo", e);
+            }
+
+            return deleted;
         }
 
         public Post EditPost(int? id)

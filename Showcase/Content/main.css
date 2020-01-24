@@ -1920,7 +1920,8 @@ body.mobile-nav-active #mobile-nav-toggle {
     margin-bottom: 20px; }
     .single-stories-carousel h6 a {
       color: #007bff;
-      font-size: 14px; }
+      font-size: 14px;
+        line-height: 1.4;}
   .single-stories-carousel p {
       margin-bottom: 0;
       text-transform: uppercase;

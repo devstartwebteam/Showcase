@@ -1,4 +1,5 @@
-﻿var ViewModel = function () {
+﻿/*
+var ViewModel = function () {
     var self = this;
     self.posts = ko.observableArray();
     self.error = ko.observable();
@@ -56,3 +57,4 @@
 };
 
 ko.applyBindings(new ViewModel());
+*/

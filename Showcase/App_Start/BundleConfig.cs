@@ -24,7 +24,6 @@ namespace Showcase
                 "~/Content/owl.carousel.css",
                 "~/Content/nice-select.css",
                 "~/Content/animate.min.css",
-                "~/Content/nice-select.css",
                 "~/Content/magnific-popup.css",
                 "~/Content/Site.css",
                 "~/Content/main.css"));
@@ -67,17 +66,24 @@ namespace Showcase
                   "~/Content/themes/argon/vendor/popper/popper.min.js",
                   "~/Content/themes/argon/vendor/headroom/headroom.min.js",
                   "~/Content/themes/argon/js/argon.min.js",
-                  "~/Scripts/jquery.bxslider.js",
-                  "~/Scripts/scripts.js"));
+                  "~/Scripts/jquery.bxslider.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                  "~/Content/site.css",
+            bundles.Add(new StyleBundle("~/Content/css").Include("~/Content/Site.css",
                   "~/Content/linearicons.css",
                   "~/Content/themes/argon/vendor/nucleo/css/nucleo.css",
                   "~/Content/themes/argon/vendor/font-awesome/css/font-awesome.min.css",
                   "~/Content/themes/argon/css/argon.min.css",
                   "~/Content/jquery.bxslider.css",
-                  "~/Content/themes/argon/css/docs.min.css"));
+                  "~/Content/themes/argon/css/docs.min.css",
+                  "~/Content/vendor/bootstrap.css"));
+
+            bundles.Add(new StyleBundle("~/Content/AccountCss").Include("~/Content/Site.css",
+                "~/Content/linearicons.css",
+                "~/Content/themes/argon/vendor/nucleo/css/nucleo.css",
+                "~/Content/themes/argon/vendor/font-awesome/css/font-awesome.min.css",
+                "~/Content/themes/argon/css/argon.min.css",
+                "~/Content/jquery.bxslider.css",
+                "~/Content/themes/argon/css/docs.min.css"));
 
             //Admin theme
             bundles.Add(new ScriptBundle("~/bundles/bootstraplight").Include(

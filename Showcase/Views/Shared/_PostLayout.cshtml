@@ -1,10 +1,10 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-@Html.Partial("_Head")
-<body>
+@Html.Partial("_BlogHead")
+<body id="ds-post-body">
 @Html.Partial("_BlogHeader")
 
-<div id="ds-body" class="container-fluid body-content">
+<div id="ds-post-content" class="container-fluid body-content">
     <div class="row">
         <div class="col-md-12 ds-no-padding">
             @RenderBody()

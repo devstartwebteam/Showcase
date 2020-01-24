@@ -6,13 +6,19 @@
 
 @foreach (var post in Model.Posts)
 {
+    string url = Url.Action("Post", "Blog", routeValues: new { title = post.PostUrl });
+
     <div class="col-lg-6 col-md-6">
         <div class="single-post-item">
             <div class="post-thumb">
-                @Html.BottomImage(post.PostImages.PageBody)
+                <a href="@url">
+                    @Html.BottomImage(post.PostImages.PageBody)
+                </a>
             </div>
             <div class="post-details">
-                <h4><a href="#">@post.PostName</a></h4>
+
+                <h4>@Html.ActionLink(post.PostName, "Post", "Blog", routeValues: new { title = post.PostUrl}, htmlAttributes: new {id = "ds-sliderLink", @class = "ds-slider-link"})
+                </h4>
                 <p>
                     @post.PostSnippet
                 </p>

@@ -117,7 +117,7 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post post)
+        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds,PostSnippet")] Post post)
         {
             if (ModelState.IsValid)
             {

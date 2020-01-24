@@ -1465,6 +1465,8 @@
     <Content Include="Views\BlogLayout\_BlogSideColumn.cshtml" />
     <Content Include="Views\BlogLayout\_BlogSideCategories.cshtml" />
     <Content Include="Views\BlogLayout\_BlogSideTags.cshtml" />
+    <Content Include="Views\Shared\_AccountHead.cshtml" />
+    <Content Include="Views\Shared\_AccountFooter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

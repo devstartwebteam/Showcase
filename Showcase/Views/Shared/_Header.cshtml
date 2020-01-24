@@ -1,41 +1,23 @@
 ﻿
 <header class="header-global">
-    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
+    <nav id="nav-menu-container" class="ds-about-nav navbar navbar-main navbar-expand-lg navbar-transparent navbar-light headroom">
         <div class="container">
-            <a class="navbar-brand mr-lg-5" href="/Home/Index">
+            <a class="navbar-brand mr-lg-5" href="/Blog/Index">
                 <img src="/Content/images/white-logo-sm.png">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbar-collapse collapse" id="navbar_global">
-                <div class="navbar-collapse-header">
-                    <div class="row">
-                        <div class="col-6 collapse-brand">
-                         
-                        </div>
-                        <div class="col-6 collapse-close">
-                            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar_global" aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
-                                <span></span>
-                                <span></span>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-                <ul class="ds-primary-nav navbar-nav navbar-nav-hover align-items-lg-center">
+            <ul class="nav-menu ds-primary-nav navbar-nav navbar-nav-hover align-items-lg-center">
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("Blog", "Index", "Blog", routeValues: null, htmlAttributes: new { @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
+                        @Html.ActionLink("Blog", "Index", "Blog", routeValues: null, htmlAttributes: new { @class = "nav-link" }) <i class="ni ni-collection d-lg-none"></i>
                         <i class="ni ni-ui-04 d-lg-none"></i>
                         @*@Html.Partial("_DropDownLarge")*@
                     </li>
                     <li class="nav-item dropdown">
-                        @Html.ActionLink("About", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" })                            <i class="ni ni-collection d-lg-none"></i>
+                        @Html.ActionLink("About", "Index", "Home", routeValues: null, htmlAttributes: new { @class = "nav-link" }) <i class="ni ni-collection d-lg-none"></i>
                         @*@Html.Partial("_DropDownSmall")*@
                     </li>
                 </ul>
                 @Html.Partial("_SocialMenu")
+                @Html.Partial("_LoginPartial")
             </div>
-            @Html.Partial("_LoginPartial")
-        </div>
     </nav>
 </header>

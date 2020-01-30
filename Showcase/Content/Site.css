@@ -148,6 +148,16 @@ body .ds-author-name a {
 	color: #000;
 }
 
+html body .single-post-carousel .post-details h2 {
+    margin-bottom: 40px;
+}
+
+body .ds-author-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
 body .ds-author-box {
 	max-width: 700px;
 }

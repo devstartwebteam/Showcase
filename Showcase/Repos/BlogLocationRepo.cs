@@ -22,6 +22,7 @@ namespace Showcase.Repos
             {
                 location = db.PostLocations.Where(a => a.PostLocationName.ToLower() == name.ToLower())
                     .Include(a => a.Posts.Select(b => b.PostImages))
+                    .Include(a => a.Posts.Select(b => b.Author))
                     .FirstOrDefault();
             }
             catch (Exception e)

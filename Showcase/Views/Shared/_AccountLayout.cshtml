@@ -2,51 +2,51 @@
 <html lang="en">
 @Html.Partial("_AccountHead")
 <body>
-    @Html.Partial("_Header")
 
-    <div id="s-body" class="container-fluid body-content ds-account-body">
-        <div class="row">
-            <div class="col-md-12 ds-no-padding">
-                <div class="ds-login-wrap">
-                    <main class="ds-login-main">
-                        <section class="section section-shaped section-lg">
-                            <div class="shape shape-style-1 bg-gradient-default">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                            <div class="container pt-lg-md">
-                                <div class="row justify-content-center">
-                                    <div class="col-lg-5">
-                                        <div class="card bg-secondary shadow border-0">
+@Html.Partial("_Header")
 
-                                            <div class="card-body px-lg-5 py-lg-5">
-                                                <div class="text-center text-muted mb-4">
-                                                    <h1 class="ds-account-title">@ViewBag.Title</h1>
-                                                </div>
-
-                                                @RenderBody()
-
+<div id="s-body" class="container-fluid body-content ds-account-body">
+    <div class="row">
+        <div class="col-md-12 ds-no-padding">
+            <div class="ds-login-wrap">
+                <main class="ds-login-main">
+                    <section class="section section-shaped section-lg">
+                        <div class="shape shape-style-1 bg-gradient-default">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="container pt-lg-md">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-5">
+                                    <div class="card bg-secondary shadow border-0">
+                                        <div class="card-body px-lg-5 py-lg-5">
+                                            <div class="text-center text-muted mb-4">
+                                                <h1 class="ds-account-title">@ViewBag.Title</h1>
                                             </div>
+
+                                            @RenderBody()
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </section>
-                    </main>
-                </div>
-
+                        </div>
+                    </section>
+                </main>
             </div>
         </div>
     </div>
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryval")
-    @RenderSection("scripts", required: false)
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
+@RenderSection("scripts", required: false)
 
 </body>
 </html>

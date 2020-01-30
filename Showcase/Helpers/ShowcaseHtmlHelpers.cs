@@ -19,7 +19,7 @@ namespace Showcase.Helpers
             if (image != null)
             {
                 var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
-                return new MvcHtmlString("<img style='max-height:100px;width:auto;' src='" + img + "' />");
+                return new MvcHtmlString("<img class='ds-author-img' src='" + img + "' />");
             }
 
             return new MvcHtmlString("");

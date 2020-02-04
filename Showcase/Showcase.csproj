@@ -305,6 +305,10 @@
     <Compile Include="DataContexts\BlogMigrations\201912101826599_AddedSnippetProperty.Designer.cs">
       <DependentUpon>201912101826599_AddedSnippetProperty.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BlogMigrations\202002041654360_ContentNotRequired.cs" />
+    <Compile Include="DataContexts\BlogMigrations\202002041654360_ContentNotRequired.Designer.cs">
+      <DependentUpon>202002041654360_ContentNotRequired.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BlogMigrations\BlogConfiguration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
@@ -1529,6 +1533,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\BlogMigrations\201912101826599_AddedSnippetProperty.resx">
       <DependentUpon>201912101826599_AddedSnippetProperty.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\202002041654360_ContentNotRequired.resx">
+      <DependentUpon>202002041654360_ContentNotRequired.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>

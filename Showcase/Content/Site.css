@@ -20,6 +20,21 @@ html body .profile-page .card-profile .card-profile-stats>div .description {
 	opacity: 0.8;
 }
 
+body .ds-published-date {
+    line-height: 1.5;
+    font-family: "Merriweather", serif;
+    text-align: Center;
+    font-size: 1.5rem;
+}
+
+body .single-stories-carousel h6 a {
+    padding: 8px 0px;
+}
+
+body .single-post-item .post-details h4 a {
+    line-height: 1.5;
+}
+
 body .single-post-carousel .post-details .post-content .post-meta {
     min-width: 50%;
     margin-top: 4px;

@@ -26,13 +26,13 @@
 
             <div class="form-group s-tiny-group">
                 @Html.LabelFor(model => model.PostContent, htmlAttributes: new { @class = "control-label" })
-                @Html.TextAreaFor(m => m.PostContent, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseEditor", required = "required", @maxlength = "10000" })
+                @Html.TextAreaFor(m => m.PostContent, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseEditor"})
                 @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "text-danger" })
             </div>
 
             <div class="form-group s-tiny-group">
                 @Html.LabelFor(model => model.PostSnippet, htmlAttributes: new { @class = "control-label" })
-                @Html.TextAreaFor(m => m.PostSnippet, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseSnippet", required = "required", @maxlength = "10000" })
+                @Html.TextAreaFor(m => m.PostSnippet, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseSnippet", @maxlength = "100" })
                 @Html.ValidationMessageFor(model => model.PostSnippet, "", new { @class = "text-danger" })
             </div>
         </div>

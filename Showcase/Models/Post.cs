@@ -30,13 +30,11 @@ namespace Showcase.Models
         [Display(Name = "Featured Image")]
         public HttpPostedFileBase PostImageUpload { get; set; }
 
-        [Required(ErrorMessage = "Post Content Required")]
         [AllowHtml]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Post Content")]
         public string PostContent { get; set; }
 
-        [Required(ErrorMessage = "Post Snippet Required")]
         [AllowHtml]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Post Snippet")]
@@ -86,7 +84,6 @@ namespace Showcase.Models
             Tags = new HashSet<Tag>();
             PostLocations = new HashSet<PostLocation>();
             Author = new Author();
-
             AuthorList = new Dictionary<int, string>();
         }
 

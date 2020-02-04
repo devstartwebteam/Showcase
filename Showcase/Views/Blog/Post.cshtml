@@ -3,6 +3,8 @@
 @{
     Layout = "~/Views/Shared/_PostLayout.cshtml";
     string imageUrl = "";
+    string postDate = Model.LastModified?.Date.ToString("MMMM dd, yyyy");
+     
 
     if (Model?.PostImage != null)
     {
@@ -43,10 +45,10 @@
         <div class="container ds-content-container">
             <div class="mt-5 py-5 border-top">
                 <div class="row justify-content-center">
-                    <div class="col-lg-9">
-                        <h2 class="ds-post-subtitle">@Model.PostName</h2>
+                    <div class="col-lg-8 col-sm-12 col-xs-12">
+                        <h2 class="ds-published-date"><span class="lnr lnr-calendar-full"></span> Published @postDate</h2>
                         <p class="ds-post-text">
-                            @Html.Raw(Model?.PostContent);
+                            @Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))
                         </p>
                     </div>
                 </div>

@@ -28,13 +28,13 @@
 
             <div class="form-group s-tiny-group">
                 @Html.LabelFor(model => model.PostContent, htmlAttributes: new { @class = "control-label" })
-                <textarea id="ShowcaseEditor" name="PostContent" class="ds-fields form-control"></textarea>
-                @Html.ValidationMessageFor(model => Model.PostContent, "", new { @class = "text-danger" })
+                @Html.TextAreaFor(m => m.PostContent, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseEditor" })
+                @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "text-danger" })
             </div>
 
             <div class="form-group s-tiny-group">
                 @Html.LabelFor(model => model.PostSnippet, htmlAttributes: new { @class = "control-label" })
-                <textarea id="ShowcaseSnippet" name="PostSnippet" class="ds-fields form-control"></textarea>
+                @Html.TextAreaFor(m => m.PostSnippet, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseSnippet", @maxlength = "100" })
                 @Html.ValidationMessageFor(model => model.PostSnippet, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -43,7 +43,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label" })
                 <div class="checkbox">
-                    @Html.DropDownListFor(model => model.AuthorList, Model?.GetAuthorList(), "Select Author", new { @class = "browser-default form-control custom-select" })
+                    @Html.DropDownListFor(model => model.Author, Model.GetAuthorList(), "Select Author", new { @class = "browser-default form-control custom-select" })
                     @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
                 </div>
                 <input type="hidden" id="ds-author-id" name="AuthorId" value="@Model.Author.AuthorId" />
@@ -101,4 +101,16 @@
             </div>
         </div>
     </div>
+
+@section scripts {
+    <script type="text/javascript">
+        $(function() {
+            $('.ds-admin-form').on('submit',
+                function() {
+                    var selectedAuthor = $('#Author').val();
+                    $('#ds-author-id').val(selectedAuthor);
+                });
+        });
+    </script>
+}
 }

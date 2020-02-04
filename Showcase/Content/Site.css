@@ -576,9 +576,14 @@ body .ds-user-navbar li {
 /* Argon Theme Overrides */
 
 body .ds-post-content p {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     font-weight: 400;
+    padding: 0px;
     line-height: 2;
+    margin-bottom: 4%;
+    font-family: Noto Serif;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
     color: rgba(0, 0, 0, 0.84);
 }
 body .btn-primary,

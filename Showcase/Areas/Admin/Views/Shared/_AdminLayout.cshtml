@@ -3,7 +3,7 @@
 
 @Html.Partial("_AdminHead")
 
-<body id="s-admin-body">
+<body id="ds-admin-body">
     <div class="wrapper ds-admin-wrapper">
         @Html.Partial("_AdminSidebar")
         <div class="main-panel">
@@ -28,7 +28,7 @@
 </html>
 <!--   Core JS Files   -->
 @Scripts.Render("~/bundles/bootstraplight")
-@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryval")
 
 <!--tinymce Editor -->
 <script src='https://cloud.tinymce.com/stable/tinymce.min.js'></script>
@@ -48,7 +48,7 @@
                 "responsive":false,
                 "paging": true,
                 "searching": true,
-                "ordering": true       
+                "ordering": true
             });
         }
         var content = '@Html.Raw(ViewBag.Content)';
@@ -89,7 +89,7 @@
             var linkName = linkArray[i];
             var linkSelector = '#ds-' + linkName;
             $(linkSelector).addClass('active');
-        }      
+        }
     }
 </script>
 

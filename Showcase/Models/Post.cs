@@ -30,14 +30,16 @@ namespace Showcase.Models
         [Display(Name = "Featured Image")]
         public HttpPostedFileBase PostImageUpload { get; set; }
 
+        [Required(ErrorMessage = "Post Content Required")]
         [AllowHtml]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Post Content")]
-        [Required]
         public string PostContent { get; set; }
 
+        [Required(ErrorMessage = "Post Snippet Required")]
         [AllowHtml]
+        [DataType(DataType.MultilineText)]
         [Display(Name = "Post Snippet")]
-        [Required]
         [StringLength(100)]
         public string PostSnippet { get; set; }
         public int ViewCount { get; set; }
@@ -48,6 +50,7 @@ namespace Showcase.Models
         public Author Author { get; set; }
 
         [NotMapped]
+        [Required(ErrorMessage = "Please assign an Author")]
         public int AuthorId { get; set; }
 
         [NotMapped]

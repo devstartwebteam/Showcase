@@ -20,6 +20,11 @@ html body .profile-page .card-profile .card-profile-stats>div .description {
 	opacity: 0.8;
 }
 
+body .single-post-carousel .post-details .post-content .post-meta {
+    min-width: 50%;
+    margin-top: 4px;
+}
+
 body .single-stories-carousel h6 {
     max-height: 50px;
     min-height: 50px;
@@ -159,7 +164,7 @@ body .ds-author-img {
 }
 
 body .ds-author-box {
-	max-width: 700px;
+    max-width: 700px;
 }
 
 body .ds-footer-wrap {

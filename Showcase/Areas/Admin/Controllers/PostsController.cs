@@ -72,8 +72,9 @@ namespace Showcase.Areas.Admin.Controllers
         }
 
         [HttpPost, ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post vm)
+        public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,PostSnippet,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post vm)
         {
+            IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
                 bool success = blogAdminRepo.CreateNewPost(vm);
@@ -93,6 +94,8 @@ namespace Showcase.Areas.Admin.Controllers
             }
 
             ModelState.AddModelError(string.Empty, Resources.CreatePostFailed);
+            vm = blogAdminRepo.GetNewPost(vm);
+
             return View(vm);
         }
 
@@ -117,7 +120,7 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds,PostSnippet")] Post post)
+        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,PostSnippet,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post post)
         {
             if (ModelState.IsValid)
             {
@@ -137,6 +140,8 @@ namespace Showcase.Areas.Admin.Controllers
             }
 
             ModelState.AddModelError(string.Empty, Resources.UpdatePostFailed);
+            post = blogAdminRepo.GetNewPost(post);
+
             return View(post);
         }
 

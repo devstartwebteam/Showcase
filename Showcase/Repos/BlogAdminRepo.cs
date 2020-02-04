@@ -327,13 +327,16 @@ namespace Showcase.Repos
                             vertical = 50;
                             break;
                         case "body":
-                            newHeight = 500;
+                            newHeight = 530;
+                            newWidth = 360;
+                            horizontal = 780;
+                            vertical = 300;
                             break;
                         case "slider":
                             newHeight = 630;
                             newWidth = 640;
-                            horizontal = 250;
-                            vertical = 250;
+                            horizontal = 340;
+                            vertical = 200;
                             break;
                         case "thumbnail":
                             newHeight = 80;
@@ -341,7 +344,7 @@ namespace Showcase.Repos
                             break;
                     }
 
-                    if (type.ToLower() == "body")
+                    if (type.ToLower() == "thumbnail")
                     {
                         float aspectRatio = (float)adjustImage.Size.Width / (float)adjustImage.Size.Height;
                         newWidth = Convert.ToInt32(aspectRatio * newHeight);
@@ -354,7 +357,7 @@ namespace Showcase.Repos
                     thumbGraph.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
                     thumbGraph.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
 
-                    if(type.ToLower() == "thumbnail" || type.ToLower() == "body")
+                    if( type.ToLower() == "thumbnail" || type.ToLower() == "banner" )
                     {
                         var imageRectangle = new Rectangle(0, 0, newWidth, newHeight);
                         thumbGraph.DrawImage(adjustImage, imageRectangle);

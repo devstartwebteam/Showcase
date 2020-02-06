@@ -74,7 +74,6 @@ namespace Showcase.Areas.Admin.Controllers
         [HttpPost, ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,PostSnippet,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post vm)
         {
-
             if (ModelState.IsValid)
             {
                 bool success = blogAdminRepo.CreateNewPost(vm);
@@ -142,7 +141,6 @@ namespace Showcase.Areas.Admin.Controllers
             }
 
             ModelState.AddModelError(string.Empty, Resources.UpdatePostFailed);
-            post = blogAdminRepo.GetNewPost(post);
 
             return View(post);
         }

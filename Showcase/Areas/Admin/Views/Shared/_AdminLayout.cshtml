@@ -51,6 +51,7 @@
                 "ordering": true
             });
         }
+
         var content = '@Html.Raw(ViewBag.Content)';
         $('#ShowcaseEditor').html(content);
         tinymce.init({
@@ -94,10 +95,12 @@
 </script>
 
 <script type="text/javascript">
-    $("#ds-workout-date").datepicker({ dateFormat: 'mm/dd/yy' });
-    $('.clockpicker').clockpicker({
-        donetext: 'Done'
-    });
+    if ($("#ds-workout-date").length > 0) {
+        $("#ds-workout-date").datepicker({ dateFormat: 'mm/dd/yy' });
+        $('.clockpicker').clockpicker({
+            donetext: 'Done'
+        });
+    }
 </script>
 
 @RenderSection("Scripts", false)

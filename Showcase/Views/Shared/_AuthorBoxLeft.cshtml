@@ -3,16 +3,14 @@
     <div class="row">
         <div class="ds-author-left col-md-2">
             <span class="ds-author-content">
-                <a href="/Author/">
+                <a href="/Home/">
                     <img alt="" src="~/Content/images/author.jpg" class="ds-avatar s-photo" height="72" width="72">
                 </a>
             </span>
         </div>
         <div class="ds-author-right col-md-10">
             <span class="ds-author-name">
-                <a href="/Author/">
-                    By Nate Johnson
-                </a>
+                @Html.ActionLink("By Nate Johnson", "Index", "Home", null, new { @class = "ds-author-link" })
             </span>
             <a class="ds-author-button" href="https://twitter.com/devstartwebteam" target="_blank">Follow Me</a><br>
             <span class="ds-author-description">Web Developer | Computer Programmer | Music is big, running is fun</span>

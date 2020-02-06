@@ -26,7 +26,7 @@
 
             <div class="form-group s-tiny-group">
                 @Html.LabelFor(model => model.PostContent, htmlAttributes: new { @class = "control-label" })
-                @Html.TextAreaFor(m => m.PostContent, new { rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseEditor"})
+                @Html.TextAreaFor(model => model.PostContent, new {  rows = "10", cols = "150", @class = "ds-fields form-control", @id = "ShowcaseEditor"})
                 @Html.ValidationMessageFor(model => model.PostContent, "", new { @class = "text-danger" })
             </div>
 
@@ -105,6 +105,10 @@
                     var selectedAuthor = $('#Author').val();
                     $('#ds-author-id').val(selectedAuthor);
                 });
+        });
+        $(window).on('load', function() {
+            tinyMCE.get('ShowcaseEditor').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))");
+            tinyMCE.get('ShowcaseSnippet').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostSnippet))");
         });
     </script>
 }

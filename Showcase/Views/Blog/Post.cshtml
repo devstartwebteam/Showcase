@@ -43,10 +43,10 @@
     <!-- Start content section -->
     <section id="ds-blog-content" class="ds-post-content">
         <div class="container ds-content-container">
-            <div class="mt-5 py-5 border-top">
+            <div class="py-5">
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-sm-12 col-xs-12">
-                        <h2 class="ds-published-date"><span class="lnr lnr-calendar-full"></span> Published @postDate</h2>
+                        <h2 class="ds-published-date border-bottom py-5"><span class="lnr lnr-calendar-full"></span> Published @postDate</h2>
                         <p class="ds-post-text">
                             @Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))
                         </p>

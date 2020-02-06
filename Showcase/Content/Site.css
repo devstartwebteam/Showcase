@@ -48,6 +48,9 @@ body .single-stories-carousel h6 {
 body .owl-carousel .owl-item img {
     width: auto;
 }
+body .ds-post-page .section-profile-cover {
+    height: 800px;
+}
 
 body .ds-background-shade {
     width: 100%;

@@ -60,15 +60,15 @@ namespace Showcase.Areas.Admin.Controllers
         [HttpGet]
         public ActionResult Create()
         {
-            Post post = new Post();
-            post = blogAdminRepo.GetNewPost(post);
+            Post vm = new Post();
+            vm = blogAdminRepo.GetNewPost(vm);
 
-            if (post == null)
+            if (vm == null)
             {
                 ModelState.AddModelError(string.Empty, Resources.GetPostFailed);
             }
 
-            return View(post);
+            return View(vm);
         }
 
         [HttpPost, ValidateAntiForgeryToken]
@@ -119,13 +119,11 @@ namespace Showcase.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,PostSnippet,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post post)
+        public ActionResult Edit([Bind(Include = "PostId,PostName,PostUrl,PostImageUpload,PostContent,PostSnippet,ViewCount,Active,AuthorId,SelectedTagIds,SelectedCategoryIds,SelectedLocationIds")] Post vm)
         {
-            IEnumerable<ModelError> allErrors = ModelState.Values.SelectMany(v => v.Errors);
-
             if (ModelState.IsValid)
             {
-                bool isUpdated = blogAdminRepo.UpdatePost(post);
+                bool isUpdated = blogAdminRepo.UpdatePost(vm);
 
                 if (isUpdated)
                 {
@@ -141,8 +139,9 @@ namespace Showcase.Areas.Admin.Controllers
             }
 
             ModelState.AddModelError(string.Empty, Resources.UpdatePostFailed);
+            vm = blogAdminRepo.GetNewPost(vm);
 
-            return View(post);
+            return View(vm);
         }
 
         // GET: Posts/Delete/5

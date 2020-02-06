@@ -323,8 +323,8 @@ namespace Showcase.Repos
                         case "banner":
                             newHeight = 800;
                             newWidth = 1920;
-                            horizontal = 50;
-                            vertical = 50;
+                            horizontal = 0;
+                            vertical = 0;
                             break;
                         case "body":
                             newHeight = 530;

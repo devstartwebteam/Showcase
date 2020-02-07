@@ -41,7 +41,7 @@
             <div class="form-group">
                 @Html.LabelFor(model => model.Author, htmlAttributes: new { @class = "control-label" })
                 <div class="checkbox">
-                    @Html.DropDownListFor(model => model.Author, Model.GetAuthorList(), "Select Author", new {@class = "browser-default form-control custom-select" })
+                    @Html.DropDownListFor(model => model.Author, Model.GetAuthorList(), "Select Author", new { @class = "browser-default form-control custom-select" })
                     @Html.ValidationMessageFor(model => model.Author, "", new { @class = "text-danger" })
                 </div>
                 <input type="hidden" id="ds-author-id" name="AuthorId" value="" />
@@ -61,25 +61,26 @@
 
             <div class="form-group">
                 @Html.LabelFor(model => model.Categories, "Assign Categories", htmlAttributes: new { @class = "control-label" })
-                @Html.Partial("_CheckBoxList", ShowcaseHtmlHelpers.GetCheckboxList("SelectedCategoryIds", "ds-checkbox", Model.CategoryMultiSelectList))
+                @Html.Partial("_CheckBoxList", ShowcaseHtmlHelpers.GetCheckboxList("SelectedCategoryIds", "ds-checkbox ds-category-select", Model.CategoryMultiSelectList))
             </div>
 
             <div class="form-group">
                 @Html.LabelFor(model => model.PostLocations, "Assign Locations", htmlAttributes: new { @class = "control-label" })
-                @Html.Partial("_CheckBoxList", ShowcaseHtmlHelpers.GetCheckboxList("SelectedLocationIds", "ds-checkbox", Model.LocationMultiSelectList))
+                @Html.Partial("_CheckBoxList", ShowcaseHtmlHelpers.GetCheckboxList("SelectedLocationIds", "ds-checkbox ds-location-select", Model.LocationMultiSelectList))
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Tags, "Assign Tags", htmlAttributes: new { @class = "control-label" })
+                @Html.Partial("_CheckBoxList", ShowcaseHtmlHelpers.GetCheckboxList("SelectedTagIds", "ds-checkbox ds-tag-select", Model.TagMultiSelectList))
             </div>
 
             @*<div class="form-group">
-                    @Html.LabelFor(model => model.Tags, "Assign Tags", htmlAttributes: new {@class = "control-label"})
-                    @Html.Partial("_CheckBoxList", ShowcaseHtmlHelpers.GetCheckboxList("SelectedTagIds", "ds-checkbox", Model.TagMultiSelectList))
-                </div>
-                    <div class="form-group">
-                    @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label" })
-                    <div class="checkbox">
-                        @Html.EditorFor(model => model.Active)
-                        @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
-                    </div>
-                </div>*@
+            @Html.LabelFor(model => model.Active, htmlAttributes: new { @class = "control-label" })
+            <div class="checkbox">
+                @Html.EditorFor(model => model.Active)
+                @Html.ValidationMessageFor(model => model.Active, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
         </div>
     </div>
     <br />
@@ -106,10 +107,53 @@
                     $('#ds-author-id').val(selectedAuthor);
                 });
 
+            var categoryIds = [];
+            var locationIds = [];
+            var tagIds = [];
+
+            categoryIds = @Html.Raw(Json.Encode(Model.SelectedCategoryIds));
+            locationIds = @Html.Raw(Json.Encode(Model.SelectedLocationIds));
+            tagIds = @Html.Raw(Json.Encode(Model.SelectedTagIds));
+
+            var $categoryBoxes = $('.ds-category-select .ds-check-input');
+            var $locationBoxes = $('.ds-location-select .ds-check-input');
+            var $tagBoxes = $('.ds-tag-select .ds-check-input');
+
+            if (categoryIds != null) {
+                for (var i = 0; i < $categoryBoxes.length; i++) {
+                    for (var x = 0; x < categoryIds.length; x++) {
+                        if ($categoryBoxes[i].value == categoryIds[x]) {
+                            $categoryBoxes[i].checked = true;
+                        }
+                    }
+                }
+            }
+
+            if (locationIds != null) {
+                for (var j = 0; j < $locationBoxes.length; j++) {
+                    for (var y = 0; y < locationIds.length; y++) {
+                        if ($locationBoxes[j].value == locationIds[y]) {
+                            $locationBoxes[j].checked = true;
+                        }
+                    }
+                }
+            }
+
+            if (tagIds != null) {
+                for (var k = 0; k < $tagBoxes.length; k++) {
+                    for (var z = 0; z < tagIds.length; z++) {
+                        if ($tagBoxes[k].value == tagIds[z]) {
+                            $tagBoxes[k].checked = true;
+                        }
+                    }
+                }
+            }
         });
-        $(window).on('load', function() {
-            tinyMCE.get('ShowcaseEditor').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))");
-            tinyMCE.get('ShowcaseSnippet').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostSnippet))");
-        });
+
+        $(window).on('load',
+            function() {
+                tinyMCE.get('ShowcaseEditor').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))");
+                tinyMCE.get('ShowcaseSnippet').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostSnippet))");
+            });
     </script>
 }

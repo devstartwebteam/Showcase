@@ -26,10 +26,6 @@ namespace Showcase.Models
         public byte[] PostImage { get; set; }
         public virtual PostImage PostImages { get; set; }
 
-        [NotMapped]
-        [Display(Name = "Featured Image")]
-        public HttpPostedFileBase PostImageUpload { get; set; }
-
         [AllowHtml]
         [DataType(DataType.MultilineText)]
         [Display(Name = "Post Content")]
@@ -46,6 +42,16 @@ namespace Showcase.Models
         public DateTime? Created { get; set; }
         public DateTime? LastModified { get; set; }
         public Author Author { get; set; }
+        public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Tag> Tags { get; set; }
+        public virtual ICollection<PostLocation> PostLocations { get; set; }
+        public virtual Template Template { get; set; }
+        public MetaSEO MetaSEO { get; set; }
+
+
+        [NotMapped]
+        [Display(Name = "Featured Image")]
+        public HttpPostedFileBase PostImageUpload { get; set; }
 
         [NotMapped]
         [Required(ErrorMessage = "Please assign an Author")]
@@ -73,11 +79,6 @@ namespace Showcase.Models
         [NotMapped]
         public MultiSelectList LocationMultiSelectList { get; set; }
 
-        public virtual ICollection<Category> Categories { get; set; }
-        public virtual ICollection<Tag> Tags { get; set; }
-        public virtual ICollection<PostLocation> PostLocations { get; set; }
-        public virtual Template Template { get; set; }
-        public MetaSEO MetaSEO { get; set; }
         public Post()
         {
             Categories = new HashSet<Category>();
@@ -130,7 +131,7 @@ namespace Showcase.Models
         {
             Dictionary<int, string> dictionary = list.ToDictionary(a => a.PostLocationId, b => b.PostLocationName);
             MultiSelectList selectList = new MultiSelectList(dictionary, "Key", "Value", ids);
-
+            
             return selectList;
         }
     }

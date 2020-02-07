@@ -143,9 +143,6 @@ namespace Showcase.Repos
                     .Include(a => a.PostLocations)
                     .First(a => a.PostId == post.PostId);
 
-                post.Created = oldPost.Created;
-                post.LastModified = DateTime.Now;
-
                 if (post.PostImageUpload != null)
                 {
                     oldPost.PostImages = new PostImage();
@@ -213,10 +210,13 @@ namespace Showcase.Repos
                     oldPost.Tags.Clear();
                 }
 
+                post.LastModified = DateTime.Now;
+                post.Created = oldPost.Created;
+                isUpdated = true;
+
                 db.Entry(oldPost).CurrentValues.SetValues(post);
                 db.Entry(oldPost).State = EntityState.Modified;
                 db.SaveChanges();
-                isUpdated = true;
             }
             catch (Exception e)
             {
@@ -268,8 +268,12 @@ namespace Showcase.Repos
                 }
 
                 post.PostUrl = post.PostUrl.ToLower();
-                post.GetImageBytes(post.PostImageUpload);
 
+                if (post.PostImageUpload != null)
+                {
+                    post.GetImageBytes(post.PostImageUpload);
+                }
+                
                 if (post.PostImage != null)
                 {
                     post.PostImages = GeneratePostImages(post);

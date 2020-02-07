@@ -10,7 +10,7 @@
                     <!-- single stories carousel -->
                     @foreach (var post in Model.Posts)
                     {
-                        string url = Url.Action("Post", "Blog", routeValues: new { title = post.PostUrl });
+                        string url = Url.Action("Post", "Blog", new { title = post.PostUrl });
                         string createDate = post.Created?.Date.ToString("MMMM dd, yyyy");
 
                         <div class="single-stories-carousel d-flex align-items-center">
@@ -21,7 +21,7 @@
                             </div>
                             <div class="stories-details">
                                 <h6>
-                                    @Html.ActionLink(post.PostName, "Post", "Blog", routeValues: new { title = post.PostUrl}, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
+                                    @Html.ActionLink(post.PostName, "Post", "Blog", new { title = post.PostUrl}, htmlAttributes: new {id = "loginLink", @class = "nav-link"}) <i class="ni ni-collection d-lg-none"></i>
                                 </h6>
                                 <p>@createDate</p>
                             </div>

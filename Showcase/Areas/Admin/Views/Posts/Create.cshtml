@@ -105,6 +105,7 @@
                     var selectedAuthor = $('#Author').val();
                     $('#ds-author-id').val(selectedAuthor);
                 });
+
         });
         $(window).on('load', function() {
             tinyMCE.get('ShowcaseEditor').setContent("@Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))");

@@ -89,6 +89,8 @@ namespace Showcase.Repos
                     .Include(a => a.Tags)
                     .FirstOrDefault(a => a.PostId == id);
 
+                post.AuthorId = post.Author.AuthorId;
+
                 if (post != null)
                 {
                     int[] categoryIds = null;

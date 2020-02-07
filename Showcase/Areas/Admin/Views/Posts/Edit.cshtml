@@ -110,6 +110,9 @@
                     var selectedAuthor = $('#Author').val();
                     $('#ds-author-id').val(selectedAuthor);
                 });
+
+            var authorId = @Model.AuthorId;
+            $('#Author').val(authorId);
         });
     </script>
 }

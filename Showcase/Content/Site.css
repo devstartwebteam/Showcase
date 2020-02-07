@@ -210,6 +210,9 @@ body footer .single-footer-widget p {
     font-size: 14px;
     font-weight: 400;
 }
+body .single-post-carousel .post-details .post-content .details {
+    font-family: "Poppins", Arial, sans-serif;
+}
 body .single-footer-widget.instafeed {
     margin-left: 30px;
 }

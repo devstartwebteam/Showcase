@@ -43,6 +43,7 @@ namespace Showcase.Models
         public DateTime? LastModified { get; set; }
         public Author Author { get; set; }
         public virtual ICollection<Category> Categories { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Tag> Tags { get; set; }
         public virtual ICollection<PostLocation> PostLocations { get; set; }
         public virtual Template Template { get; set; }
@@ -82,6 +83,7 @@ namespace Showcase.Models
         public Post()
         {
             Categories = new HashSet<Category>();
+            Comments = new HashSet<Comment>();
             Tags = new HashSet<Tag>();
             PostLocations = new HashSet<PostLocation>();
             Author = new Author();

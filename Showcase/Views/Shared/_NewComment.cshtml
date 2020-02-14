@@ -1,0 +1,31 @@
+﻿@model Showcase.Models.Comment
+
+@using (Html.BeginForm("_NewComment", "Comment", FormMethod.Post, new { id = "ds-comment-form", @class = "ds-admin-form" }))
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.PostId)
+    @Html.HiddenFor(model => model.AuthorId)
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<div id="ds-new-comment-wrap" class="comment">
+    <div class="comment-body">
+        <div class="comment-author">
+            <img alt="" src="~/Content/images/author.jpg" class="avatar avatar-32 photo" height="32" width="32"> <cite class="fn"><a href="https://web.archive.org/web/20180818063619/http://developerstart.com/" rel="external nofollow" class="url">Nate Johnson</a></cite> <span class="says">says:</span>
+        </div>
+
+        <div class="comment-meta">
+            <a href="">
+                @DateTime.Now.ToString()
+            </a>
+        </div>
+    </div>
+
+    @Html.EditorFor(model => model.CommentContent, new { htmlAttributes = new { @class = "new-comment" } })
+    @Html.ValidationMessageFor(model => model.CommentContent, "", new { @class = "text-danger" })
+
+    <button type="button" id="ds-create-comment" value="Create" class="genric-btn primary-border">Submit</button>
+    
+</div>
+
+}

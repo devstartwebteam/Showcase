@@ -1,4 +1,32 @@
-﻿/*
+﻿$(document).on("click", "#ds-create-comment", function () {
+    var form = $("#ds-comment-form");
+
+    $.ajax({
+        method: "POST",
+        url: createCommentUrl,
+        data: form.serialize()
+    })
+        .done(function () {
+            SetList();
+        });
+});
+
+
+function SetList() {
+    $.ajax({
+            method: "GET",
+            url: getCommentsUrl,
+            cache: false
+        })
+        .done(function (data) {
+            $("#ds-comment-list").html(data);
+        });
+}
+
+
+
+/*
+Knockout.js stuff
 var ViewModel = function () {
     var self = this;
     self.posts = ko.observableArray();

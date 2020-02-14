@@ -12,7 +12,6 @@ namespace Showcase.Controllers
     public class BlogLayoutController : Controller
     {
         private readonly IBlogLocationRepo blogLocationRepo;
-        private BlogDb db = new BlogDb();
 
         public BlogLayoutController(IBlogLocationRepo blogLocationRepo)
         {

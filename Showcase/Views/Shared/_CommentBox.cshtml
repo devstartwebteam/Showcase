@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Showcase.Models.Comment>
+
+
+    @foreach (var comment in Model)
+    {
+        string postDate = comment.Created.ToString();
+
+        <li class="comment" id="comment-10">
+            <div id="div-comment-10" class="comment-body">
+                <div class="comment-author">
+                    <img alt="" src="~/Content/images/author.jpg" class="avatar avatar-32 photo" height="32" width="32"> <cite class="fn"><a href="" rel="external nofollow" class="url">Nate Johnson</a></cite> <span class="says">says:</span>
+                </div>
+
+                <div class="comment-meta">
+                    <a href="https://web.archive.org/web/20180818063619/http://developerstart.com/data-structures-stacks-queues/#comment-10">
+                        @postDate
+                    </a>
+                </div>
+                <p>@comment.CommentContent</p>
+            </div>
+        </li>
+    }

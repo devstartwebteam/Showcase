@@ -230,6 +230,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BlogController.cs" />
     <Compile Include="Controllers\BlogLayoutController.cs" />
+    <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Areas\Admin\Controllers\PostsController.cs" />
@@ -310,6 +311,14 @@
     <Compile Include="DataContexts\BlogMigrations\202002041654360_ContentNotRequired.Designer.cs">
       <DependentUpon>202002041654360_ContentNotRequired.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataContexts\BlogMigrations\202002121819395_UpdatedComments.cs" />
+    <Compile Include="DataContexts\BlogMigrations\202002121819395_UpdatedComments.Designer.cs">
+      <DependentUpon>202002121819395_UpdatedComments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\BlogMigrations\202002122230261_RequiredComment.cs" />
+    <Compile Include="DataContexts\BlogMigrations\202002122230261_RequiredComment.Designer.cs">
+      <DependentUpon>202002122230261_RequiredComment.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataContexts\BlogMigrations\BlogConfiguration.cs" />
     <Compile Include="DataContexts\IdentityDb.cs" />
     <Compile Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.cs" />
@@ -329,10 +338,12 @@
     <Compile Include="Interfaces\IBlogAdminRepo.cs" />
     <Compile Include="Interfaces\IBlogLocationRepo.cs" />
     <Compile Include="Interfaces\IDashboardRepo.cs" />
+    <Compile Include="Interfaces\ICommentRepo.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Author.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\DashboardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -349,6 +360,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repos\BlogAdminRepo.cs" />
     <Compile Include="Repos\BlogLocationRepo.cs" />
+    <Compile Include="Repos\CommentRepo.cs" />
     <Compile Include="Repos\DashboardRepo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\PostsViewModel.cs" />
@@ -1477,6 +1489,8 @@
     <Content Include="Views\BlogLayout\_BlogSideTags.cshtml" />
     <Content Include="Views\Shared\_AccountHead.cshtml" />
     <Content Include="Views\Shared\_AccountFooter.cshtml" />
+    <Content Include="Views\Shared\_CommentBox.cshtml" />
+    <Content Include="Views\Shared\_NewComment.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1542,6 +1556,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\BlogMigrations\202002041654360_ContentNotRequired.resx">
       <DependentUpon>202002041654360_ContentNotRequired.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\202002121819395_UpdatedComments.resx">
+      <DependentUpon>202002121819395_UpdatedComments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\BlogMigrations\202002122230261_RequiredComment.resx">
+      <DependentUpon>202002122230261_RequiredComment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201812282122040_Initial Create.resx">
       <DependentUpon>201812282122040_Initial Create.cs</DependentUpon>

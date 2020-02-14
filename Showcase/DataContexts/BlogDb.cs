@@ -18,6 +18,7 @@ namespace Showcase.DataContexts
         public DbSet<PostImage> PostImages { get; set; }
         public DbSet<Template> Templates { get; set; }
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         public DbSet<PostLocation> PostLocations { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<Author> Authors { get; set; }

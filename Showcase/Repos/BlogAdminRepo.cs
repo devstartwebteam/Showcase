@@ -4,15 +4,10 @@ using System.Data.Entity;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Web;
-using System.Web.Helpers;
-using System.Web.ModelBinding;
 using log4net;
-using log4net.Repository.Hierarchy;
 using Showcase.DataContexts;
 using Showcase.Interfaces;
 using Showcase.Models;
-using WebGrease.Css.Extensions;
 
 namespace Showcase.Repos
 {
@@ -63,7 +58,10 @@ namespace Showcase.Repos
 
             try
             {
-                Post post = db.Posts.Include(a => a.PostImages).First(a => a.PostId == id);
+                Post post = db.Posts
+                    .Include(a => a.PostImages)
+                    .Include(a => a.Comments)
+                    .First(a => a.PostId == id);
 
                 db.Posts.Remove(post);
                 db.SaveChanges();

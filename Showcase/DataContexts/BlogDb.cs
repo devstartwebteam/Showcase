@@ -12,6 +12,7 @@ namespace Showcase.DataContexts
         public BlogDb()
            : base("DefaultConnection")
         {
+            this.Configuration.LazyLoadingEnabled = false;
         }
 
         public DbSet<Post> Posts { get; set; }

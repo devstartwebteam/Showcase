@@ -5,12 +5,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Showcase.Interfaces;
 
 namespace Showcase.Controllers
 {
     public class BlogController : Controller
     {
         private BlogDb db = new BlogDb();
+        private readonly IBlogPostRepo blogPostRepo;
+
+        public BlogController(IBlogPostRepo blogPostRepo)
+        {
+            this.blogPostRepo = blogPostRepo;
+        }
 
         // GET: Blog
         [HttpGet]
@@ -23,7 +30,7 @@ namespace Showcase.Controllers
         public ActionResult Post(string title)
         {
             Post vm = new Post();
-            vm = db.Posts.FirstOrDefault(a => a.PostUrl == title.ToLower());
+            vm = blogPostRepo.GetBlogPost(title);
 
             if (vm == null)
             {

@@ -1,22 +1,84 @@
-﻿@model IEnumerable<Showcase.Models.Comment>
+﻿@using System.Activities.Statements
+@using Showcase.Models
+@model IEnumerable<Showcase.Models.Comment>
 
+@functions 
+{
 
-    @foreach (var comment in Model)
+    public HtmlString CommentTree(List<Comment> comments)
+    {
+        string html = "<ul>";
+        int counter = 1;
+
+        foreach (var comment in comments)
+        {
+            string postDate = comment.Created.ToString();
+
+            if (comment.ParentCommentId == null && !comment.ChildComments.Any())
+            {
+                html += "<li class='comment' id='comment-10'>" +
+                        "<div id='ds-comment-" + counter + "' class='comment-body'>" +
+                        "<div class='comment-author'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                        "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
+                        "</cite><span class='says'> says:</ span></ div>" +
+                        "<div class='comment-meta'>" + @postDate + "</div>" +
+                        "<p>" + @comment.CommentContent + "</p></div>" +
+                        "</li>";
+
+                counter++;
+
+            }
+            else if (comment.ChildComments.Any())
+            {
+                html += "<li class='comment' id='comment-10'>" +
+                        "<div id='ds-comment-" + counter + "' class='comment-body'>" +
+                        "<div class='comment-author'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                        "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
+                        "</cite><span class='says'> says:</ span></ div>" +
+                        "<div class='comment-meta'>" + @postDate + "</div>" +
+                        "<p>" + @comment.CommentContent + "</p></div>";
+
+                foreach (var child in comment.ChildComments)
+                {
+                    html += ChildCommentTree(child);
+                }
+                html += "</ul></li></ul>";
+
+            }
+        }
+        return new HtmlString(html);
+    }
+
+    public HtmlString ChildCommentTree(Comment comment)
     {
         string postDate = comment.Created.ToString();
+        string childHtml = "<ul>";
+        int childCounter = 1;
 
-        <li class="comment" id="comment-10">
-            <div id="div-comment-10" class="comment-body">
-                <div class="comment-author">
-                    <img alt="" src="~/Content/images/author.jpg" class="avatar avatar-32 photo" height="32" width="32"> <cite class="fn"><a href="" rel="external nofollow" class="url">Nate Johnson</a></cite> <span class="says">says:</span>
-                </div>
+        childHtml += "<li class='comment' id='comment-10'>" +
+                     "<div id='ds-child-comment-" + childCounter + "' class='comment-body'>" +
+                     "<div class='comment-author'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                     "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new {@class = "url"}) +
+                     "</cite><span class='says'> says:</ span></ div>" +
+                     "<div class='comment-meta'>" + @postDate + "</div>" +
+                     "<p>" + comment.CommentContent + "</p></div></li>";
 
-                <div class="comment-meta">
-                    <a href="https://web.archive.org/web/20180818063619/http://developerstart.com/data-structures-stacks-queues/#comment-10">
-                        @postDate
-                    </a>
-                </div>
-                <p>@comment.CommentContent</p>
-            </div>
-        </li>
+        if (comment.ChildComments.Any())
+        {
+            childHtml += ChildCommentTree(comment);
+        }
+
+        childHtml += "</ul>";
+
+        return new HtmlString(childHtml);
     }
+
+    }
+
+}
+
+@if (Model.Any())
+{
+    CommentTree(Model.ToList<Comment>());
+
+}

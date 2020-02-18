@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Reflection;
 using System.Web;
 
 namespace Showcase.Models
@@ -25,5 +26,15 @@ namespace Showcase.Models
 
         [NotMapped]
         public int AuthorId { get; set; }
+
+        public int? ParentCommentId { get; set; }
+
+        [ForeignKey("ParentCommentId")]
+        public virtual List<Comment> ChildComments { get; set; }
+
+        public Comment()
+        {
+            ChildComments = new List<Comment>();
+        }
     }
 }

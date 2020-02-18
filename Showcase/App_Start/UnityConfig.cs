@@ -44,6 +44,7 @@ namespace Showcase
             // TODO: Register your type's mappings here.
             container.RegisterType<IBlogAdminRepo, BlogAdminRepo>();
             container.RegisterType<IBlogLocationRepo, BlogLocationRepo>();
+            container.RegisterType<IBlogPostRepo, BlogPostRepo>();
             container.RegisterType<ICommentRepo, CommentRepo>();
         }
     }

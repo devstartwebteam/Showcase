@@ -64,9 +64,7 @@ body .ds-comment-title {
     font-size: 1.5rem;
     padding: 40px 0px;
 }
-body #ds-comment-box .avatar {
-    border-radius: 50%;
-}
+
 body .ds-reply-title, body .must-log-in {
     margin: 0 0 15px 0;
     font-family: 'Roboto';
@@ -180,7 +178,7 @@ body .ds-author-details {
 }
 
 body .ds-avatar {
-	border-radius: 50%;
+    border-radius: 50%;
 }
 
 body .section-shaped .shape {

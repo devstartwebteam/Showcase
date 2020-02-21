@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Web;
+using ShowcaseResources;
 
 namespace Showcase.Models
 {
@@ -14,7 +15,9 @@ namespace Showcase.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CommentId { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter some text to submit a comment.")]
+        [Display(Name = "CommentContentField", ResourceType = typeof(Resources))]
+        [StringLength(400, MinimumLength = 10, ErrorMessageResourceType = typeof(Resources), ErrorMessageResourceName = "CommentContentFieldLengthError")]
         public string CommentContent { get; set; }
         public DateTime? Created { get; set; }
         public DateTime? LastUpdated { get; set; }

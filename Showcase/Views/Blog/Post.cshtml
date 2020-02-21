@@ -71,7 +71,7 @@
                             </p>
 
                             <div id="ds-comment-list">
-                                @*_CommentBox*@
+                                @Html.Partial("_CommentBox", Model.Comments)
                             </div>
                                 
                             @if (!User.Identity.IsAuthenticated)
@@ -101,5 +101,15 @@
     <script type="text/javascript">
         var createCommentUrl = '@Url.Action("CreateComment", "Comment")';
         var getCommentsUrl = '@Url.Action("_CommentBox", "Comment", new {postId = Model.PostId})';
+        var newReplyUrl = '@Url.Action("_NewReply", "Comment")';
+
+        $(document).keypress(function(e)
+        {
+            if(e.keyCode === 13)
+            {
+                e.preventDefault();
+                return false;
+            }
+        });
     </script>
 }

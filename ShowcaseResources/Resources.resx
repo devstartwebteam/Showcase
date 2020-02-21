@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CommentContentField" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="CommentContentFieldLengthError" xml:space="preserve">
+    <value>Please enter a comment with a max length of 400.</value>
+  </data>
   <data name="CreatePostFailed" xml:space="preserve">
     <value>An error occured and the post failed to create.</value>
   </data>

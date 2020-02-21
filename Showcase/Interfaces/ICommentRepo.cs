@@ -11,6 +11,6 @@ namespace Showcase.Interfaces
     {
         List<Comment> GetPostComments(int postId);
         bool DeleteComment(int commentId);
-        void CreatePostComment(Comment comment);
+        bool CreatePostComment(Comment comment);
     }
 }

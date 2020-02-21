@@ -12,9 +12,15 @@ body .dropdown-menu {
     font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
     /*font-family: "Exo";*/
 }
+body .comment .comment-meta {
+    color: #144e6e;
+}
 html body .profile-page .card-profile .card-profile-stats>div .description {
 	color: #525f7f;
 	opacity: 0.8;
+}
+body .comment-author cite {
+    padding-left: 5px;
 }
 body #ds-comment-box .comment-body p {
     margin: 15px 0;
@@ -205,10 +211,15 @@ body .ds-author-name {
     color: #000;
 	font-weight: 400;
 	font-family: 'Roboto';
-	opacity: 0.8;
+	opacity: 0.6;
 	margin: 4px 0px 0px 0px;
 }
-
+body .ds-post-page .op-post-subtitle {
+    font-weight: 600;
+}
+body .ds-submit-wrap {
+    margin-top: 20px;
+}
 body .ds-author-name a:hover {
     text-decoration: none;
 }
@@ -290,6 +301,31 @@ body .single-footer-widget.instafeed {
 }
 body .ds-author-left .ds-author-right {
     text-align: left;
+    padding-left: 0px;
+    margin-top: 10px;
+}
+body .genric-btn.primary:hover {
+    color: #0063cc;
+    border: 1px solid #0063cc;
+}
+body .genric-btn.primary {
+    color: #fff;
+    border: 1px solid #0063cc;
+    border-radius: 2px;
+    background: #0063cc;
+}
+body .genric-btn.primary-border:hover {
+    color: #fff;
+    border: 1px solid #0063cc;
+    background: #0063cc;
+}
+body .ds-reply-wrap {
+    text-align: right;
+}
+body .genric-btn.primary-border {
+    color: #0063cc;
+    border: 1px solid #0063cc;
+    border-radius: 2px;
 }
 body footer .single-footer-widget .instafeed li {
     margin: 5px;
@@ -308,10 +344,13 @@ body .single-footer-widget input {
     background: #191919;
     padding-left: 20px;
 }
+body .comment-author img {
+    border-radius: 50%;
+}
 body footer .single-footer-widget .sub-btn {
     color: #fff;
     font-weight: 300;
-    border-radius: 0;
+    border-radius: 2px;
     line-height: 34px;
     padding: 4px 11px 0px;
     background: #0063cc;

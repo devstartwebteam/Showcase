@@ -35,19 +35,39 @@ namespace Showcase.Repos
             return comments;
         }
 
-        public void CreatePostComment(Comment comment)
+        public Comment ReplyPostComment(int id)
+        {
+            Comment comment = new Comment();
+
+            try
+            {
+                comment = db.Comments.FirstOrDefault(a => a.Post.PostId == id);
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Error getting reply comment for post", e);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return comment;
+
+        }
+
+        public bool CreatePostComment(Comment comment)
         {
             bool isCreated = false;
             try
             {
-                Post post = db.Posts.FirstOrDefault(a => a.PostId == comment.PostId);
-                Author author = db.Authors.FirstOrDefault(a => a.AuthorId == comment.AuthorId);
+                Post post = db.Posts.Include(a => a.Author).First(a => a.PostId == comment.PostId);
                 comment.Created = DateTime.Now;
                 comment.LastUpdated = DateTime.Now;
-                comment.Author = author;
                 post.Comments.Add(comment);
-
                 db.SaveChanges();
+
+                isCreated = true;
 
             }
             catch (Exception e)
@@ -58,6 +78,8 @@ namespace Showcase.Repos
             {
                 db.Dispose();
             }
+
+            return isCreated;
         }
 
         public bool DeleteComment(int commentId)

@@ -61,6 +61,24 @@ namespace ShowcaseResources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Comment.
+        /// </summary>
+        public static string CommentContentField {
+            get {
+                return ResourceManager.GetString("CommentContentField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Please enter a comment with a max length of 400..
+        /// </summary>
+        public static string CommentContentFieldLengthError {
+            get {
+                return ResourceManager.GetString("CommentContentFieldLengthError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to An error occured and the post failed to create..
         /// </summary>
         public static string CreatePostFailed {

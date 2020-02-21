@@ -5,7 +5,7 @@
 @functions 
 {
 
-    public HtmlString CommentTree(List<Comment> comments)
+    public System.Web.HtmlString CommentTree(List<Comment> comments)
     {
         string html = "<ul>";
         int counter = 1;
@@ -16,14 +16,14 @@
 
             if (comment.ParentCommentId == null && !comment.ChildComments.Any())
             {
-                html += "<li class='comment' id='comment-10'>" +
+                html += "<li class='comment' id='comment-10'><div class='container'>" +
                         "<div id='ds-comment-" + counter + "' class='comment-body'>" +
-                        "<div class='comment-author'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
-                        "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
-                        "</cite><span class='says'> says:</ span></ div>" +
-                        "<div class='comment-meta'>" + @postDate + "</div>" +
-                        "<p>" + @comment.CommentContent + "</p></div>" +
-                        "</li>";
+                        "<div class='comment-author'><div class='row'><div class='col-6'><img alt = 'Comment Author' src='/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                        "<cite class='fn'>" + Html.ActionLink(" Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
+                        "</cite><span class='says'> :</ span></ div></div><div class='col-6'><div class='ds-reply-wrap'><button class='ds-reply-link genric-btn primary-border circle arrow small'>Reply</button></div></div></div></div>" +
+                        "<div class='comment-date'><div class='row'><div class='col-12'><div class='comment-meta'> @ " + @postDate + "</div>" +
+                        "<p>" + @comment.CommentContent + "</p></div></div></div></div>" +
+                        "<div id='ds-reply-content'></div></li>";
 
                 counter++;
 
@@ -32,10 +32,10 @@
             {
                 html += "<li class='comment' id='comment-10'>" +
                         "<div id='ds-comment-" + counter + "' class='comment-body'>" +
-                        "<div class='comment-author'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                        "<div class='comment-author'><div class='row'><div class='col-xs-4'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
                         "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
-                        "</cite><span class='says'> says:</ span></ div>" +
-                        "<div class='comment-meta'>" + @postDate + "</div>" +
+                        "</cite><span class='says'> :</ span></ div>" +
+                        "<div class='comment-meta'> @ " + @postDate + "</div>" +
                         "<p>" + @comment.CommentContent + "</p></div>";
 
                 foreach (var child in comment.ChildComments)
@@ -46,10 +46,10 @@
 
             }
         }
-        return new HtmlString(html);
+        return new System.Web.HtmlString(html);
     }
 
-    public HtmlString ChildCommentTree(Comment comment)
+    public System.Web.HtmlString ChildCommentTree(Comment comment)
     {
         string postDate = comment.Created.ToString();
         string childHtml = "<ul>";
@@ -70,15 +70,11 @@
 
         childHtml += "</ul>";
 
-        return new HtmlString(childHtml);
-    }
-
+        return new System.Web.HtmlString(childHtml);
     }
 
 }
-
 @if (Model.Any())
-{
-    CommentTree(Model.ToList<Comment>());
-
-}
+ {
+     @CommentTree(Model.ToList<Comment>())
+ }

@@ -1,16 +1,48 @@
-﻿$(document).on("click", "#ds-create-comment", function () {
-    var form = $("#ds-comment-form");
+﻿$(document).on("submit", "#ds-comment-form", function (e) {
+    e.preventDefault();
+    if (DynamicValidation) {
+        var form = $("#ds-comment-form");
 
+        $.ajax({
+                method: "POST",
+                url: createCommentUrl,
+                data: form.serialize()
+            })
+            .done(function() {
+                SetList();
+            });
+    }
+});
+
+$(document).on("click", ".ds-reply-link", function() {
     $.ajax({
-        method: "POST",
-        url: createCommentUrl,
-        data: form.serialize()
-    })
+            method: "GET",
+            url: newReplyUrl,
+        })
         .done(function () {
-            SetList();
+            SetReply();
         });
 });
 
+function DynamicValidation() {
+    if ($("#ds-comment-form").length > 0) {
+        var $commentForm = $("#ds-comment-form");
+        $.validator.unobtrusive.parse($commentForm);
+
+        if ($commentForm.valid()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    else {
+        return false;
+    }
+}
+
+function SetReply() {
+
+}
 
 function SetList() {
     $.ajax({
@@ -22,7 +54,6 @@ function SetList() {
             $("#ds-comment-list").html(data);
         });
 }
-
 
 
 /*

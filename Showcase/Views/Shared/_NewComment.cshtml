@@ -1,6 +1,6 @@
 ﻿@model Showcase.Models.Comment
 
-@using (Html.BeginForm("CreateComment", "Comment", FormMethod.Post, new { id = "ds-comment-form", @class = "ds-admin-form" }))
+@using (Html.BeginForm("CreateComment", "Comment", FormMethod.Post, new { @class = "ds-comment-form ds-admin-form" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.PostId)
@@ -27,7 +27,7 @@
     @Html.ValidationMessageFor(model => model.CommentContent, "", new { @class = "text-danger" })
     
     <div class="ds-submit-wrap">
-        <input type="submit" id="ds-create-comment" value="Submit" class="genric-btn primary">
+        <input type="submit" id="ds-create-comment" value="Submit" class="genric-btn primary-border">
     </div>
 </div>
 

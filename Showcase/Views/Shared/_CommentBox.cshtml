@@ -1,5 +1,4 @@
-﻿@using System.Activities.Statements
-@using Showcase.Models
+﻿@using Showcase.Models
 @model IEnumerable<Showcase.Models.Comment>
 
 @functions 
@@ -7,25 +6,32 @@
 
     public System.Web.HtmlString CommentTree(List<Comment> comments)
     {
+        string replyBtn = "";
+        if (User.Identity.IsAuthenticated)
+        {
+            replyBtn = "<button class='ds-reply-link genric-btn primary-border circle arrow small'>Reply <span class='lnr lnr-pencil'></span></button>";
+        }
+
         string html = "<ul>";
         int counter = 1;
 
         foreach (var comment in comments)
         {
             string postDate = comment.Created.ToString();
+            string commentId = comment.CommentId.ToString();
 
             if (comment.ParentCommentId == null && !comment.ChildComments.Any())
             {
-                html += "<li class='comment' id='comment-10'><div class='container'>" +
-                        "<div id='ds-comment-" + counter + "' class='comment-body'>" +
-                        "<div class='comment-author'><div class='row'><div class='col-6'><img alt = 'Comment Author' src='/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                html += "<li class='comment' id='comment-"+ counter +"'><div class='container'>" +
+                        "<div class='comment-body'>" +
+                        "<div class='comment-author'><div class='row'><div class='col-8'><img alt = 'Comment Author' src='/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
                         "<cite class='fn'>" + Html.ActionLink(" Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
-                        "</cite><span class='says'> :</ span></ div></div><div class='col-6'><div class='ds-reply-wrap'><button class='ds-reply-link genric-btn primary-border circle arrow small'>Reply</button></div></div></div></div>" +
+                        "</cite><span class='says'> :</ span></ div></div><div class='col-4'><div class='ds-reply-wrap'>" + @replyBtn + "<input type='hidden' class='ds-comment-id' value='" + commentId + "'/></div></div></div></div>" +
                         "<div class='comment-date'><div class='row'><div class='col-12'><div class='comment-meta'> @ " + @postDate + "</div>" +
                         "<p>" + @comment.CommentContent + "</p></div></div></div></div>" +
-                        "<div id='ds-reply-content'></div></li>";
+                        "<div class='ds-reply-"+ commentId +"'></div></li>";
 
-                counter++;
+
 
             }
             else if (comment.ChildComments.Any())
@@ -35,7 +41,7 @@
                         "<div class='comment-author'><div class='row'><div class='col-xs-4'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
                         "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
                         "</cite><span class='says'> :</ span></ div>" +
-                        "<div class='comment-meta'> @ " + @postDate + "</div>" +
+                        "<div class='comment-meta'>" + @postDate + "</div>" +
                         "<p>" + @comment.CommentContent + "</p></div>";
 
                 foreach (var child in comment.ChildComments)
@@ -45,6 +51,7 @@
                 html += "</ul></li></ul>";
 
             }
+            counter++;
         }
         return new System.Web.HtmlString(html);
     }
@@ -74,6 +81,7 @@
     }
 
 }
+
 @if (Model.Any())
  {
      @CommentTree(Model.ToList<Comment>())

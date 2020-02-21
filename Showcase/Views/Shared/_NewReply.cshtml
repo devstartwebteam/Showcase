@@ -1,6 +1,6 @@
 ﻿@model Showcase.Models.Comment
 
-@using (Html.BeginForm("CreateReply", "Comment", FormMethod.Post, new { id = "ds-comment-form", @class = "ds-admin-form" }))
+@using (Html.BeginForm("CreateReply", "Comment", FormMethod.Post, new { @class = "ds-comment-form ds-admin-form ds-reply-form" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.PostId)
@@ -14,7 +14,7 @@
             <div class="comment-author">
                 <img alt="" src="~/Content/images/author.jpg" class="avatar avatar-32 photo" height="32" width="32">
                 <cite class="fn">
-                    <a href="https://web.archive.org/web/20180818063619/http://developerstart.com/" rel="external nofollow" class="url">Nate Johnson</a>
+                    <a href="" rel="external nofollow" class="url">Nate Johnson</a>
                 </cite>
                 <span class="says">says:</span>
             </div>

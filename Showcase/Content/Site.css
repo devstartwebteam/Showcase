@@ -308,6 +308,9 @@ body .genric-btn.primary:hover {
     color: #0063cc;
     border: 1px solid #0063cc;
 }
+body #mobile-nav-toggle i {
+    color: #0063cc;
+}
 body .genric-btn.primary {
     color: #fff;
     border: 1px solid #0063cc;
@@ -319,12 +322,15 @@ body .genric-btn.primary-border:hover {
     border: 1px solid #0063cc;
     background: #0063cc;
 }
+body .ds-reply-link {
+    padding: 0px 10px;
+}
 body .ds-reply-wrap {
     text-align: right;
 }
 body .genric-btn.primary-border {
-    color: #0063cc;
-    border: 1px solid #0063cc;
+    color: #144e6e;
+    border: 1px solid #144e6e;
     border-radius: 2px;
 }
 body footer .single-footer-widget .instafeed li {

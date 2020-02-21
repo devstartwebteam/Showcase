@@ -1,7 +1,7 @@
-﻿$(document).on("submit", "#ds-comment-form", function (e) {
+﻿$(document).on("submit", ".ds-comment-form", function (e) {
     e.preventDefault();
-    if (DynamicValidation) {
-        var form = $("#ds-comment-form");
+    if (DynamicValidation()) {
+        var form = $(".ds-comment-form");
 
         $.ajax({
                 method: "POST",
@@ -14,19 +14,23 @@
     }
 });
 
-$(document).on("click", ".ds-reply-link", function() {
+$(document).on("click", ".ds-reply-link", function () {
+    var parentId = $(this).next(".ds-comment-id").val();
+    var replyComments = $('.ds-reply-form').remove();
     $.ajax({
             method: "GET",
             url: newReplyUrl,
+            data: parentId
         })
-        .done(function () {
-            SetReply();
+        .done(function (data) {
+            var parentLocation = $(".ds-reply-" + parentId);
+            $(parentLocation).html(data);
         });
 });
 
 function DynamicValidation() {
-    if ($("#ds-comment-form").length > 0) {
-        var $commentForm = $("#ds-comment-form");
+    if ($(".ds-comment-form").length > 0) {
+        var $commentForm = $(".ds-comment-form");
         $.validator.unobtrusive.parse($commentForm);
 
         if ($commentForm.valid()) {

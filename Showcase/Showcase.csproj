@@ -1504,6 +1504,7 @@
     <Content Include="Views\Shared\_CommentBox.cshtml" />
     <Content Include="Views\Shared\_NewComment.cshtml" />
     <Content Include="Views\Shared\_NewReply.cshtml" />
+    <Content Include="Views\Shared\_CreateReply.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -35,7 +35,7 @@ body #ds-comment-box a {
 }
 body #ds-comment-box .comment {
     box-shadow: 0 1px 2px rgba(0,0,0,.05);
-    color: #767779;
+    color: #828bb2;
     background-color: #fff;
     border-radius: 2px;
     padding: 20px;
@@ -206,13 +206,12 @@ body .section-profile-cover {
 }
 body .ds-author-description,
 body .ds-author-name {
-	font-size: 1rem;
+    font-size: 1rem;
     line-height: 1.5rem;
-    color: #000;
-	font-weight: 400;
-	font-family: 'Roboto';
-	opacity: 0.6;
-	margin: 4px 0px 0px 0px;
+    color: #828bb2;
+    font-weight: 400;
+    font-family: 'Roboto';
+    margin: 4px 0px 0px 0px;
 }
 body .ds-post-page .op-post-subtitle {
     font-weight: 600;
@@ -251,7 +250,7 @@ body .ds-author-button {
 }
 
 body .ds-author-name a {
-	color: #000;
+    color: #828bb2;
 }
 
 html body .single-post-carousel .post-details h2 {

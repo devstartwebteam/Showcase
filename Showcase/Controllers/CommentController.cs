@@ -52,26 +52,15 @@ namespace Showcase.Controllers
 
         [HttpGet]
         [RateLimit(MilliSeconds = 1000)]
-        public ActionResult _NewReply(int? parentId)
+        public ActionResult _NewReply(int postId, int parentId)
         {
-            Comment comment = new Comment()
+            Comment comment = new Comment
             {
+                PostId = postId,
                 ParentCommentId = parentId
             };
 
             return View(comment);
-        }
-
-        [HttpPost, ValidateAntiForgeryToken]
-        [AjaxOnly]
-        [RateLimit(MilliSeconds = 5000)]
-        public void CreateReply(int id)
-        {
-            Comment vm = new Comment();
-            if (ModelState.IsValid)
-            {
-                //vm = commentRepo.ReplyPostComment(id);
-            }
         }
 
         [HttpPost, ValidateAntiForgeryToken]

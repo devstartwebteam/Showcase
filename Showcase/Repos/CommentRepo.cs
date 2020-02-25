@@ -61,7 +61,7 @@ namespace Showcase.Repos
             bool isCreated = false;
             try
             {
-                Post post = db.Posts.Include(a => a.Author).First(a => a.PostId == comment.PostId);
+                Post post = db.Posts.First(a => a.PostId == comment.PostId);
                 comment.Created = DateTime.Now;
                 comment.LastUpdated = DateTime.Now;
                 post.Comments.Add(comment);

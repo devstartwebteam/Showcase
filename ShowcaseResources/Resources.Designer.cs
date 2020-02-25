@@ -70,7 +70,7 @@ namespace ShowcaseResources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Please enter a comment with a max length of 400..
+        ///   Looks up a localized string similar to Please enter a comment between 10 and 400 characters..
         /// </summary>
         public static string CommentContentFieldLengthError {
             get {

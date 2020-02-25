@@ -1,7 +1,7 @@
 ﻿$(document).on("submit", ".ds-comment-form", function (e) {
     e.preventDefault();
     if (DynamicValidation()) {
-        var form = $(".ds-comment-form");
+        var form = $(this);
 
         $.ajax({
                 method: "POST",
@@ -15,12 +15,13 @@
 });
 
 $(document).on("click", ".ds-reply-link", function () {
-    var parentId = $(this).next(".ds-comment-id").val();
-    var replyComments = $('.ds-reply-form').remove();
+    var parentId = parseInt($(this).next(".ds-comment-id").val());
+    var postId = $("#ds-commentPostId").val();
+    $('.ds-reply-form').remove();
+
     $.ajax({
             method: "GET",
-            url: newReplyUrl,
-            data: parentId
+        url: newReplyUrl + "?postId=" + postId + "&parentId=" + parentId
         })
         .done(function (data) {
             var parentLocation = $(".ds-reply-" + parentId);

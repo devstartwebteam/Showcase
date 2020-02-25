@@ -121,7 +121,7 @@
     <value>Comment</value>
   </data>
   <data name="CommentContentFieldLengthError" xml:space="preserve">
-    <value>Please enter a comment with a max length of 400.</value>
+    <value>Please enter a comment between 10 and 400 characters.</value>
   </data>
   <data name="CreatePostFailed" xml:space="preserve">
     <value>An error occured and the post failed to create.</value>

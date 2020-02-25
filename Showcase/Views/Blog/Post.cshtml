@@ -1,12 +1,11 @@
-﻿@using System.Activities.Statements
-@using Showcase.Models
+﻿@using Microsoft.AspNet.Identity
 @model Showcase.Models.Post
 
 @{
     Layout = "~/Views/Shared/_PostLayout.cshtml";
     string imageUrl = "";
     string postDate = Model.LastModified?.Date.ToString("MMMM dd, yyyy");
-     
+    int postId = Model.PostId;
 
     if (Model?.PostImage != null)
     {
@@ -92,6 +91,7 @@
         </div>
     </section>
 </main>
+<input type="hidden" name="PostId" id="ds-commentPostId" value="@postId"/>
 
 @section Scripts {
 

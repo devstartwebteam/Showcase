@@ -1,6 +1,6 @@
 ﻿@model Showcase.Models.Comment
 
-@using (Html.BeginForm("CreateReply", "Comment", FormMethod.Post, new { @class = "ds-comment-form ds-admin-form ds-reply-form" }))
+@using (Html.BeginForm("CreateComment", "Comment", FormMethod.Post, new { @class = "ds-comment-form ds-admin-form ds-reply-form" }))
 {
     @Html.AntiForgeryToken()
     @Html.HiddenFor(model => model.PostId)

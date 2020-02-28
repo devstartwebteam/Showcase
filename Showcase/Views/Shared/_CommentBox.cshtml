@@ -32,7 +32,7 @@
                         "<input type='hidden' class='ds-author-id' value='" + authorId + "'/><input type='hidden' class='ds-comment-id' value='" + commentId + "'/></div></div></div></div>" +
                         "<div class='comment-date'><div class='row'><div class='col-12'><div class='comment-meta'> @ " + @postDate + "</div>" +
                         "<p>" + @comment.CommentContent + "</p></div></div></div></div>" +
-                        "<div id='ds-reply-"+ commentId +"'></div></li>";
+                        "<div class='ds-reply-"+ commentId +"'></div></li>";
             }
             else if (comment.ChildComments.Any())
             {

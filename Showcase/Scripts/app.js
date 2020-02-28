@@ -17,8 +17,8 @@
 });
 
 $(document).on("click", ".ds-reply-link", function () {
-    var parentId = parseInt($(this).next(".ds-author-id").val());
-    var authorId = parseInt($(this).next().next(".ds-comment-id").val());
+    var authorId = parseInt($(this).next(".ds-author-id").val());
+    var parentId = parseInt($(this).next().next(".ds-comment-id").val());
     var postId = $("#ds-commentPostId").val();
     $('.ds-reply-form').remove();
 
@@ -27,7 +27,7 @@ $(document).on("click", ".ds-reply-link", function () {
         url: newReplyUrl + "?postId=" + postId + "&parentId=" + parentId + "&authorId=" + authorId  
         })
         .done(function (data) {
-            var parentLocation = $("#ds-reply-" + parentId);
+            var parentLocation = ".ds-reply-" + parentId;
             $(parentLocation).html(data);
         });
 });

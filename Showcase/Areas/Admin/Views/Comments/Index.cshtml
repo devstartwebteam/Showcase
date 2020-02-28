@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Showcase.Models.Comment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12">
+    <div class="row">
+        <div class="page-header">
+            <div class="col-lg-11">
+                <h2>Index</h2>
+            </div>
+            <div class="col-md-1 col-lg-1 icon">
+                <span class="pull-right">
+                    <i class="fa fa-fw fa-4x fa-home"></i>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12">
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table id="admin-table" class="display responsive no-wrap" width="100%">
+<thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CommentContent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastUpdated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ParentCommentId)
+        </th>
+        <th></th>
+    </tr>
+ </thead>
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CommentContent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Created)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LastUpdated)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ParentCommentId)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CommentId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CommentId })
+        </td>
+    </tr>
+}
+
+</table>
+
+</div>

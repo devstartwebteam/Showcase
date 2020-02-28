@@ -28,11 +28,7 @@ namespace Showcase.Controllers
         [HttpGet]
         public ActionResult _NewComment(int postId, int authorId)
         {
-            Comment comment = new Comment()
-            {
-                PostId = postId,
-                AuthorId = authorId
-            };
+            Comment comment = commentRepo.GetNewComment(postId, authorId);
 
             return View(comment);
         }
@@ -52,13 +48,9 @@ namespace Showcase.Controllers
 
         [HttpGet]
         [RateLimit(MilliSeconds = 1000)]
-        public ActionResult _NewReply(int postId, int parentId)
+        public ActionResult _NewReply(int postId, int parentId, int authorId)
         {
-            Comment comment = new Comment
-            {
-                PostId = postId,
-                ParentCommentId = parentId
-            };
+            Comment comment = commentRepo.GetNewReply(postId, authorId, parentId);
 
             return View(comment);
         }

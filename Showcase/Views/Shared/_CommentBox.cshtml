@@ -1,4 +1,5 @@
-﻿@using Showcase.Models
+﻿@using Showcase.Helpers
+@using Showcase.Models
 @model IEnumerable<Showcase.Models.Comment>
 
 @functions 
@@ -19,30 +20,30 @@
         {
             string postDate = comment.Created.ToString();
             string commentId = comment.CommentId.ToString();
+            string authorId = comment.Author?.AuthorId.ToString();
 
             if (comment.ParentCommentId == null && !comment.ChildComments.Any())
             {
                 html += "<li class='comment' id='comment-"+ counter +"'><div class='container'>" +
                         "<div class='comment-body'>" +
-                        "<div class='comment-author'><div class='row'><div class='col-8'><img alt = 'Comment Author' src='/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                        "<div class='comment-author'><div class='row'><div class='col-8'>" + @Html.CommentImage(comment.Author.ProfileImage) +
+                        "<cite class='fn'>" + Html.ActionLink(" Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
+                        "</cite><span class='says'> :</ span></ div></div><div class='col-4'><div class='ds-reply-wrap'>" + @replyBtn +
+                        "<input type='hidden' class='ds-author-id' value='" + authorId + "'/><input type='hidden' class='ds-comment-id' value='" + commentId + "'/></div></div></div></div>" +
+                        "<div class='comment-date'><div class='row'><div class='col-12'><div class='comment-meta'> @ " + @postDate + "</div>" +
+                        "<p>" + @comment.CommentContent + "</p></div></div></div></div>" +
+                        "<div id='ds-reply-"+ commentId +"'></div></li>";
+            }
+            else if (comment.ChildComments.Any())
+            {
+                html += "<li class='comment' id='comment-" + counter + "'><div class='container'>" +
+                        "<div class='comment-body'>" +
+                        "<div class='comment-author'><div class='row'><div class='col-8'>" + @Html.CommentImage(comment.Author.ProfileImage) +
                         "<cite class='fn'>" + Html.ActionLink(" Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
                         "</cite><span class='says'> :</ span></ div></div><div class='col-4'><div class='ds-reply-wrap'>" + @replyBtn + "<input type='hidden' class='ds-comment-id' value='" + commentId + "'/></div></div></div></div>" +
                         "<div class='comment-date'><div class='row'><div class='col-12'><div class='comment-meta'> @ " + @postDate + "</div>" +
                         "<p>" + @comment.CommentContent + "</p></div></div></div></div>" +
-                        "<div class='ds-reply-"+ commentId +"'></div></li>";
-
-
-
-            }
-            else if (comment.ChildComments.Any())
-            {
-                html += "<li class='comment' id='comment-10'>" +
-                        "<div id='ds-comment-" + counter + "' class='comment-body'>" +
-                        "<div class='comment-author'><div class='row'><div class='col-xs-4'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
-                        "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
-                        "</cite><span class='says'> :</ span></ div>" +
-                        "<div class='comment-meta'>" + @postDate + "</div>" +
-                        "<p>" + @comment.CommentContent + "</p></div>";
+                        "<div class='ds-reply-" + commentId + "'></div>";
 
                 foreach (var child in comment.ChildComments)
                 {
@@ -64,7 +65,7 @@
 
         childHtml += "<li class='comment' id='comment-10'>" +
                      "<div id='ds-child-comment-" + childCounter + "' class='comment-body'>" +
-                     "<div class='comment-author'><img alt = 'Comment Author' src='~/Content/images/author.jpg' class='avatar' height='32' width='32'/>" +
+                     "<div class='comment-author'>" + @Html.CommentImage(comment.Author.ProfileImage) +
                      "<cite class='fn'>" + Html.ActionLink("By Nathan Johnson", "Index", "Home", null, new {@class = "url"}) +
                      "</cite><span class='says'> says:</ span></ div>" +
                      "<div class='comment-meta'>" + @postDate + "</div>" +

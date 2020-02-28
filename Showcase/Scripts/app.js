@@ -8,23 +8,26 @@
                 url: createCommentUrl,
                 data: form.serialize()
             })
-            .done(function() {
+            .done(function () {
+                $("#CommentContent").val("");
+                $('.ds-reply-form').remove();
                 SetList();
             });
     }
 });
 
 $(document).on("click", ".ds-reply-link", function () {
-    var parentId = parseInt($(this).next(".ds-comment-id").val());
+    var parentId = parseInt($(this).next(".ds-author-id").val());
+    var authorId = parseInt($(this).next().next(".ds-comment-id").val());
     var postId = $("#ds-commentPostId").val();
     $('.ds-reply-form').remove();
 
     $.ajax({
             method: "GET",
-        url: newReplyUrl + "?postId=" + postId + "&parentId=" + parentId
+        url: newReplyUrl + "?postId=" + postId + "&parentId=" + parentId + "&authorId=" + authorId  
         })
         .done(function (data) {
-            var parentLocation = $(".ds-reply-" + parentId);
+            var parentLocation = $("#ds-reply-" + parentId);
             $(parentLocation).html(data);
         });
 });
@@ -43,10 +46,6 @@ function DynamicValidation() {
     else {
         return false;
     }
-}
-
-function SetReply() {
-
 }
 
 function SetList() {

@@ -63,6 +63,7 @@ namespace Showcase.Repos
                     .Include(a => a.Comments)
                     .First(a => a.PostId == id);
 
+                post.Author = null;
                 db.Posts.Remove(post);
                 db.SaveChanges();
 
@@ -236,33 +237,59 @@ namespace Showcase.Repos
             {
                 List<Category> categories = new List<Category>();
                 List<PostLocation> locations = new List<PostLocation>();
-                PostImage postImages = new PostImage();
+                List<Tag> tags = new List<Tag>();
+
                 post.Author = db.Authors.Find(post.AuthorId);
 
-                if (post.SelectedCategoryIds.Any())
+                if (post.SelectedCategoryIds != null)
                 {
-                    foreach (var id in post.SelectedCategoryIds)
+                    if (post.SelectedCategoryIds.Any())
                     {
-                        Category category = db.Categories.Find(id);
-                        if (category != null)
+                        foreach (var id in post.SelectedCategoryIds)
                         {
-                            categories.Add(category);
+                            Category category = db.Categories.Find(id);
+                            if (category != null)
+                            {
+                                categories.Add(category);
+                            }
                         }
+
+                        post.Categories = categories;
                     }
-                    post.Categories = categories;
                 }
 
-                if (post.SelectedLocationIds.Any())
+                if (post.SelectedLocationIds != null)
                 {
-                    foreach (var id in post.SelectedLocationIds)
+                    if (post.SelectedLocationIds.Any())
                     {
-                        PostLocation location = db.PostLocations.Find(id);
-                        if (location != null)
+                        foreach (var id in post.SelectedLocationIds)
                         {
-                            locations.Add(location);
+                            PostLocation location = db.PostLocations.Find(id);
+                            if (location != null)
+                            {
+                                locations.Add(location);
+                            }
                         }
+
+                        post.PostLocations = locations;
                     }
-                    post.PostLocations = locations;
+                }
+
+                if (post.SelectedTagIds != null)
+                {
+                    if (post.SelectedTagIds.Any())
+                    {
+                        foreach (var id in post.SelectedTagIds)
+                        {
+                            Tag tag = db.Tags.Find(id);
+                            if (tag != null)
+                            {
+                                tags.Add(tag);
+                            }
+                        }
+
+                        post.Tags = tags;
+                    }
                 }
 
                 post.PostUrl = post.PostUrl.ToLower();

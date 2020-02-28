@@ -88,8 +88,9 @@ namespace Showcase.Areas.Admin.Controllers
 
                 TempData["StatusType"] = Resources.StatusFailed;
                 TempData["StatusMessage"] = Resources.CreatePostFailed;
+                vm = blogAdminRepo.GetNewPost(vm);
 
-                return View();
+                return View(vm);
             }
 
             ModelState.AddModelError(string.Empty, Resources.CreatePostFailed);

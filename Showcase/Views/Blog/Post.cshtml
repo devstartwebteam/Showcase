@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNet.Identity
+@using Showcase.Helpers
 @model Showcase.Models.Post
 
 @{
@@ -6,6 +7,13 @@
     string imageUrl = "";
     string postDate = Model.LastModified?.Date.ToString("MMMM dd, yyyy");
     int postId = Model.PostId;
+    int commentAuthorId = 0;
+
+    if (User.Identity.IsAuthenticated)
+    {
+        commentAuthorId = Convert.ToInt32(User.Identity.GetAuthorId());
+    }
+
 
     if (Model?.PostImage != null)
     {
@@ -68,7 +76,7 @@
                             </p>
 
                             <div id="ds-comment-list">
-                                @Html.Partial("_CommentBox", Model.Comments)
+                                @{ Html.RenderAction("_CommentBox", "Comment", new {postId = Model.PostId}); }
                             </div>
                                 
                             @if (!User.Identity.IsAuthenticated)
@@ -81,7 +89,7 @@
                             }
                             else
                             {
-                                Html.RenderAction("_NewComment", "Comment", new { postId = Model.PostId, authorId = Model.AuthorId });
+                                Html.RenderAction("_NewComment", "Comment", new { postId = Model.PostId, authorId = commentAuthorId });
                             }
 
                         </div>

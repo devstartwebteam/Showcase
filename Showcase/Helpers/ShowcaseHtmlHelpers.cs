@@ -25,6 +25,17 @@ namespace Showcase.Helpers
             return new MvcHtmlString("");
         }
 
+        public static MvcHtmlString CommentImage(this HtmlHelper html, byte[] image)
+        {
+            if (image != null)
+            {
+                var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
+                return new MvcHtmlString("<img alt='Comment Author' class='avatar' src='" + img + "' height='32px' width='32px' />");
+            }
+
+            return new MvcHtmlString("");
+        }
+
         public static MvcHtmlString TopCarouselImage(this HtmlHelper html, byte[] image)
         {
             if (image != null)

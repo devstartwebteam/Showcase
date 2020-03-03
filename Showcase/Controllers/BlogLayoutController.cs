@@ -47,24 +47,24 @@ namespace Showcase.Controllers
         }
 
         [HttpGet]
-        public ActionResult _BlogSideColumn(string name)
+        public ActionResult _SideBarPosts(string name)
         {
             PostLocation contentArea = blogLocationRepo.GetHomePostLocation(name);
             return View(contentArea);
         }
 
         [HttpGet]
-        public ActionResult _BlogSideCategories(string name)
+        public ActionResult _SideBarCategories(string name)
         {
-            PostLocation contentArea = blogLocationRepo.GetHomePostLocation(name);
-            return View(contentArea);
+            List<Category> categories = blogLocationRepo.GetCategories();
+            return View(categories);
         }
 
         [HttpGet]
-        public ActionResult _BlogSideTags(string name)
+        public ActionResult _SideBarTags()
         {
-            PostLocation contentArea = blogLocationRepo.GetHomePostLocation(name);
-            return View(contentArea);
+            List<Tag> tagList = blogLocationRepo.GetTags();
+            return View(tagList);
         }
 
 

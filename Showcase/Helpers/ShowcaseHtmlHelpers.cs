@@ -67,6 +67,17 @@ namespace Showcase.Helpers
 
             return new MvcHtmlString("");
         }
+
+        public static MvcHtmlString InstagramImage(this HtmlHelper html, byte[] image)
+        {
+            if (image != null)
+            {
+                var img = String.Format("data:image/jpg;base64,{0}", Convert.ToBase64String(image));
+                return new MvcHtmlString("<img class='ds-instagram-img img-fluid' src='" + img + "' />");
+            }
+
+            return new MvcHtmlString("");
+        }
         public static MvcHtmlString SliderImage(this HtmlHelper html, byte[] image)
         {
             if (image != null)

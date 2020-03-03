@@ -46,6 +46,7 @@ namespace Showcase
             container.RegisterType<IBlogLocationRepo, BlogLocationRepo>();
             container.RegisterType<IBlogPostRepo, BlogPostRepo>();
             container.RegisterType<ICommentRepo, CommentRepo>();
+            container.RegisterType<IInstagramRepo, InstagramRepo>();
         }
     }
 }

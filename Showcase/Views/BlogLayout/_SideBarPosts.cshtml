@@ -1,5 +1,6 @@
 ﻿@using Showcase.Helpers
 @model Showcase.Models.PostLocation
+
 @foreach (var post in Model.Posts)
 {
     string postDate = post.LastModified?.Date.ToString("");

@@ -10,5 +10,7 @@ namespace Showcase.Interfaces
     public interface IBlogLocationRepo
     {
         PostLocation GetHomePostLocation(string name);
+        List<Tag> GetTags();
+        List<Category> GetCategories();
     }
 }

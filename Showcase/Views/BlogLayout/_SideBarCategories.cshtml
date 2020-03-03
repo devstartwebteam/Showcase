@@ -1,0 +1,24 @@
+﻿@using Showcase.Models
+@model IEnumerable<Showcase.Models.Category>
+
+@functions{
+
+    public HtmlString ShowCategoryList(List<Category> categories)
+    {
+        string html = "";
+
+        foreach (var cat in categories)
+        {
+            html += "<li><a href='#' class='justify-content-between align-items-center d-flex'>" +
+                    "<p>"+cat.CategoryName+"</p></a></li>";
+        }
+
+        return new HtmlString(html);
+    }
+
+}
+
+@if (Model != null)
+{
+    @ShowCategoryList(Model.ToList<Category>())
+}

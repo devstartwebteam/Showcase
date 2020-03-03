@@ -127,6 +127,9 @@
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="RestSharp, Version=106.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.10.1\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -352,6 +355,7 @@
     <Compile Include="Interfaces\IDashboardRepo.cs" />
     <Compile Include="Interfaces\ICommentRepo.cs" />
     <Compile Include="Interfaces\IBlogPostRepo.cs" />
+    <Compile Include="Interfaces\IInstagramRepo.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Album.cs" />
     <Compile Include="Models\Author.cs" />
@@ -376,7 +380,9 @@
     <Compile Include="Repos\BlogPostRepo.cs" />
     <Compile Include="Repos\CommentRepo.cs" />
     <Compile Include="Repos\DashboardRepo.cs" />
+    <Compile Include="Repos\InstagramRepo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\InstagramImage.cs" />
     <Compile Include="ViewModels\PostsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -1503,15 +1509,16 @@
     <Content Include="Views\BlogLayout\_HomeBottom.cshtml" />
     <Content Include="Views\BlogLayout\_HomeBottomBody.cshtml" />
     <Content Include="Views\BlogLayout\_BlogSideBar.cshtml" />
-    <Content Include="Views\BlogLayout\_BlogSideColumn.cshtml" />
-    <Content Include="Views\BlogLayout\_BlogSideCategories.cshtml" />
-    <Content Include="Views\BlogLayout\_BlogSideTags.cshtml" />
+    <Content Include="Views\BlogLayout\_SideBarPosts.cshtml" />
+    <Content Include="Views\BlogLayout\_SideBarCategories.cshtml" />
+    <Content Include="Views\BlogLayout\_SideBarTags.cshtml" />
     <Content Include="Views\Shared\_AccountHead.cshtml" />
     <Content Include="Views\Shared\_AccountFooter.cshtml" />
     <Content Include="Views\Shared\_CommentBox.cshtml" />
     <Content Include="Views\Shared\_NewComment.cshtml" />
     <Content Include="Views\Shared\_NewReply.cshtml" />
     <Content Include="Views\Shared\_CreateReply.cshtml" />
+    <Content Include="Views\Shared\_InstagramPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -37,6 +37,44 @@ namespace Showcase.Repos
             return location;
         }
 
+        public List<Tag> GetTags()
+        {
+            List<Tag> tags = new List<Tag>();
+
+            try
+            {
+                tags = db.Tags.ToList();
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Error getting tags for home location", e);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return tags;
+        }
+        public List<Category> GetCategories()
+        {
+            List<Category> categories = new List<Category>();
+
+            try
+            {
+                categories = db.Categories.ToList();
+            }
+            catch (Exception e)
+            {
+                Logger.Error("Error getting categories for home location", e);
+            }
+            finally
+            {
+                db.Dispose();
+            }
+
+            return categories;
+        }
         public PostLocation GetLocationCategories(string name)
         {
             PostLocation location = new PostLocation();

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Showcase.Interfaces;
+using Showcase.ViewModels;
 
 namespace Showcase.Controllers
 {
@@ -13,10 +14,12 @@ namespace Showcase.Controllers
     {
         private BlogDb db = new BlogDb();
         private readonly IBlogPostRepo blogPostRepo;
+        private readonly IInstagramRepo instagramRepo;
 
-        public BlogController(IBlogPostRepo blogPostRepo)
+        public BlogController(IBlogPostRepo blogPostRepo, IInstagramRepo instagramRepo)
         {
             this.blogPostRepo = blogPostRepo;
+            this.instagramRepo = instagramRepo;
         }
 
         // GET: Blog
@@ -39,6 +42,15 @@ namespace Showcase.Controllers
             }
 
             return View(vm);
+        }
+
+        [HttpGet]
+        [OutputCache(Duration = 10000)]
+        public ActionResult _InstagramPartial()
+        {
+            List<InstagramImage> images = new List<InstagramImage>();
+            images = instagramRepo.GetInstagramImages();
+            return View(images);
         }
 
         [HttpGet]

@@ -1,4 +1,5 @@
-﻿
+﻿@model Showcase.Models.PostLocation
+
 <div class="single-widget protfolio-widget">
     <div class="ds-profile-wrap">
         <img class="img-fluid ds-profile-img" src="~/Content/images/nate-johnson-profile-2.jpg" alt="">
@@ -17,22 +18,22 @@
             <div class="jq-tab-title active" data-tab="1">Popular</div>
             <div class="jq-tab-title" data-tab="2">Latest</div>
         </div>
-        
-        @{Html.RenderAction("_BlogSideColumn", "BlogLayout", new { name = "Blog Side Column" });}
+
+        @{Html.RenderAction("_SideBarPosts", "BlogLayout", new { name = "Blog Side Column" });}
 
     </div>
 </div>
 <div class="single-widget category-widget">
     <h4 class="title">Post Categories</h4>
     <ul>
-        @{Html.RenderAction("_BlogSideCategories", "BlogLayout", new { name = "Blog Side Categories" });}
+        @{Html.RenderAction("_SideBarCategories", "BlogLayout", new { name = "Blog Side Categories" });}
 
     </ul>
 </div>
 <div class="single-widget tags-widget">
     <h4 class="title">Post Tags</h4>
     <ul>
-        @{Html.RenderAction("_BlogSideTags", "BlogLayout", new { name = "Blog Side Tags" });}
+        @{Html.RenderAction("_SideBarTags", "BlogLayout");}
 
     </ul>
 </div>

@@ -1,0 +1,23 @@
+﻿@using Showcase.Models
+@model IEnumerable<Showcase.Models.Tag>
+
+@functions{
+
+    public HtmlString ShowTagList(List<Tag> tags)
+    {
+        string html = "";
+        
+        foreach (var tag in tags)
+        {
+            html += "<li><a href='#'>"+ tag.TagName+"</a></li>";
+        }
+        
+        return new HtmlString(html);
+    }
+
+}
+
+@if (Model != null)
+{
+    @ShowTagList(Model.ToList<Tag>())
+}

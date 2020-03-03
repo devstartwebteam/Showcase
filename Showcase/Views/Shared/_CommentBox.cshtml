@@ -40,7 +40,9 @@
                         "<div class='comment-body'>" +
                         "<div class='comment-author'><div class='row'><div class='col-8'>" + @Html.CommentImage(comment.Author.ProfileImage) +
                         "<cite class='fn'>" + Html.ActionLink(" Nathan Johnson", "Index", "Home", null, new { @class = "url" }) +
-                        "</cite><span class='says'> :</ span></ div></div><div class='col-4'><div class='ds-reply-wrap'>" + @replyBtn + "<input type='hidden' class='ds-comment-id' value='" + commentId + "'/></div></div></div></div>" +
+                        "</cite><span class='says'> :</ span></ div></div><div class='col-4'><div class='ds-reply-wrap'>" + @replyBtn + 
+                        "<input type='hidden' class='ds-author-id' value='" + authorId + "'/><input type='hidden' class='ds-comment-id' value='" + commentId + "'/>" +
+                        "</div></div></div></div>" +
                         "<div class='comment-date'><div class='row'><div class='col-12'><div class='comment-meta'> @ " + @postDate + "</div>" +
                         "<p>" + @comment.CommentContent + "</p></div></div></div></div>" +
                         "<div class='ds-reply-" + commentId + "'></div>";

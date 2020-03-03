@@ -3,7 +3,7 @@
 
 @foreach (var post in Model.Posts)
 {
-    string postDate = post.LastModified?.Date.ToString("");
+    string postDate = Model.LastModified?.Date.ToString("MMMM dd, yyyy");
 
     <div class="jq-tab-content-wrapper">
         <div class="jq-tab-content active" data-tab="1">

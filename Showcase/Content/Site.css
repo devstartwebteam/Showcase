@@ -186,7 +186,10 @@ body .ds-author-details {
 body .ds-avatar {
     border-radius: 50%;
 }
-
+body .popular-thumb .ds-thumb-img {
+    width: 100px;
+    max-width: none;
+}
 body .section-shaped .shape {
     position: absolute;
     z-index: -1;

@@ -4,18 +4,19 @@
 @foreach (var post in Model.Posts)
 {
     string postDate = Model.LastModified?.Date.ToString("MMMM dd, yyyy");
+    string url = "/Blog/Post/" + post.PostUrl;
 
     <div class="jq-tab-content-wrapper">
         <div class="jq-tab-content active" data-tab="1">
             <div class="single-popular-post d-flex flex-row">
                 <div class="popular-thumb">
-                    @Html.ThumbImage(post.PostImage)
+                    <a href="@url">
+                        @Html.ThumbImage(post.PostImage)
+                    </a>
                 </div>
                 <div class="popular-details">
                     <h6>
-                        <a href="">
-                            @post.PostName
-                        </a>
+                        @Html.ActionLink(post.PostName, "Post", "Blog", new { title = post.PostUrl}, htmlAttributes: new { @class = "ds-post-link"})
                     </h6>
                     <p>@postDate</p>
                 </div>

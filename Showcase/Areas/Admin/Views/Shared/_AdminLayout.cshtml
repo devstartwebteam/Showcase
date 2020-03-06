@@ -52,14 +52,10 @@
             });
         }
 
-        var content = '@Html.Raw(ViewBag.Content)';
-        $('#ShowcaseEditor').html(content);
         tinymce.init({
             selector: '#ShowcaseEditor'
         });
 
-        var snippet = '@Html.Raw(ViewBag.Snippet)';
-        $('#ShowcaseSnippet').html(snippet);
         tinymce.init({
             selector: '#ShowcaseSnippet'
         });

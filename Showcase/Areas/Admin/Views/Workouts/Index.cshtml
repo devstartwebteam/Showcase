@@ -14,61 +14,61 @@
             @Html.ActionLink("Create New", "Create")
         </button>
     </div>
+
+    @Html.Partial("_StatusMessage", TempData["StatusMessage"])
+
 </div>
-    <div class="container-fluid">
-        <table id="ShowcaseDataTable" class="table">
-            <thead>
-                <tr>
-                    <th>
-                        @Html.DisplayNameFor(model => model.WorkoutDate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.WorkoutTitle)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.WorkoutType)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.WorkoutLength)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.WorkoutDistance)
-                    </th>
-                    <th>
-                        @Html.DisplayName("Actions")
-                    </th>
+
+    <table id="ShowcaseDataTable" class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkoutDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkoutTitle)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkoutType)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkoutLength)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WorkoutDistance)
+                </th>
+                <th>
+                    @Html.DisplayName("Actions")
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            string shortDate = item.WorkoutDate.ToShortDateString();
+            string miles = item.WorkoutDistance.ToString() + " miles";
+            <tr>
+                    <td>
+                        @shortDate
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WorkoutTitle)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WorkoutType)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WorkoutLength)
+                    </td>
+                    <td>
+                        @miles
+                    </td>
+                    <td class="ds-actions-col">
+                        @Html.ActionLink("Edit", "Edit", new { id = item.WorkoutId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.WorkoutId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.WorkoutId })
+                    </td>
                 </tr>
-            </thead>
-
-            @foreach (var item in Model)
-            {
-                string shortDate = item.WorkoutDate.ToShortDateString();
-                string miles = item.WorkoutDistance.ToString() + " miles";
-                <tbody>
-                    <tr>
-                        <td>
-                            @shortDate
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.WorkoutTitle)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.WorkoutType)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.WorkoutLength)
-                        </td>
-                        <td>
-                            @miles
-                        </td>
-                        <td class="ds-actions-col">
-                            @Html.ActionLink("Edit", "Edit", new { id = item.WorkoutId }) |
-                            @Html.ActionLink("Details", "Details", new { id = item.WorkoutId }) |
-                            @Html.ActionLink("Delete", "Delete", new { id = item.WorkoutId })
-                        </td>
-                    </tr>
-                </tbody>
-            }
-
-        </table>
-    </div>
+        }
+        </tbody>
+    </table>

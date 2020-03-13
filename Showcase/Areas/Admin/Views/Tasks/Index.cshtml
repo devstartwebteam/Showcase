@@ -14,8 +14,13 @@
             @Html.ActionLink("Create New", "Create")
         </button>
     </div>
+
+    @Html.Partial("_StatusMessage", TempData["StatusMessage"])
+
 </div>
+
 <table id="ShowcaseDataTable" class="table">
+    <thead>
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.TaskName)
@@ -31,27 +36,29 @@
         </th>
         <th></th>
     </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaskName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaskDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.TaskMessage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Active)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TaskId }) |
-            @Html.ActionLink("Details", "Details", new { id=item.TaskId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TaskId })
-        </td>
-    </tr>
-}
-
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TaskMessage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Active)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.TaskId}) |
+                @Html.ActionLink("Details", "Details", new {id = item.TaskId}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.TaskId})
+            </td>
+        </tr>
+    }
+    </tbody>
 </table>

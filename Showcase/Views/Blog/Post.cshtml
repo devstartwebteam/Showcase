@@ -8,6 +8,7 @@
     string postDate = Model.LastModified?.Date.ToString("MMMM dd, yyyy");
     int postId = Model.PostId;
     int commentAuthorId = 0;
+    string commentCount = Model.Comments.Count().ToString();
 
     if (User.Identity.IsAuthenticated)
     {
@@ -56,6 +57,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-8 col-sm-12 col-xs-12">
                         <h2 class="ds-published-date border-bottom py-5"><span class="lnr lnr-calendar-full"></span> Published @postDate</h2>
+                        @Html.Partial("_PostTags", Model.Tags)
                         <p class="ds-post-text">
                             @Html.Raw(HttpUtility.HtmlDecode(Model?.PostContent))
                         </p>
@@ -72,7 +74,7 @@
                         <div class="ds-comment-entry">
                             <h2 class="ds-subtitle ds-comment-title"><span class="lnr lnr-bubble"></span> Comments</h2>
                             <p class="ds-response-title">
-                                One response to “@Model.PostName”
+                                @commentCount response to “@Model.PostName”
                             </p>
 
                             <div id="ds-comment-list">

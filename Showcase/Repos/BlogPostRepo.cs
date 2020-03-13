@@ -18,12 +18,13 @@ namespace Showcase.Repos
         public Post GetBlogPost(string title)
         {
             Post post = new Post();
-            List<Post> posts = new List<Post>();
+            
             try
             {
-                posts = db.Posts.Include(a => a.Comments).ToList();
-                post = posts.FirstOrDefault(a => a.PostUrl.ToLower() == title);
-
+                post = db.Posts
+                    .Include(a => a.Comments)
+                    .Include(a => a.Tags)
+                    .Include(a => a.Categories).FirstOrDefault(a => a.PostUrl.ToLower() == title.ToLower());
             }
             catch (Exception e)
             {

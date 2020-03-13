@@ -191,9 +191,9 @@ namespace Showcase.Repos
                     oldPost.PostLocations.Clear();
                 }
 
-                if (post.Tags != null && post.Tags.Any())
+                if (post.SelectedTagIds != null && post.SelectedTagIds.Any())
                 {
-                    foreach (var id in post.Tags)
+                    foreach (var id in post.SelectedTagIds)
                     {
                         Tag tag = db.Tags.Find(id);
                         if (tag != null)

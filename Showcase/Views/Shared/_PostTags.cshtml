@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Showcase.Models.Tag>
+
+<div class="row">
+    @foreach (var tag in Model)
+    {
+        <div class="col-sm-4">
+            <div class="button-group-area mt-40">
+                <a href="#" class="genric-btn primary small">@tag.TagName</a>
+            </div>
+        </div>
+    }
+</div>

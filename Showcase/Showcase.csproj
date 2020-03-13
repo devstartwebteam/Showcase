@@ -1519,6 +1519,7 @@
     <Content Include="Views\Shared\_NewReply.cshtml" />
     <Content Include="Views\Shared\_CreateReply.cshtml" />
     <Content Include="Views\Shared\_InstagramPartial.cshtml" />
+    <Content Include="Views\Shared\_PostTags.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

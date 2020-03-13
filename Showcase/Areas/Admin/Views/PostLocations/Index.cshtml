@@ -19,38 +19,40 @@
     
 </div>
 
-<table id="ShowcaseDataTable" class="table responsive">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Created)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastModified)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PostLocationName)
-        </th>
-        <th></th>
-    </tr>
+<table id="ShowcaseDataTable" class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Created)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastModified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PostLocationName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
     <tbody>
-        @foreach (var item in Model)
-        {
+    @foreach (var item in Model)
+    {
 
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Created)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastModified)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PostLocationName)
-                </td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.PostLocationId }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.PostLocationId })
-                </td>
-            </tr>
-        }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Created)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastModified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PostLocationName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new {id = item.PostLocationId}) |
+                @Html.ActionLink("Delete", "Delete", new {id = item.PostLocationId})
+            </td>
+        </tr>
+    }
     </tbody>
 </table>
